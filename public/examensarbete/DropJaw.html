@@ -1,0 +1,2388 @@
+<html>
+
+<head>
+
+	<title>En prototyp f&ouml;r att klassificera dokument fr&aring;n WWW
+
+		med avseende p&aring; genre och &auml;mne</title>
+
+</head>
+
+
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<table border=0 width=600 cellspacing=0 cellpadding=0>  <!-- Main Table -->
+
+<tr><td width=50><img src="one_pixel.gif" width=50 height=1 border=0></td>
+
+<td width=550>
+
+
+
+<center>
+
+<h1>En prototyp f&ouml;r att klassificera dokument fr&aring;n WWW
+
+	med avseende p&aring; genre och &auml;mne</h1>
+
+
+
+<h4>A Prototype for Classification of Documents from WWW,
+
+	with regard to Genre and Content</h4>
+
+
+
+<p>Januari 1998</p>
+
+
+
+<p><b>Johan Dewe</b></p>
+
+</center>
+
+
+
+
+
+<!-- ---------- Sammanfattning ---------------------------------- -->
+
+
+
+<h2><a name="sammanfattning"><br>Sammanfattning</a></h2>
+
+
+
+<p>Traditionella s&ouml;ktj&auml;nster p&aring; World Wide Web (WWW) erbjuder mycket effektiva s&ouml;kningar men presenterar resultaten som en enda l&aring;ng lista med svarens inb&ouml;rdes ordning som enda st&ouml;d f&ouml;r anv&auml;ndaren. Den h&auml;r rapporten beskriver en prototyp som strukturerar och presenterar resultaten i flera dimensioner och p&aring; s&aring; s&auml;tt st&ouml;der anv&auml;ndaren genom att erbjuda b&auml;ttre &ouml;verblick &ouml;ver s&ouml;kresultaten.</p>
+
+
+
+<p>Utg&aring;ngspunkten &auml;r att grupper av dokument med liknande egenskaper erbjuder en viktig abstraktion. Prototypen f&ouml;rs&ouml;ker finna grupperingar l&auml;ngs tv&aring; viktiga dimensioner: genre respektive &auml;mne. F&ouml;r att genreklassificera dokument anv&auml;nds maskininl&auml;rningsmetoder baserade p&aring; m&aring;nga enkla stilelement, och f&ouml;r att finna &auml;mnesgrupperingar anv&auml;nds traditionella klustringsmetoder baserade p&aring; ordstatistik.</p>
+
+
+
+<p>En anv&auml;ndardefinierad upps&auml;ttning genrer har anv&auml;nts som underlag till genreklassificeringen. Dessutom har en referensm&auml;ngd (korpus) av dokument samlats in fr&aring;n Internet f&ouml;r att anv&auml;ndas vid maskininl&auml;rningen.</p>
+
+
+
+<p>Prototypen &auml;r implementerad och fullt funktionsduglig. Den fungerar som ett skal &ouml;ver vanliga s&ouml;kmotorer och erbjuder visualisering av s&ouml;kresultaten grupperade l&auml;ngs tv&aring; huvudaxlar - genre och &auml;mne.</p>
+
+
+
+<p>Telia Research AB avser patentskydda systemet.</p>
+
+
+
+<h2><a name="abstract"><br>Abstract</a></h2>
+
+
+
+<p>User interfaces to WWW search engines typically present results as ranked lists of documents. Such lists give users little help in understanding document variation. </p>
+
+
+
+<p>This report describes a prototype that, through stylistic genre-based document categorization and statistical content-based clustering, gives a richer representation of the retrieval results. Combined with an iterative investigation of the search results this will give the user a better overview of the different document groupings - content and genre - found in the search results.</p>
+
+
+
+<p>A set of user-defined genres, adapted to the user's perception of genres, was established, and a Corpus was assembled, to be used in the genre classification algorithms. A fast two-step clustering algorithm was used to create the content-based document groupings.</p>
+
+
+
+
+
+<!-- --------------- Inneh&aring;llsf&ouml;rteckning ------------------------------------ -->
+
+
+
+<h2><a name="innehallsforteckning"><br>Inneh&aring;llsf&ouml;rteckning</a></h2>
+
+
+
+<dl>
+
+<p><a href="#forord">F&ouml;rord</a></p>
+
+
+
+<p>1&nbsp;&nbsp;<a href="#1">Inledning</a><br>
+
+	<dl>1.1&nbsp;&nbsp;<a href="#1.1">Traditionella s&ouml;ktj&auml;nster erbjuder effektiva s&ouml;kningar med d&aring;liga anv&auml;ndargr&auml;nssnitt</a><br>
+
+	1.2&nbsp;&nbsp;<a href="#1.2">M&aring;ls&auml;ttning: En prototyp f&ouml;r att testa visualisering av genreklassificerade s&ouml;kresultat</a><br>
+
+	1.3&nbsp;&nbsp;<a href="#1.3">Egenskaperna &auml;mne och genre och s&auml;rskiljer en grupp dokument</a><br>
+
+	1.4&nbsp;&nbsp;<a href="#1.4">&Ouml;versikt &ouml;ver DropJaw</a><p></p></dl>
+
+
+
+<p>2&nbsp;&nbsp;<a href="#2">Genreklassificering</a><br>
+
+	<dl>2.1&nbsp;&nbsp;<a href="#2.1">Genrer och principen f&ouml;r genreklassificering</a><br>
+
+	2.2&nbsp;&nbsp;<a href="#2.2">Komponera en upps&auml;ttning genrer - en genrekollektion</a><br>
+
+	2.3&nbsp;&nbsp;<a href="#2.3">Skapa en referensm&auml;ngd av dokument - en korpus</a><br>
+
+	2.4&nbsp;&nbsp;<a href="#2.4">Automatiserad analys och klassificering</a><p></p></dl>
+
+
+
+<p>3&nbsp;&nbsp;<a href="#3">&Auml;mnesbaserad klustring</a><br>
+
+	<dl>3.1&nbsp;&nbsp;<a href="#3.1">Klustringsmetoder s&ouml;ker naturliga grupperingar</a><br>
+
+	3.2&nbsp;&nbsp;<a href="#3.2">Klustring i DropJaw - fokus p&aring; snabb bearbetning</a><br>
+
+	3.3&nbsp;&nbsp;<a href="#3.3">Nyckelord beskriver &auml;mnesklusters inneh&aring;ll</a><p></p></dl>
+
+
+
+<p>4&nbsp;&nbsp;<a href="#4">Systemarkitektur</a><br>
+
+	<dl>4.1&nbsp;&nbsp;<a href="#4.1">Fr&aring;n id&eacute; till l&ouml;sning - med hopp om data fr&aring;n AltaVista</a><br>
+
+	4.2&nbsp;&nbsp;<a href="#4.2">Dokumentrepresentationen &auml;r det mest centrala objektet i systemet</a><br>
+
+	4.3&nbsp;&nbsp;<a href="#4.3">Systemets olika komponenter - prototypens ryggrad</a><br>
+
+	4.4&nbsp;&nbsp;<a href="#4.4">M&ouml;jligheter och f&ouml;rb&auml;ttringar</a><p></p></dl>
+
+
+
+<p>5&nbsp;&nbsp;<a href="#5">Slutord</a></p>
+
+
+
+<p>6&nbsp;&nbsp;<a href="#6">Referenser</a></p>
+
+</dl>
+
+
+
+
+
+<!-- ----------- F&ouml;rord ------------------------------------------ -->
+
+
+
+<h2><a name="forord"><br>F&ouml;rord</a></h2>
+
+
+
+<p>Jag har gjort examensarbetet under v&aring;ren och sommaren 1997 vid institutionen NADA, KTH, p&aring; uppdrag av Telia Research AB. Min Handledare p&aring; Telia, initiativtagare till examensarbetet &auml;r Ivan Bretan. Ytterligare handledare &auml;r Jussi Karlgren vid Swedish Institute of Computer Science, SICS. Examensarbetet har varit en del i ett projekt med arbetsnamnet <i>DropJaw</i> med m&aring;l att skapa en prototyp f&ouml;r visualisering av s&ouml;kningar p&aring; Internet. Projektgruppen best&aring;r f&ouml;rutom av Ivan och Jussi dessutom av mig och teknologen Anders Hallberg fr&aring;n KTH, samt blivande industridesignern Niklas Wolkert som studerar interaktiv design vid Designh&ouml;gskolan i Ume&aring;.</p>
+
+
+
+<p>Projektet DropJaw har genomf&ouml;rts hela v&auml;gen fr&aring;n id&eacute;skiss till prototyp, genom alla steg i utvecklingen inkluderande interaktionsdesign, systemdesign, systemarkitektur, kommunikation, operativsystem etc. Roligt och viktigt har varit kopplingen till min inriktning under utbildningen - Intelligenta Interaktiva System - som innefattar m&auml;nniska-datorinteraktion s&aring;v&auml;l som artificiell intelligens och maskininl&auml;rning. Dessutom har projektet kr&auml;vt och erbjudit tv&auml;rvetenskapligt arbete med anv&auml;ndaren i fokus, vilket har varit otroligt givande.</p>
+
+
+
+<p>Jag vill passa p&aring; att framf&ouml;ra tack till alla inblandade, s&auml;rskilt Ivan och Jussi f&ouml;r bra st&ouml;d och handledning. Jag har f&aring;tt nya kunskaper och erfarenheter som jag aldrig hade f&aring;tt utan DropJaw-projektet.</p>
+
+
+
+<h4>Rapportens uppl&auml;ggning</h4>
+
+
+
+Min del i projektet kallas Chunkify och &auml;r en modul som s&ouml;ker, h&auml;mtar och strukturerar dokument fr&aring;n Internet. Jag har haft fokus p&aring; metoder och algoritmer f&ouml;r genreklassificering och &auml;mnesklustring, vilket &auml;ven avspeglas i den h&auml;r rapporten. Rapporten inleds med ett kapitel som &auml;r avsedd att ge bakgrund, problemst&auml;llning och avstamp till resten av rapporten. St&ouml;rre delen av rapporten, kapitel 1 och 1, handlar om metoder och algoritmer f&ouml;r genreklassificering och &auml;mnesklustring. Sist kommer en mindre del om systemets arkitektur och implementering.<p></p>
+
+
+
+
+
+<!-- --------------- KAPITEL 1 ----------------------------------------- -->
+
+
+
+<h2><a name="1"><br>1 Inledning</a></h2>
+
+
+
+<p>Kapitlet syftar till att ge en &ouml;verblick &ouml;ver problemst&auml;llning, f&ouml;ruts&auml;ttningar och m&aring;ls&auml;ttning. D&auml;refter presenteras n&aring;gra centrala begrepp - &auml;mne, genre och grupp - som ligger till grund f&ouml;r systemet. Slutligen ges en kort presentation av prototypens olika delar och dess gr&auml;nssnitt.</p>
+
+
+
+<p>Detta kapitel behandlar arbete som &auml;r gemensamt med Anders Hallbergs examensarbete [<a href="#ref_Hallberg_1998">Hallberg 1998</a>]. N&auml;r jag anv&auml;nder termen "vi" i det h&auml;r kapitlet syftar jag f&ouml;ljaktligen p&aring; mig sj&auml;lv tillsammans med Anders Hallberg.</p>
+
+
+
+<a name="1.1"><h3>1.1 Traditionella s&ouml;ktj&auml;nster erbjuder effektiva s&ouml;kningar med d&aring;liga anv&auml;ndargr&auml;nssnitt</h3></a>
+
+
+
+<p>Vi har fokuserat p&aring; ett problem med de traditionella s&ouml;ktj&auml;nsterna p&aring; Internet och World Wide Web (WWW). Dessa s&ouml;ktj&auml;nster ger <i>mycket effektiva s&ouml;kningar</i> med m&aring;nga tr&auml;ffar, men presenterar sedan svaret som en enda l&aring;ng lista med svarens inb&ouml;rdes ordning som enda st&ouml;d f&ouml;r anv&auml;ndaren. Ordningen &auml;r vanligtvis baserad p&aring; hur bra s&ouml;ktj&auml;nsten antar att dokumentet passar till s&ouml;kfr&aring;gan. I situationer d&auml;r tusentals tr&auml;ffar erbjuds som svar till en s&ouml;kning &auml;r det sv&aring;rt att skapa sig en &ouml;verblick - f&ouml;r det f&ouml;rsta ges bara en linj&auml;r presentation av resultaten och f&ouml;r det andra delas resultaten upp &ouml;ver flera sidor.</p>
+
+
+
+<p>Unders&ouml;kningar har visat att anv&auml;ndarna har l&aring;g "m&auml;ttnadstr&ouml;skel" - de inspekterar l&aring;ngt ifr&aring;n hela s&ouml;kresultatet. En typisk anv&auml;ndare inspekterar h&ouml;gst ett tiotal tr&auml;ffar f&ouml;r att sedan tr&ouml;ttna och utf&ouml;ra en ny s&ouml;kning med modifierad s&ouml;kfr&aring;ga som b&auml;ttre passar anv&auml;ndarens f&ouml;rv&auml;ntningar. Ofta blir s&ouml;kfr&aring;gan till slut alltf&ouml;r smal och begr&auml;nsande, s&ouml;kresultatet f&ouml;r litet, och de intressanta dokumenten har f&ouml;rsvunnit bortom "m&auml;ttnadshorisonten". Hur kan man hj&auml;lpa anv&auml;ndaren att finna intressanta dokument som ligger l&aring;ngt ned i listan?</p>
+
+
+
+<p>Ytterligare en sak vi har tagit fasta p&aring; &auml;r att dokument har fler egenskaper &auml;n de som kan f&aring;ngas genom att endast titta p&aring; vilka ord som finns i dokumentet. Ren ordr&auml;kning anv&auml;nds av traditionella s&ouml;ktj&auml;nster och avser att spegla dokumentens inneh&aring;ll, men dokumentens representation blir d&aring; mycket fattig. Ett dokument &auml;r s&aring; mycket mer &auml;n bara alla dess ord: det &auml;r skapat f&ouml;r ett visst syfte och publicerat i ett sammanhang; det &auml;r skapat av en viss f&ouml;rfattare och &auml;r skrivet i en viss stil; det har en grafisk eller strukturell form. Alla dessa egenskaper kan anv&auml;ndas f&ouml;r att skapa en rikare representation av dokumenten, en dimension vi kallar dokumentets genre eller typ. Om man ger sig tid att inspektera ett stort s&ouml;kresultat kommer man att finna grupper av dokument som handlar om samma sak, men samtidigt andra grupperingar d&auml;r dokumenten &auml;r av samma typ: man hittar hemsidor; man hittar kommersiella sidor som f&ouml;rs&ouml;ker s&auml;lja n&aring;gon vara; man hittar noveller; man hittar tips om olika saker. Hur skall man dra nytta av detta faktum f&ouml;r att hj&auml;lpa anv&auml;ndarna att finna det de s&ouml;ker?</p>
+
+
+
+
+
+<h4>1.1.1 Strategier f&ouml;r att hj&auml;lpa anv&auml;ndaren</h4>
+
+
+
+<p>Det finns tv&aring; principiellt olika s&auml;tt att angripa problemet att hitta r&auml;tt dokument:</p>
+
+
+
+<ul>
+
+	<li>Presentera f&auml;rre tr&auml;ffar med h&ouml;gre precision s&aring; att anv&auml;ndaren inte f&aring;r
+
+		lika mycket information att &ouml;verblicka. H&ouml;gre precision kan uppn&aring;s genom
+
+		n&aring;gon form av aktiv s&ouml;khj&auml;lp, till exempel en agent som l&auml;r sig vad
+
+		anv&auml;ndaren &auml;r intresserad av.<p></p>
+
+
+
+	<li>Presentera hela s&ouml;kresultatet men st&ouml;d anv&auml;ndaren i tolkning och navigering.
+
+		Strukturera informationen s&aring; att det &auml;r m&ouml;jligt att f&aring; &ouml;verblick och
+
+		f&ouml;ruts&auml;ttning att finna det man s&ouml;ker.
+
+</ul>
+
+
+
+<p>Vi har valt att det andra alternativet. Utnyttja kunskaper om m&auml;nniska-datorinteraktion och visualisering av data, samt metoder fr&aring;n informationss&ouml;kning, lingvistik och artificiell intelligens, f&ouml;r att visualisera informationsm&auml;ngden p&aring; en h&ouml;gre niv&aring;. Ge anv&auml;ndaren &ouml;verblick &ouml;ver en informationsm&auml;ngd d&auml;r dokumenten &auml;r sorterade och grupperade efter olika dimensioner - rita en karta &ouml;ver informationen.</p>
+
+
+
+
+
+<a name="1.2"><h3>1.2 M&aring;ls&auml;ttning: en prototyp f&ouml;r att testa visualisering av genreklassificerade s&ouml;kresultat</h3></a>
+
+
+
+<p>M&aring;ls&auml;ttningen med DropJaw-projektet var att skapa en fullt fungerande prototyp f&ouml;r att visa att id&eacute;erna runt visualisering av genreklassificerade s&ouml;kresultat fungerar. En s&aring;dan prototyp b&ouml;r utf&ouml;ra riktiga s&ouml;kningar direkt p&aring; Internet ist&auml;llet f&ouml;r f&ouml;rdefinierade "fusks&ouml;kningar". Dessutom b&ouml;r prototypens gr&auml;nssnitt inneh&aring;lla all n&ouml;dv&auml;ndig funktionalitet, och sj&auml;lvklart skall programmet vara stabilt och robust.</p>
+
+
+
+<p>N&auml;r vi inledde projektet, innan vi f&ouml;rdjupade oss i detaljer, satte vi upp n&aring;gra f&ouml;ruts&auml;ttningar f&ouml;r  prototypens utformning:</p>
+
+
+
+<ul>
+
+	<li>Ge anv&auml;ndaren &ouml;verblick &ouml;ver dokumentm&auml;ngden genom att visualisera
+
+		s&ouml;kresultatet, baserat p&aring; vedertagna teorier f&ouml;r visualisering.
+
+	<li>Strukturera informationen f&ouml;r att st&ouml;dja visualiseringen: klassificera
+
+		dokumentm&auml;ngden med avseende p&aring; dokumentens inneh&aring;ll och dokumentens genre.
+
+	<li>St&ouml;d iterativt s&ouml;kbeteende [<a href="#ref_Shneiderman_Byrd_Croft_1997">Shneiderman 1997</a>],
+
+		dvs ge anv&auml;ndaren m&ouml;jlighet
+
+		att iterativt bearbeta s&ouml;kresultatet tills det &auml;r tillr&auml;ckligt bra.
+
+	<li>Ge anv&auml;ndaren en k&auml;nsla av kontroll genom hela processen. Det skall
+
+		finnas m&ouml;jlighet att bryta processen, att forts&auml;tta s&ouml;ka vidare,
+
+		granska dokument etc oberoende av vad prototypen utf&ouml;r i bakgrunden.
+
+		H&auml;mtning och bearbetning av dokument skall utf&ouml;ras transparent och s&aring;
+
+		fort som m&ouml;jligt f&ouml;r att minimera v&auml;ntetider.
+
+	<li>Ge prototypen ett smakfullt, estetiskt tilltalande, annorlunda gr&auml;nssnitt - det
+
+		skall k&auml;nnas att det &auml;r nytt och fr&auml;scht. Kombinationen av visualisering och
+
+		strukturering av dokumentm&auml;ngden &auml;r helt ny, det skall &auml;ven &aring;terspeglas i
+
+		gr&auml;nssnittet.
+
+</ul>
+
+
+
+Dessutom ville vi: <p></p>
+
+
+
+<ul>
+
+	<li>Utveckla programmet i tv&auml;rdisciplin&auml;r milj&ouml; med datateknik, grafisk
+
+		design, beteendevetenskap och lingvistik. 
+
+</ul>
+
+
+
+
+
+<a name="1.3"><h3>1.3 Egenskaperna &auml;mne och genre och s&auml;rskiljer en grupp dokument</h3></a>
+
+
+
+<p>Som n&auml;mnts ovan avser vi &aring;sk&aring;dligg&ouml;ra tv&aring; olika egenskaper hos dokumenten: dess <i>&auml;mne</i>, dvs vad dokumentet handlar om, och dess <i>genre</i> (eller typ) vilken beror av dokumentets form och kommunicerande funktion. </p>
+
+
+
+<p>Ett exempel: man st&auml;ller s&ouml;kfr&aring;gan "camel" n&auml;r man &ouml;nskar information om kameler. I s&ouml;kresultatet hittar man dokument r&ouml;rande olika &auml;mnen: kameler och dromedarer, cigaretter, skor och klockor, off-road-t&auml;vlingen Camel Trophy. &Aring; andra sidan finns det f&ouml;r varje &auml;mnesomr&aring;de &aring;terkommande genrer: hemsidor om Camel Trophy s&aring;v&auml;l som hemsidor om kameler i &ouml;knen. Journalistisk text om cigaretter s&aring;v&auml;l som journalistisk text om kameler. L&auml;nksamlingar r&ouml;rande varje t&auml;nkbart &auml;mnesomr&aring;de. Listan p&aring; genrer som &aring;terkommer i de flesta &auml;mnesomr&aring;den kan g&ouml;ras l&aring;ng.</p>
+
+
+
+<a name="figur1"></a>
+
+<center>
+
+<img src="image1.gif" width=250 height=281 border=0 alt="En tidig skiss p&aring; relation mellan &auml;mne, genre och grupp"><br clear="all">
+
+<p><b><i><font size="-1">Figur 1: En tidig skiss p&aring; relation mellan &auml;mne, genre och grupp</font></i></b></p>
+
+</center>
+
+
+
+<p>Men vilken egenskap &auml;r viktigast, vilken egenskap vill man f&ouml;rst gruppera sina dokument efter? B&ouml;r man f&ouml;rst v&auml;lja &auml;mnesomr&aring;de f&ouml;r att d&auml;refter best&auml;mma sig f&ouml;r vilken genre som verkar intressant, eller b&ouml;r man f&ouml;rst fundera p&aring; genre ("Jag vill leta efter tidningsartiklar!") f&ouml;r att sedan ta st&auml;llning till vilken gruppering som verkar inneh&aring;lla r&auml;tt &auml;mne? B&aring;da alternativen delar samma nackdel: om en egenskap f&aring;r f&ouml;rtur blir informationen sv&aring;r att &ouml;verblicka. Vi har d&auml;rf&ouml;r valt att visa <i>b&aring;da egenskaperna</i> samtidigt i en matris l&auml;ngs var sin axel:</p>
+
+
+
+<ul>
+
+	<li>Kolumnvis visas <i>genrer</i>. De har fasta beskrivningar och &auml;r alltid
+
+		placerade p&aring; samma plats, de avser att tillsammans ge ett tv&auml;rsnitt
+
+		av de dokument som kan komma som resultat av en s&ouml;kning. Om en
+
+		s&ouml;kning inte resulterar i n&aring;gra dokument f&ouml;r en viss genre kommer
+
+		motsvarande kolumn att vara tom.<p></p>
+
+
+
+	<li>Radvis visas <i>&auml;mnen</i>. De &auml;r dynamiskt beskrivna eftersom inneh&aring;llet
+
+		i dokumenten styrs av s&ouml;kresultatet. Varje rad motsvarar en m&auml;ngd
+
+		dokument som liknar varandra. Inneh&aring;llet beskrivs av ett antal nyckelord.
+
+</ul>
+
+
+
+<p>D&auml;r kolumn och rad m&ouml;ts bildas en <i>grupp</i> (<a href="#figur1">Figur 1</a>). En grupp kan vara "hemsidor om Camel Trophy", eller "l&auml;nksamlingar om kameler", eller kanske "vetenskapliga rapporter om farliga cigaretter av m&auml;rket Camel". Varje dokument i s&ouml;kresultatet tilldelas en genre och ett &auml;mne, och hamnar d&auml;rf&ouml;r i en viss grupp.</p>
+
+
+
+
+
+<a name="1.4"><h3>1.4 &Ouml;versikt &ouml;ver DropJaw </h3></a>
+
+
+
+<p>DropJaw best&aring;r av tv&aring; huvuddelar, vilka motsvarar arbetsf&ouml;rdelningen i projektet. Gr&auml;nssnittsmodulen, kallad Easify, med all interaktion och visualisering &auml;r skapad av Anders Hallberg, med formgivning av Niklas Wolkert. Kommunikations- och struktureringsmodulen, kallad Chunkify, &auml;r skapad av Johan Dewe.</p>
+
+
+
+<a name="figur2"></a>
+
+<center>
+
+<img src="image2.gif" width=179 height=231 border=0 alt="Figur 2: DropJaws principiella uppdelning i tv&aring; moduler"><br clear="all">
+
+<p><b><i><font size="-1">Figur 2: DropJaws tv&aring; moduler.</font></i></b></p>
+
+</center>
+
+
+
+<p>Sj&auml;lva s&ouml;ktj&auml;nsten, som &auml;r en viktig del i DropJaw, ligger helt utanf&ouml;r systemet. Detta &auml;r en &ouml;mt&aring;lig l&ouml;sning eftersom DropJaw &auml;r beroende av vissa nyckelelement i s&ouml;ktj&auml;nstens design. Om dessa element saknas kommer DropJaw inte kunna tolka svaret fr&aring;n s&ouml;kmotorn - DropJaw ger sken av att ge resultat fr&aring;n s&ouml;kningen.</p>
+
+
+
+
+
+<h4>1.4.1 Easify visualiserar och interagerar</h4>
+
+
+
+<p>En kort genomg&aring;ng av gr&auml;nssnittet Easifys olika delar (se <a href="#figur3">Figur 3</a>).</p>
+
+
+
+<p>S&ouml;kningar initieras p&aring; samma s&auml;tt som med en vanlig WWW-baserad s&ouml;ktj&auml;nst. Knappar och textf&auml;lt f&ouml;r s&ouml;kning &auml;r placerade l&auml;ngst upp till v&auml;nster (A). N&auml;r s&ouml;kningen startats anl&auml;nder dokument till systemet. De analyseras och b&ouml;rjar fylla gr&auml;nssnittet med inneh&aring;ll. Namn p&aring; genrer och kolumner hittar du vid (B) och nyckelorden som beskriver &auml;mnet ligger l&auml;ngst till v&auml;nster p&aring; varje rad, vid (C). Dokumenten bildar grupper som visas som sm&aring; bubblor eller droppar (E) placerade i motsvarande rad och kolumn. Under arbetet visas antal dokument som systemet behandlat vid (D).</p>
+
+
+
+<a name="figur3"></a>
+
+<center>
+
+<a href="image3_big.jpg" target="other_window"><img src="image3.gif" width=550 height=413 border=0 alt="Figur 3: Gr&auml;nssnittet Easify under en s&ouml;kning"></a><br clear="all">
+
+<p><b><i><font size="-1">Figur 3: Gr&auml;nssnittet Easify under en s&ouml;kning efter "grass +lawn +fertilizers" enligt samma syntax som AltaVista anv&auml;nder. 183 dokument har behandlats av systemet och n&aring;gra grupper ur genrerna "Journalistic" och "Other Texts" har markerats f&ouml;r vidare bearbetning.<br>
+
+Se &auml;ven <a href="image3_big.jpg" target="other_window">f&auml;rgbild i full skala</a> (270kB).</font></i></b></p>
+
+</center>
+
+
+
+<p>Grupper som verkar intressanta samlas med musen ihop i ett f&auml;lt (F) f&ouml;r att anv&auml;ndas i n&auml;sta steg. N&auml;r anv&auml;ndaren har valt klart kan han omgruppera de valda grupperna genom att trycka p&aring; "Regroup". D&aring; kommer nya tomma kolumner och rader upp p&aring; sk&auml;rmen; dokumenten i grupperna vid (F) analyseras och sprids ut p&aring; nytt. Eftersom m&auml;ngden analyserade dokument &auml;r mindre &auml;n i f&ouml;rra grupperingen kommer &auml;mnesgrupperingarna att vara mer specifika.</p>
+
+
+
+<p>Anv&auml;ndaren &auml;r fri att g&ouml;ra s&aring; m&aring;nga omgrupperingar som beh&ouml;vs - m&aring;let &auml;r "zooma in" tillr&auml;ckligt n&auml;ra f&ouml;r att finna det man s&ouml;ker. Om resultatet av en omgruppering blir f&ouml;r sn&auml;vt, eller verkar vara fel, kan man backa ett eller flera steg till ett b&auml;ttre utg&aring;ngsl&auml;ge och sedan g&ouml;ra ny omgruppering.</p>
+
+
+
+
+
+<h4>1.4.2 Chunkify skapar grupperingarna</h4>
+
+
+
+<p><b><i>Genre:</i></b> Chunkify f&ouml;rs&ouml;ker med hj&auml;lp av spr&aring;kvetenskapliga och statistiska metoder och metoder fr&aring;n omr&aring;det artificiell intelligens best&auml;mma varje dokuments genre. Detta kan g&ouml;ras genom att kombinera enkla m&aring;tt, till exempel ordl&auml;ngd eller f&ouml;rekomst av vissa ordtyper i kombination med maskininl&auml;rning. Liknande metoder har tidigare anv&auml;nts f&ouml;r att best&auml;mma f&ouml;rfattare eller f&ouml;r att avg&ouml;ra en texts l&auml;sbarhet. </p>
+
+
+
+<p><b><i>&Auml;mne</i></b>: F&ouml;r att skapa ovan n&auml;mnda &auml;mnesgrupperingar till&auml;mpar modulen Chunkify metoder som anv&auml;nts vid informationss&ouml;kning och strukturering av information, s&aring; kallad klustring. Baserat p&aring; ett m&aring;tt p&aring; dokumentens inb&ouml;rdes likhet skapar Chunkify grupperingar - kluster - med dokument som till inneh&aring;llet liknar varandra, dvs behandlar samma &auml;mne. Varje &auml;mnesgruppering beskrivs av ett antal nyckelord som best&aring;r av de mest centrala orden i respektive gruppering.</p>
+
+
+
+
+
+<h4>1.4.3 Easify och Chunkify beskrivs i tv&aring; olika rapporter</h4>
+
+
+
+<p>Dropjaw-projektet finns beskrivet i tv&aring; examensarbetesrapporter. En mer ing&aring;ende studie som ligger till grund f&ouml;r Easifys interaktion och utformning finns i Anders Hallbergs rapport [<a href="#ref_Hallberg_1998">Hallberg 1998</a>]. Resten av den h&auml;r rapporten fokuserar p&aring; komponenten Chunkify och metoder f&ouml;r att skapa dokumentm&auml;ngdens underliggande struktur.</p>
+
+
+
+<p></p>
+
+
+
+<!-- ------ KAPITEL 2 ------------------------------------ -->
+
+
+
+<h2><a name="2"><br>2 Genreklassificering</a></h2>
+
+
+
+<p>I det h&auml;r kapitlet beskriver jag genreklassificering: komponenten som strukturerar dokumentm&auml;ngden med avseende p&aring; dokumenttyp/genre. F&ouml;rsta avsnittet ger en definition av begreppet genre och beskriver principen f&ouml;r genreklassificering. D&auml;refter g&aring;r jag igenom de tv&aring; st&ouml;rsta arbetsmomenten som ligger till grund f&ouml;r genreklassificeringen: att hitta en l&auml;mplig kollektion av genrer, och att skapa en v&auml;l avv&auml;gd referensm&auml;ngd dokument. Sista avsnittet beskriver hur genreklassificeringen utf&ouml;rs i DropJaw, fr&aring;n analys till maskininl&auml;rning. </p>
+
+
+
+<p>Genreklassificeringsarbetet har jag gjort i fr&auml;mst samarbete med Jussi Karlgren. Det finns &auml;ven beskrivet i [<a href="#ref_Dewe_Karlgren_Bretan_1998">Dewe, Karlgren & Bretan 1998</a>]. N&auml;r jag anv&auml;nder termen "vi" syftar jag h&auml;r p&aring; mig sj&auml;lv tillsammans med Jussi.</p>
+
+
+
+
+
+<a name="2.1"><h3>2.1 Genrer och principen f&ouml;r genreklassificering</h3></a>
+
+
+
+<p>Kommunikation, i text eller p&aring; annat s&auml;tt, har genom tiderna ofta indelats i kategorier efter sin &auml;mne, form eller funktion, och det har gjorts m&aring;nga f&ouml;rs&ouml;k att definiera begreppet <i>genre</i>. En generell ansats har tagits av Wanda Orlikowski och JoAnne Yates [<a href="#ref_Orlikowski_Yates_1994a">Orlikowski & Yates 1994a, 1994b</a>] i deras studier av kommunikation inom organisationer. Deras definition av genre lyder: </p>
+
+
+
+<blockquote>"<i>...a distinctive type of communicative action, characterized by a socially recognized communicative purpose and common aspects of form" [<a href="#ref_Orlikowski_Yates_1994a">Orlikowski & Yates 1994a</a>].</i></blockquote>
+
+
+
+<p>Ovanst&aring;ende citat uttryckt med andra ord: kommunikationens <i>form</i>, det vill s&auml;ga dess fysiska utformning och spr&aring;kliga uttryck, tillsammans med dess (sociala) <i>syfte</i> definierar en <i>genre</i>. Vissa genrer definieras endast av dess form, t ex broschyr eller pocket; andra genrer endast av sitt syfte, t ex ett PM eller en offert. Vanligtvis brukar dock en genre definieras av en kombination av form och syfte, t ex ett dagstidning som har till syfte att f&ouml;rmedla nyheter i den karakt&auml;ristiska formen av m&aring;nga sm&aring; artiklar. Observera att en genre inte enbart definieras av dess medium [<a href="#ref_Crowston_Williams_1997">Crowston & Williams 1997</a>]. Till exempel kan ett PM skickas antingen som vanligt brev eller som e-brev.</p>
+
+
+
+<p>Andra ord som f&aring;ngar begreppet genre p&aring; ett lite mer intuitivt s&auml;tt &auml;r <i>stil</i>, och f&ouml;r textbaserade k&auml;llor, <i>texttyp</i>. I det h&auml;r arbetet fokuseras p&aring; textbaserade k&auml;llor distribuerade via Internet och World Wide Web, WWW. Den centrala metaforen p&aring; WWW &auml;r dokumentet, som ibland ocks&aring; kallas "sida". WWW-dokument - som all text - varierar p&aring; m&aring;nga s&auml;tt. Den uppenbara variationen till <i>&auml;mne</i> eller inneh&aring;ll utnyttjas av traditionella s&ouml;ktj&auml;nster som en bas f&ouml;r deras kategorisering. Men dessutom kan man l&auml;tt finna en variation i <i>funktionell stil</i> vilket kan anv&auml;ndas som en bas f&ouml;r kategorisering i en andra dimension. Prosa, vetenskaplig text, journalistisk text, poesi etc &auml;r exempel p&aring; texter med olika funktionell stil, dvs olika genrer. </p>
+
+
+
+
+
+<h4>2.1.1 Variationer i textens uttryck kan anv&auml;ndas f&ouml;r att identifiera k&auml;nda genrer</h4>
+
+
+
+<p>En texts genre kan avg&ouml;ras genom att inspektera enkla stilm&aring;tt. Dessa m&aring;tt &auml;r observerbara variationer i textens uttryck, till exempel vilka ord som har valts f&ouml;r att uttrycka en mening eller hur komplext texten &auml;r uppbyggd. En m&auml;nsklig l&auml;sare tar automatiskt h&auml;nsyn till alla dessa egenskaper f&ouml;r att bed&ouml;ma en texts genre, men dessa m&aring;tt kan &auml;ven vara till nytta vid en automatiserad klassificering.</p>
+
+
+
+<p>Genom att m&auml;ta m&aring;nga enkla stilm&aring;tt kan texter klassificeras efter genre [<a href="#ref_Karlgren_Cutting_1994">Karlgren & Cutting 1994</a>]. M&aring;tten kan ha olika karakt&auml;r: m&aring;tt som r&auml;knar olika ordklassers f&ouml;rekomst och f&ouml;rdelning; m&aring;tt som letar efter speciella ord eller uttryck; m&aring;tt som m&auml;ter &ouml;vergripande egenskaper hos texten, t ex genomsnittlig ordl&auml;ngd, andel skiljetecken, ordrikedom/ordvariation och andel siffror. Varje m&aring;tt fyller ensamt liten eller ingen funktion, men en stor upps&auml;ttning m&aring;tt ger tillsammans ett medel f&ouml;r att best&auml;mma en texts genre. Liknande metoder har tidigare anv&auml;nts f&ouml;r att m&auml;ta texters kvalitet och l&auml;sbarhet, och f&ouml;r att avg&ouml;ra f&ouml;rfattarskap. Senare har metoderna &auml;ven anv&auml;nts till informationss&ouml;kning [<a href="#ref_Karlgren_1996">Karlgren 1996</a>].</p>
+
+
+
+<p>Vissa nya m&aring;tt blir tillg&auml;ngliga n&auml;r man anv&auml;nder dokument fr&aring;n Internet. Dessa m&aring;tt utnyttjar den struktur som tillhandah&aring;lls genom HTML-formatet, till exempel andel HTML-ord, antal bilder, eller antal referenser till andra dokument, s k l&auml;nkar.</p>
+
+
+
+<p>Dessa stilm&aring;tt &auml;r den grundl&auml;ggande id&eacute;n vid genreanalys, men f&ouml;r att skapa en fungerande automatiserad genreklassificering kr&auml;vs framf&ouml;rallt tv&aring; intimt f&ouml;rkippade huvuddelar: en v&auml;l avv&auml;gd upps&auml;ttning genrer samt en referensm&auml;ngd dokument indelad i motsvarande kategorier.</p>
+
+
+
+<p>En v&auml;l avv&auml;gd upps&auml;ttning genrer beh&ouml;vs till klassificeringen. Denna upps&auml;ttning genrer m&aring;ste vara anpassad b&aring;de till de stilm&aring;tt som finns att tillg&aring; samt till de olika dokument som kan f&ouml;rv&auml;ntas behandlas i klassificeringen [<a href="#ref_Karlgren_Straszheim_1997">Karlgren & Straszheim 1996</a>]. Men vilka genrer finns p&aring; Internet? Finns det redan genrekollektioner att tillg&aring;, g&aring;r de i s&aring; fall att till&auml;mpa i det h&auml;r fallet? Vilka f&ouml;rv&auml;ntningar har en anv&auml;ndare p&aring; en upps&auml;ttning genrer?</p>
+
+
+
+<p>F&ouml;r att skapa en automatiserad klassificering beh&ouml;vs en m&auml;ngd dokument f&ouml;r att l&auml;ra upp systemet. Denna m&auml;ngd dokument anv&auml;nds som referensmaterial n&auml;r kunskap om de olika stilm&aring;ttens inb&ouml;rdes relationer skall byggas upp, och best&aring;r av dokument indelade i kategorier som motsvarar genrerna i genrekollektionen. </p>
+
+
+
+<p>Resten av det h&auml;r kapitlet handlar fr&auml;mst om arbetet med genrekollektionen och referensm&auml;ngden. Sist g&aring;r jag in p&aring; algoritmerna och de specifika m&aring;tt jag har anv&auml;nt till genreklassificeringen i DropJaw.</p>
+
+
+
+
+
+<a name="2.2"><h3>2.2 Komponera en upps&auml;ttning genrer - en genrekollektion</h3></a>
+
+
+
+<p>En kollektion av genrer m&aring;ste vara anpassad f&ouml;r textmaterialet den skall anv&auml;ndas f&ouml;r, i v&aring;rt fall dokument fr&aring;n World Wide Web, vilket inneb&auml;r att tidigare existerande genrekollektioner inte kan till&auml;mpas utan modifiering. Dessutom m&aring;ste genrekollektionen anpassas f&ouml;r de stilm&aring;tt som finns att tillg&aring;: vissa &ouml;nskv&auml;rda genrer kan vara om&ouml;jliga att urskilja med tillg&auml;ngliga m&aring;tt och m&aring;ste d&auml;rf&ouml;r utg&aring; ur kollektionen.</p>
+
+
+
+<p>Dessutom b&ouml;r upps&auml;ttningen av genrer vara intuitiv, det vill s&auml;ga l&auml;tt att f&ouml;rst&aring; och tolka av en anv&auml;ndare. Den skall st&auml;mma &ouml;verens med etablerade uppfattningar om vilka typer av dokument som finns i databasen, dvs p&aring; Internet. Dessutom har World Wide Web och Internet har givit, och kommer forts&auml;tta att ge, upphov till nya genrer - b&aring;de genrer tagna och modifierade fr&aring;n tidigare textbaserade genrer samt helt nya genrer specifika f&ouml;r WWW [<a href="#ref_Crowston_Williams_1997">Crowston & Williams 1997</a>].</p>
+
+
+
+<p>Ytterligare krav p&aring; genrekollektionen &auml;r att den b&ouml;r vara helt&auml;ckande: varje dokument skall kunna s&auml;ttas in i en genre som passar. F&ouml;ljaktligen kommer krav p&aring; att kollektionen skall vara tillr&auml;ckligt generell f&ouml;r att hantera ov&auml;ntade dokument, till exempel dokument som fyller flera funktioner och d&auml;rf&ouml;r kan s&auml;gas tillh&ouml;ra mer &auml;n en genre. Helt nya typer av dokument kan ocks&aring; f&ouml;rv&auml;ntas tillkomma. </p>
+
+
+
+<p>Tidigare liknande ansatser att skapa en passande upps&auml;ttning genrer har fr&auml;mst f&ouml;rlitat sig p&aring; personliga uppfattningar och erfarenheter [<a href="#ref_Ben_Cheikh_1994">Ben Cheikh & Zackrisson 1994</a>, <a href="#ref_Hussain_Tzikas_1995">Hussain & Tzikas 1995</a>] eller varit starkt anpassad till ett v&auml;ldefinierat och v&auml;l kategoriserat k&auml;llmaterial. V&aring;r ansats &auml;r att n&aring; l&auml;ngre: v&aring;r genrekollektion ska <i>spegla anv&auml;ndarnas uppfattning</i> och samtidigt vara v&auml;l <i>anpassad f&ouml;r automatiserad analys</i>. Dessa kriterier kan i m&aring;nga fall vara mots&auml;gelsefulla. Genrer som &auml;r l&auml;tta att uppt&auml;cka i en automatiserad process kan sakna betydelse eller vara sv&aring;ra att f&ouml;rst&aring; f&ouml;r m&auml;nniskor, men genrer som k&auml;nns sj&auml;lvklara och intuitiva f&ouml;r en m&auml;nniska kan vara sv&aring;ra att urskilja med tillg&auml;ngliga metoder. V&aring;rt m&aring;l &auml;r att skapa en upps&auml;ttning genrer som s&aring; bra som m&ouml;jligt uppfyller b&aring;da kriterierna.</p>
+
+
+
+
+
+<h4>2.2.1 Genrekollektionen &auml;r resultatet av ett samarbete</h4>
+
+
+
+<a name="figur4"></a>
+
+<center>
+
+<img src="image4.gif" width=354 height=227 border=0 alt="Figur 4: Samarbete f&ouml;r att finna l&auml;mpliga kategorier och genrer"><br clear="all">
+
+<p><b><i><font size="-1">Figur 4: kategorier l&auml;mpliga f&ouml;r automatiserad analys finner vi i m&ouml;tet mellan vagt formulerade uppfattningar (user interviews) och l&auml;tt observerbara stilm&aring;tt (feature analysis).</font></i></b></p>
+
+</center>
+
+
+
+<p>Arbetet med att skapa en upps&auml;ttning genrer har delats mellan mig och Jussi i tv&aring; principiella delar. En del syftar till att inh&auml;mta empiriska data och f&ouml;rst&aring; anv&auml;ndarnas behov; till denna del har vi anv&auml;nt fr&aring;geformul&auml;r med enstaka korta fr&aring;gor, utskickat via e-post. Den andra delen syftar till att best&auml;mma vilka stilm&aring;tt som b&ouml;r anv&auml;ndas. Detta arbete baseras p&aring; tidigare arbete av Jussi Karlgren vilket tar avstamp i Douglas Bibers framsteg inom genreklassificering [<a href="#ref_Biber_1989">Biber 1989</a>, <a href="#ref_Karlgren_Cutting_1994">Karlgren & Cutting 1994</a>]. Nya m&aring;tt speciellt avpassade f&ouml;r World Wide Web har ocks&aring; tillkommit.</p>
+
+
+
+
+
+<h4>2.2.2 Hitta f&ouml;rslag till etablerade och nya genrer</h4>
+
+
+
+<p>F&ouml;r att finna f&ouml;rslag till nya och etablerade genrer valde vi att v&auml;nda oss till en blandad m&auml;ngd m&auml;nniskor med tillg&aring;ng till e-post. Vi skickade med ut tv&aring; e-brev med n&aring;gra veckors mellanrum. Det f&ouml;rsta brevet syftade till att samla in f&ouml;rslag; det andra var en uppf&ouml;ljare som syftade till att kontrollera att vi var p&aring; r&auml;tt sp&aring;r.</p>
+
+
+
+<a name="figur5"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=8 border=1 width="90%"><tr>
+
+<td bgcolor="#EAEAEA">
+
+<tt><p>Hej, jag beh&ouml;ver din hj&auml;lp under tv&aring; minuter.</p>
+
+
+
+<p>Inom ramen f&ouml;r mitt examensarbete tampas jag med problemet att
+
+"genre-klassificera" dokument som kommer fr&aring;n World Wide Web.</p>
+
+
+
+<p>Vad &auml;r en genre? En genre &auml;r en grupp av dokument som visar stora
+
+likheter i utformning. I tidningsv&auml;rlden kan man enkelt finna
+
+exempel p&aring; genrer. Vi hittar t ex vetenskapliga texter, noveller,
+
+nyhetsartiklar, annonser etc. I ett st&ouml;rre perspektiv kan sj&auml;lva
+
+begreppet "tidning" ses som en egen genre, j&auml;mf&ouml;rt med tillexempel
+
+deckare, riksdagsprotokoll och elpostdiskussioner.</p>
+
+
+
+<p>P&aring; motsvarande s&auml;tt borde dokument fr&aring;n WWW kunna delas in i
+
+tydliga genrer. De enklaste genrerna listar jag sj&auml;lv ut ganska
+
+snabbt, men tyv&auml;rr blir det en ganska ensidig vy. Det &auml;r nu jag
+
+ beh&ouml;ver din hj&auml;lp f&ouml;r att f&aring; lite st&ouml;rre perspektiv:
+
+
+
+<p>* Vilka genrer anser du att det finns p&aring; WWW?</p>
+
+
+
+<p>Fundera en minut och skriv sedan ner en lista p&aring; de genrer du kom
+
+att t&auml;nka p&aring;. Alla svar &auml;r av intresse!</p>
+
+
+
+<p>Tack f&ouml;r din hj&auml;lp.<br>
+
+/Johan Dewe, d92-jde@nada.kth.se</p></tt>
+
+</td></tr></table>
+
+<p><b><i><font size="-1">Figur 5: Den f&ouml;rsta fr&aring;gan som skickades ut med e-post.</font></i></b></p>
+
+</center>
+
+
+
+<p>Med det f&ouml;rsta brevet ville vi skapa oss en bild av vilka typer av dokument som anv&auml;ndare f&ouml;rv&auml;ntar sig att hitta p&aring; WWW. Vi ville ha f&ouml;rslag till genrer och d&auml;rf&ouml;r st&auml;lldes fr&aring;gan: "Vilka genrer anser du att det finns p&aring; WWW?" (<a href="#figur5">Figur 5</a>). E-brevet skickades ut till 648 studenter, l&auml;rare och forskare vid Kungliga Tekniska H&ouml;gskolan och Stockholms Universitet.</p>
+
+
+
+<p>Vi fick 67 svar, dvs svarsfrekvens p&aring; lite drygt 10%, vilket vi &auml;r tillr&auml;ckligt m&aring;nga svar f&ouml;r att ge oss en uppfattning om de vanligaste f&ouml;rv&auml;ntningarna. Vi fick allt fr&aring;n v&auml;ldigt korta svar till l&aring;nga diskussioner eller hela hierarkier med genrer. N&aring;gra exempel p&aring; svar hittar du i <a href="#figur6">Figur 6</a>.</p>
+
+
+
+<a name="figur6"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=8 border=1 width="90%"><tr>
+
+<td bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+<ul>
+
+	<li>Vetenskap
+
+	<li>Hemsidor
+
+	<li>Databaser
+
+	<li>Min omedelbara reaktion &auml;r att de genrer som vi hittar p&aring; andra st&auml;llen i
+
+		samh&auml;llet hittar vi ocks&aring; i www. Vi fastnar i gamla konventioner. ... tex.
+
+		e-mail, utformandet av e-mail f&ouml;ljer det f&ouml;rfarande vi &auml;r vana n&auml;r det
+
+		g&auml;ller det ordin&auml;ra f&ouml;rfarandet av att skicka brev.
+
+	<li>G&auml;stb&ouml;cker
+
+	<li>FAQs
+
+	<li>S&ouml;kmotorer
+
+	<li>Sport
+
+	<li>Spel och porr
+
+	<li>Personliga "h&auml;r &auml;r jag-budskap", f&ouml;rs&auml;ljningserbjudanden samt seri&ouml;st material.
+
+	<li>Referenssidor (f&ouml;r HTML, Java, olika C-libraries etc...)
+
+	<li>Kategoriseringar och s&ouml;kverktyg: Yahoo, WebGuide, punkt.se och naturligtvis Altavista.
+
+	<li>Tj&auml;nstesidor
+
+	<li>Publik information
+
+	<li>Kategorier som bara finns p&aring; WWW eller som &auml;r egenartade p&aring; grund av mediet &auml;r
+
+		ju l&auml;nksamlingar, formul&auml;r, java applets och automatiskt genererade sidor. Dessa
+
+		sidor tycker jag ska klassas efter funktion och inte inneh&aring;ll.
+
+	<li>Net papers - includes all "electronic newspapers"
+
+	<li>Vuxensidor
+
+	<li>Naturvetenskap
+
+	<li>Turism och resor
+
+</ul>
+
+</font></td></tr></table>
+
+<p><b><i></i></b><font size="-1">Figur 6: Exempel p&aring; svar p&aring; fr&aring;gan om vilka genrer som finns p&aring; WWW.</font></p>
+
+</center>
+
+
+
+<p>Det visade sig att m&aring;nga blandar ihop begreppen <i>genre och &auml;mne</i>. Det &auml;r inte f&ouml;rv&aring;nande eftersom dimensionerna genre och &auml;mne inte saknar inb&ouml;rdes relation [<a href="#ref_Karlgren_Cutting_1994">Karlgren & Cutting 1994</a>], vilket visar sig i bibliotekens kategorisering som &aring;terspeglar b&aring;da dimensionerna samtidigt. Men vi tror att genrer &auml;r l&auml;tta att ta till sig och anv&auml;nda n&auml;r man f&aring;r dem presenterade, f&ouml;rutsatt att de beskrivs p&aring; ett konkret och intuitivt s&auml;tt. </p>
+
+
+
+<p>Samtidigt fick vi svar som inneh&ouml;ll f&ouml;rslag p&aring; rena form/funktions-genrer: "hemsidor", "databaser", "FAQs", "s&ouml;ktj&auml;nster" och "referensmaterial", och andra svar refererade till genrer som existerar i pappersmediet. Ett flertal svar indikerade att man kan anv&auml;nda <i>syftet</i> med informationen som ett kriterium: "h&auml;r &auml;r jag", "f&ouml;rs&auml;ljningserbjudanden", "seri&ouml;st material", eller <i>utgivaren</i> som kriterium: "publik information", "kommersiell info", "organisationsinformation fr&aring;n myndighet". Ytterligare svar angav <i>kvalitet</i> som kriterium, t ex "tr&aring;kiga hemsidor", eller enbart fokus p&aring; <i>funktion</i>: "formul&auml;r" och "enk&auml;ter".</p>
+
+
+
+
+
+<h4>2.2.3 Genrekollektionen - en kompromiss mellan f&ouml;rv&auml;ntningar och tillg&auml;nglig teknik </h4>
+
+
+
+<p>M&aring;let med genrekollektionen &auml;r att skapa en upps&auml;ttning genrer som f&aring;ngar de n&aring;gra av de uppfattningar vi fick genom svaren, n&auml;mligen de genrer som &auml;r tillr&auml;ckligt l&auml;tta att f&ouml;ruts&auml;ga med v&aring;ra tillg&auml;ngliga m&aring;tt och metoder. Vi vill hitta en god kompromiss mellan svaren - dvs de uppfattningarna - och tillg&auml;ngliga stilm&aring;tt. Denna uppgift &auml;r iterativ till sin natur och det kan d&auml;rf&ouml;r vara sv&aring;rt att hitta en bra j&auml;mvikt eftersom anv&auml;ndarnas uppfattningar &auml;r vaga och otillr&auml;ckligt uttryckta samtidigt som tillg&auml;ngliga stilm&aring;tt &auml;r klumpiga och trubbiga. Samtidigt inneb&auml;r denna process att genrekollektionen skr&auml;ddarsys f&ouml;r en viss anv&auml;ndargrupp vilket g&ouml;r den mindre generell.</p>
+
+
+
+<a name="figur7"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=8 border=1 width="90%"><tr>
+
+<td bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+<dl>
+
+	<dt><b>01&nbsp;Informal, Private</b>
+
+	<dd>Personal home pages.
+
+
+
+	<dt><b>02&nbsp;Public, Commercial </b>
+
+	<dd>Home pages for the general public.
+
+
+
+	<dt><b>03&nbsp;Interactive pages</b>
+
+	<dd>Pages with feed-back: customer dialogue; searchable indices.
+
+
+
+	<dt><b>04&nbsp;Journalistic materials </b>
+
+	<dd>Press: news, reportage, editorials, reviews, popular reporting, e-zines.
+
+
+
+	<dt><b>05&nbsp;Reports</b>
+
+	<dd>Scientific, legal, and public materials; formal text.
+
+
+
+	<dt><b>06&nbsp;Other running text </b>
+
+
+
+	<dt><b>07&nbsp;FAQs</b>
+
+
+
+	<dt><b>08&nbsp;Link Collections </b>
+
+
+
+	<dt><b>09&nbsp;Listings, Tables</b>
+
+
+
+	<dt><b>10&nbsp;Discussions</b>
+
+	<dd>Contributions to discussions, requests, comments; Usenet News materials.
+
+
+
+	<dt><b>11&nbsp;Error Messages</b>
+
+</dl>
+
+</font></td></tr></table>
+
+
+
+<p><b><i><font size="-1">Figur 7: Genrekollektionen.</font></i></b></p>
+
+</center>
+
+
+
+<p>Utg&aring;ende fr&aring;n svaren skapade vi en genrekollektion (<a href="#figur7">Figur 7</a>). Observera att denna upps&auml;ttning genrer, trots att den har anv&auml;nts genom hela det h&auml;r projektet, &auml;r en startpunkt f&ouml;r vidare forskning. Genrerna &auml;r baserade p&aring; empiriska data men ej tillr&auml;ckligt verifierade; de kommer att delas upp eller sl&aring;s ihop, nya genrer kommer att l&auml;ggas till f&ouml;r att anpassa paletten till andra, bredare anv&auml;ndargrupper.</p>
+
+
+
+<p>Vissa genrer kan vid en f&ouml;rsta anblick te sig n&aring;got underliga, till exempel "Error Messages" f&ouml;r felmeddelanden. Felmeddelanden &auml;r mycket l&auml;tta att uppt&auml;cka i en automatiserad klassificering, bland annat p&aring; grund av deras korta form, och passar d&auml;rf&ouml;r alldeles utm&auml;rkt som en egen genre. &Aring; andra sidan uppfattar inte anv&auml;ndarna felmeddelande som en direkt genre. Men trots det fyller denna genre en viktig uppgift: den anv&auml;nds till att sortera ut felmeddelanden, en typ av information som &auml;r ganska ointressant och oftast inte &ouml;nskad. Motiveringen f&ouml;r andra genrer f&ouml;ljer samma resonemang: det som g&aring;r att g&ouml;ra b&ouml;r g&ouml;ras, f&ouml;rutsatt att dess inneb&ouml;rd l&auml;tt kan f&ouml;rmedlas till anv&auml;ndarna.</p>
+
+
+
+
+
+<h4>2.2.4 Utv&auml;rdering av genrekollektionen</h4>
+
+
+
+<p>F&ouml;r att g&ouml;ra en f&ouml;rsta utv&auml;rdering av upps&auml;ttningen genrer skickade vi ut en andra fr&aring;ga till i stort sett samma personer som fick den f&ouml;rsta fr&aring;gan. Vi ville ta reda p&aring; om genrekollektionen var tillr&auml;ckligt l&auml;tt att f&ouml;rst&aring;; fr&aring;gan som st&auml;lldes var "F&ouml;rst&aring;r du dessa genrer?" (<a href="#figur8">Figur 8</a>). Vi fick 102 svar. </p>
+
+
+
+<p>&Ouml;verv&auml;gande delen av alla svar indikerade att anv&auml;ndarna inte hade n&aring;gra problem att f&ouml;rst&aring; genrerna och vilka typer av dokument man kan f&ouml;rv&auml;nta sig att finna d&auml;r, trots att genrerna var medvetet sparsamt beskrivna. I svaren fick alla genrer kommentarer i en eller annan form, men de flesta kommentarerna berodde p&aring; brist p&aring; exempel och f&ouml;rklarande text, vilket inte kommer att saknas n&auml;r genrerna anv&auml;nds tillsammans med resultat fr&aring;n en s&ouml;kning d&aring; exempel finns till hands i form av dokument.</p>
+
+
+
+<p>M&aring;nga svar handlade om genren "Interactive pages", de pekade fr&auml;mst p&aring; att denna genre inte &auml;r av samma typ som de andra genrerna. Vissa svar r&ouml;rde namngivningen av genrerna: synpunkter om att namnen inte &auml;r r&auml;ttvisande eller ibland sv&aring;ra att f&ouml;rst&aring;, t ex "FAQ", "Listings, Tables" eller "Error Messages". M&aring;nga fr&aring;gade efter en genre f&ouml;r FTP-databaser och/eller WWW-platser d&auml;r man kan h&auml;mta gratisprogram; n&aring;gra oroade sig &ouml;ver att genren "Other running text" var alltf&ouml;r helt&auml;ckande; andra &ouml;nskade en specifik genre f&ouml;r s&ouml;ktj&auml;nster; flera efterfr&aring;gade genrer som var mer baserade p&aring; &auml;mne och inneh&aring;ll.</p>
+
+
+
+<a name="figur8"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=8 border=1 width="90%"><tr>
+
+<td bgcolor="#EAEAEA">
+
+<tt><p>Hej, jag beh&ouml;ver din hj&auml;lp under 30 sekunder!</p>
+
+
+
+<p>Inom ramen f&ouml;r mitt examensarbete tampas jag med problemet att
+
+"genre-klassificera" dokument som kommer fr&aring;n World Wide Web.
+
+Jag har tidigare st&auml;llt fr&aring;gan: "Vilka genrer anser du att det
+
+finns p&aring; WWW?"</p>
+
+
+
+<p>Nu skulle jag vilja att du tittar p&aring; de elva genrer jag beskriver
+
+nedan, och sedan svarar p&aring; fr&aring;gan:</p>
+
+
+
+<p>* F&ouml;rst&aring;r du dessa genrer, dvs kan du f&ouml;rest&auml;lla dig vilken typ
+
+av dokument varje genre skulle kunna inneh&aring;lla? Tycker du att
+
+det saknas n&aring;gon genre?</p>
+
+
+
+<p>H&auml;r kommer genrerna:</p>
+
+
+
+<pre> - Informal, Private:
+
+        Personal home pages.
+
+ - Public, Commercial:
+
+        Home pages for the general public.
+
+ - Interactive pages:
+
+        Pages with feed-back:
+
+        customer dialogue; searchable indices.
+
+ - Journalistic materials:
+
+        Press: news, reportage, editorials,
+
+        reviews, popular reporting, e-zines.
+
+ - Reports:
+
+        Scientific, legal, and public materials;
+
+        formal text.
+
+ - Other running text
+
+ - FAQs
+
+ - Link Collections
+
+ - Listings, Tables 
+
+ - Discussions
+
+        Contributions to discussions, requests,
+
+        comments; Usenet News materials.
+
+ - Error Messages</pre>
+
+
+
+<p>Alla svar &auml;r av intresse!</p>
+
+
+
+<p>Tack f&ouml;r din hj&auml;lp.<br>
+
+/Johan Dewe, d92-jde@nada.kth.se</p>
+
+</tt>
+
+</td></tr></table>
+
+<p><b><i><font size="-1">Figur 8: Med den andra fr&aring;gan vill vi verifiera att genrerna &auml;r l&auml;tta att f&ouml;rst&aring;.</font></i></b></p>
+
+</center>
+
+
+
+
+
+<p>Ett av de vanligaste svaren g&auml;llde det faktum att genrerna inte &auml;r disjunkta - de flesta genrerna &ouml;verlappar varandra, dokument kan tillh&ouml;ra flera genrer samtidigt. Ett annat frekvent svar r&ouml;rde genrernas anpassning till informationss&ouml;kning: m&aring;nga hade sv&aring;rt att t&auml;nka sig att s&ouml;ka specifikt efter "Interactive Pages" eller "Error Messages". Sammantaget var synpunkterna antingen &ouml;nskem&aring;l om en mer flexibel och preciserad genrestruktur eller av s&aring;dant slag ett de faller bort i den interaktiva situationen d&auml;r exempel i form av dokumenten finns till hands. </p>
+
+
+
+<p>Kollektionen &auml;r medvetet luddigt formulerad. Det kan synas som en nackdel, men &auml;r samtidigt en n&ouml;dv&auml;ndighet eftersom World Wide Web f&ouml;r&auml;ndras hela tiden - det &auml;r bra om kollektionen k&auml;nns aktuell, och &ouml;verlever, trots det r&ouml;rliga inneh&aring;llet p&aring; WWW. Dessutom ger kollektionens luddiga formulering st&ouml;d f&ouml;r att g&ouml;ra genreklassificeringen mer gener&ouml;s: dokument b&ouml;r till&aring;tas att hamna i flera genrer samtidigt eftersom det kan h&ouml;ja den upplevda precisionen. Eftersom vi inte kan f&ouml;rv&auml;nta oss total precision &auml;r det bra om genrernas formulering ger utrymme f&ouml;r personlig tolkning.</p>
+
+
+
+<p>Ut&ouml;kad verifiering av genrekollektionen saknas. Ett l&auml;mpligt f&ouml;rs&ouml;k vore att ta n&aring;gra exempeldokument ur varje genre och l&aring;ta testpersoner klassificera dem. P&aring; s&aring; s&auml;tt kunde vi f&aring; en b&auml;ttre indikation p&aring; vilka genrer som &auml;r sv&aring;ra att f&ouml;rst&aring;. Detta har tyv&auml;rr inte hunnits med.</p>
+
+
+
+
+
+<a name="2.3"><h3>2.3 Skapa en referensm&auml;ngd av dokument - en korpus</h3></a>
+
+
+
+<p>Den andra stora delen av arbetet med att skapa en komponent f&ouml;r genreklassificering best&aring;r i att samla in och kategorisera en stor m&auml;ngd dokument till en referensm&auml;ngd, eller korpus p&aring; lingvisternas fackspr&aring;k. Detta arbete &auml;r intimt f&ouml;rknippat med genrekollektionen; kategoriseringsmomentet styrs direkt av vilka genrer som finns i kollektionen. Arbetet med genrekollektionen och referensm&auml;ngden &auml;r en iterativ process d&auml;r momenten samverkar. Under arbetet med referensm&auml;ngden f&ouml;r&auml;ndrade vi genrekollektionen f&ouml;r att avspegla referensm&auml;ngdens inneh&aring;ll samtidigt som kategoriseringsarbetet m&aring;ste g&ouml;ras om n&auml;r genrekollektionen f&ouml;r&auml;ndrades.</p>
+
+
+
+<p>Det finns ett antal v&auml;l etablerade referensm&auml;ngder f&ouml;r olika &auml;ndam&aring;l, olika spr&aring;k, och f&ouml;r flera parallella spr&aring;k. De anv&auml;nds bland annat f&ouml;r att ta fram statistik, att tr&auml;na probabilistiska algoritmer och f&ouml;r att testa hypoteser inom spr&aring;kforskning. Eftersom det inte finns n&aring;gon etablerad referensm&auml;ngd f&ouml;r Internet och WWW m&aring;ste vi skapa en egen referensm&auml;ngd anpassad f&ouml;r v&aring;rt syfte. </p>
+
+
+
+<p>I DropJaw anv&auml;nds referensm&auml;ngden f&ouml;r att tr&auml;na klassificeringsalgoritmerna och den b&ouml;r d&auml;rf&ouml;r vara representativ f&ouml;r textmaterialet, dvs de typer av dokument som f&ouml;rv&auml;ntas behandlas av algoritmerna b&ouml;r &auml;ven finnas med i referensm&auml;ngden. I v&aring;rt fall inneb&auml;r det att vi m&aring;ste ta ett tillr&auml;ckligt brett prov av dokument fr&aring;n WWW.</p>
+
+
+
+
+
+<h4>2.3.1 En representativ m&auml;ngd dokument fr&aring;n World Wide Web</h4>
+
+
+
+<p>Hur lyckas man att hitta en m&auml;ngd dokument som &auml;r representativ f&ouml;r ett s&aring; dynamiskt medium som Internet och WWW? Finns det n&aring;got s&auml;tt att f&aring; &ouml;verblick? En hj&auml;lp kan vara de s&ouml;ktj&auml;nster som hela tiden avs&ouml;ker Internet och lagrar informationen i databaser tillg&auml;ngliga f&ouml;r allm&auml;nheten. Eftersom vi i DropJaw anv&auml;nder en s&aring;dan tj&auml;nst f&ouml;r att finna dokument kan vi g&ouml;ra antagandet att s&aring;dana s&ouml;ktj&auml;nster, t ex [<a href="#ref_AltaVista">AltaVista</a>, <a href="#ref_Magellan">Magellan</a>], utg&ouml;r en f&ouml;r oss l&auml;mplig approximation av inneh&aring;llet p&aring; WWW - det &auml;r dokumenten fr&aring;n s&ouml;ktj&auml;nsterna som &auml;r de verkligt intressanta f&ouml;r oss.</p>
+
+
+
+<p>Men hur skall vi finna l&auml;mpliga dokument till v&aring;r referensm&auml;ngd? F&ouml;rst tog vi slumpvis sextio fr&aring;gor fr&aring;n Magellans tjuvtittar-tj&auml;nst [<a href="#ref_Magellan_Voyeur">Magellan Voyeur</a>] d&auml;r man f&aring;r se vilka s&ouml;kfr&aring;gor som just f&ouml;r tillf&auml;llet st&auml;lls av anonyma anv&auml;ndare. Vi st&auml;llde fr&aring;gorna till Magellans s&ouml;ktj&auml;nst igen, vilket gav upphov till cirka 600 URLer (Uniform Resource Locator, en internet-adress), som efter h&auml;mtning gav 509 dokument med god spridning.</p>
+
+
+
+<p>Sedan anv&auml;nde vi 50 fr&aring;gor fr&aring;n the Text Retrieval Conference (TREC) [<a href="#ref_Harman_1996">Harman 1996</a>]. TREC &auml;r en &aring;rlig konferens - egentligen en t&auml;vling - med syfte att samla kunskap om informationsh&auml;mtning fr&aring;n stora textdatabaser. Som underlag och standardiserat utg&aring;ngsmaterial f&ouml;r t&auml;vlingen anv&auml;nds ett femtiotal fr&aring;gor. Fr&aring;n 1996 &aring;rs fr&aring;gor (TREC queries 251-300) anv&auml;nde vi f&auml;lten "topic" och "description" som s&ouml;kfr&aring;gor till s&ouml;ktj&auml;nsten AltaVista. S&ouml;kningarna resulterade i ungef&auml;r 500 URLer, vilka gav 410 dokument med lite mer tonvikt &aring;t l&aring;nga rapporter.</p>
+
+
+
+<p>Till sist anv&auml;nde vi med till&aring;telse history-filer fr&aring;n n&aring;gra lokala anv&auml;ndare av Netscape, vilket gav ytterligare 785 URLer som resulterade 640 dokument med god spridning.</p>
+
+
+
+<p>Totalt samlade vi in 1854 URLer vilka resulterade i 1559 dokument. Med andra ord var det ungef&auml;r 16% av URLerna som inte gav n&aring;gra dokument, antingen p&aring; grund av att motsvarande server inte kunde hittas eller att den inte svarade inom tv&aring; minuter. I de fall URLerna var f&ouml;r gamla och pekade p&aring; obefintliga dokument returnerar servern ett felmeddelande som arkiverades och senare lades till kategorin "Error Messages".</p>
+
+
+
+
+
+<h4>2.3.2 Kategorisera dokumenten i referensm&auml;ngden</h4>
+
+
+
+<p>N&auml;r dokumenten &auml;r h&auml;mtade fr&aring;n Internet &aring;terst&aring;r det sv&aring;raste och mest kr&auml;vande momentet i arbetet med referensm&auml;ngden: att f&ouml;r hand kategorisera de insamlade dokumenten till de genrer som ges av genrekollektionen. Det &auml;r sv&aring;rt att g&ouml;ra en bra kategorisering. Sv&aring;righeten kan till viss del h&auml;nf&ouml;ras till brister i genrekollektionen, vilken reviderades flera g&aring;nger under arbetet med referensm&auml;ngden, men &auml;ven till att dokument oftast kan s&auml;gas tillh&ouml;ra flera genrer samtidigt vilket g&ouml;r dem sv&aring;ra att kategorisera. Det blir d&aring; en sv&aring;r gr&auml;nsdragning huruvida dokumentet skall kategoriseras till den kategori som det "tillh&ouml;r mest" eller r&auml;knas som "oklassificerat". H&aring;rdare gr&auml;nsdragning resulterar i en renare kategorisering, men samtidigt f&auml;rre kategoriserade dokument att anv&auml;nda till inl&auml;rningen.</p>
+
+
+
+<a name="tabell1"></a>
+
+<center>
+
+<table border=0 cellspacing=0 cellpadding=2>
+
+<caption><b><i><font size="-1">Tabell 1: Dokumentf&ouml;rdelning i referensm&auml;ngden.</font></i></b></caption>
+
+<tr>
+
+	<th align="left" bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva"></font>&nbsp;</th>
+
+	<th align="right" valign="top" bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">&nbsp;Trec</font></th>
+
+	<th align=right valign="top" bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">&nbsp;Magellan<br> Voyeur</font></th>
+
+	<th align=right valign="top" bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">&nbsp;History<br> Lists</font></th>
+
+	<th align=right valign="top" bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">&nbsp;Totalt</font></th></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Informal, Private</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">11</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">67</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">50</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">128</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Public, Commercial</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">23</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">87</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">87</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">197</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Interactive pages</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">4</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">14</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">55</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">73</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Journalistic material</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">50</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">28</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">16</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">94</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Reports</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">106</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">5</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">2</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">113</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Other running text</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">73</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">49</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">38</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">160</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">FAQs</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">0</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">4</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">8</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">12</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Link Collections</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">31</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">50</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">67</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">148</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Listings, Tables</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">17</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">138</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">70</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">225</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Discussions</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">16</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">0</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">8</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">24</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva">Error Messages</font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">55</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">36</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">93</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">184</font></td></tr>
+
+<tr>
+
+	<th align="left"><font size=2 face="Verdana, Arial, Ariel, Geneva"><i>Oklassificerat</i></font></th>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">24</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">31</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">146</font></td>
+
+	<td align=right><font size=2 face="Verdana, Arial, Ariel, Geneva">201</font></td></tr>
+
+<tr>
+
+	<th align="left" bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">Summa</font></th>
+
+	<td align=right bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">410</font></td>
+
+	<td align=right bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">509</font></td>
+
+	<td align=right bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva">640</font></td>
+
+	<td align=right bgcolor="#EAEAEA"><font size=2 face="Verdana, Arial, Ariel, Geneva"><b>1559</b></font></td></tr>
+
+</table>
+
+</center>
+
+
+
+<p>Hur referensm&auml;ngden ser ut ser du i <a href="#tabell1">Tabell 1</a>. Den sista raden "Oklassificerat" visar det antal dokument jag inte lyckades tilldela n&aring;gon genre. </p>
+
+
+
+<p>Referensm&auml;ngden ligger till grund f&ouml;r inl&auml;rningen av klassificeringsalgoritmen och har d&auml;rf&ouml;r mycket stor inverkan p&aring; dess prestanda; arbetet med referensm&auml;ngden avspeglar sig direkt i vilket resultat vi f&aring;r vid inl&auml;rningen. Med den bakgrunden kan man t&auml;nka sig att fler dokument borde hamnat i "Oklassificerat" och att endast rena typdokument h&ouml;r hemma i respektive kategori. Jag har dock varit ganska gener&ouml;s vid kategoriseringen, vilket eventuellt kan p&aring;verka slutresultatet negativt.</p>
+
+
+
+<p>Generellt kan man s&auml;ga att det &auml;r dyrt med tr&auml;ningsdata. S&aring; var ocks&aring; fallet h&auml;r, det tog ungef&auml;r fem veckor fr&aring;n utskicket av den f&ouml;rsta fr&aring;gan tills referensm&auml;ngden var klar, men en st&ouml;rre korpus kan ta m&aring;ngdubbel tid att bygga upp.</p>
+
+
+
+
+
+<a name="2.4"><h3>2.4 Automatiserad analys och klassificering</h3></a>
+
+
+
+<p>Det h&auml;r avsnittet behandlar hur genreklassificeringskomponenten i DropJaw &auml;r uppbyggd: hur den automatiserade analysen arbetar, vilka stilm&aring;tt analysen anv&auml;nder och hur m&aring;tten anpassats f&ouml;r att passa den avslutande maskininl&auml;rningen.</p>
+
+
+
+<p>Genreklassificeringskomponenten har sin grund i tidigare arbete utf&ouml;rt av bland annat Jussi Karlgren [<a href="#ref_Karlgren_Cutting_1994">Karlgren & Cutting 1994</a>, <a href="#ref_Karlgren_1996">Karlgren 1996</a>, <a href="#ref_Karlgren_Straszheim_1997">Karlgren & Straszheim 1997</a>]. Metoderna har i det h&auml;r projektet anpassats till att passa dokument fr&aring;n WWW, fr&auml;mst genom ett antal nya stilm&aring;tt. Jussi bidrog med en del m&aring;tt fr&aring;n tidigare system, och sedan har Jussi och jag tillsammans utarbetat nya m&aring;tt. Sj&auml;lva inl&auml;rningsmomentet utf&ouml;rdes av Jussi. Att sedan realisera algoritmerna i programmet har varit mitt ansvar.</p>
+
+
+
+
+
+<h4>2.4.1 Analysen resulterar i ett fyrtiotal stilm&aring;tt</h4>
+
+
+
+<p>Den automatiserade analysen syftar till att m&auml;ta den typ av stilm&aring;tt - eller bara "m&aring;tt" -  som n&auml;mnts i avsnitt 2.1 och 2.2. Analysen &auml;r uppbyggd av flera delsteg med v&auml;l separerade uppgifter: spr&aring;kbest&auml;mning, utdragning av grammatikm&aring;tt, utdragning av HTML-m&aring;tt, normalisering av texten samt utdragning av ett antal generella textm&aring;tt (<a href="#figur9">Figur 9</a>). Enskilda m&aring;tt skall helst vara s&aring; enkla som m&ouml;jligt - det &auml;r effekten av m&aring;nga sammanlagda m&aring;tt vi s&ouml;ker. Varje enkelt m&aring;tt kan tyckas meningsl&ouml;st, men m&aring;tt kan samverka p&aring; s&auml;tt som &auml;r sv&aring;ra att &ouml;verblicka; tillsammans skapar m&aring;tten en profil som specifikt identifierar varje genre.</p>
+
+
+
+<a name="figur9"></a>
+
+<center>
+
+<img src="image5.gif" width=514 height=80 border=0 alt="Figur 9: Principiell g&aring;ng vid analys av texten"><br>
+
+<p><b><i><font size="-1">Figur 9: Principiell g&aring;ng vid analys av texten.</font></i></b></p>
+
+</center>
+
+
+
+<p>De tv&aring; f&ouml;rsta delarna, spr&aring;kbest&auml;mning och grammatikm&aring;tt, &auml;r i princip utel&auml;mnade ur denna f&ouml;rsta version av systemet. Spr&aring;kbest&auml;mningen syftar till att best&auml;mma vilket spr&aring;k en text &auml;r skriven p&aring;, och f&ouml;rlitar sig idag p&aring; en extern k&auml;lla. Spr&aring;k finns med som ett attribut knutet till varje dokument; tillg&auml;ngligt f&ouml;r anv&auml;ndaren att inspektera, men utnyttjas ej i analysen. Analysen behandlar fortfarande dokument med annat spr&aring;k &auml;n engelska, men resultatet blir nedsatt. Det andra steget i analysen - grammatikm&aring;tt - g&ouml;r en grammatisk analys och m&auml;rker varje ord i texten med ett antal attribut. Grammatisk analys utel&auml;mnades av ekonomiska sk&auml;l: grammatikmodulen var f&ouml;r dyr att k&ouml;pa in. </p>
+
+
+
+<p>Analysen resulterar slutligen i ett fyrtiotal m&aring;tt f&ouml;r varje dokument (spr&aring;k och grammatik bortr&auml;knat). Dessa m&aring;tt &auml;r normaliserade b&aring;de med avseende p&aring; statistisk spridning och med avseende p&aring; dokumentens l&auml;ngd. M&aring;tten anv&auml;nds sedan som underlag f&ouml;r genretilldelningen.</p>
+
+
+
+
+
+<h4>2.4.2 HTML-m&aring;tt &auml;r stilm&aring;tt p&aring; HTML-strukturen</h4>
+
+
+
+<p>Strukturen p&aring; HTML-koden speglar ett HTML-dokuments form och i vissa fall dess funktion. Ur HTML-koden kan anv&auml;ndbar information utvinnas, t ex antal bilder i dokumentet och deras storlek och placering, antal referenser (l&auml;nkar), f&ouml;rekomst av interaktiva element etc. Exempel p&aring; HTML-m&aring;tt finner du i <a href="#tabell2">Tabell 2</a>.</p>
+
+
+
+<p>Att anv&auml;nda HTML-m&aring;tt som underlag f&ouml;r dokumentrepresentation och genreklassificering &auml;r en helt ny princip som inte pr&ouml;vats tidigare. HTML-m&aring;tten &auml;r nya och skapade av mig, och urvalet har gjorts i samarbete med Jussi Karlgren. Jag har haft ytterligare id&eacute;er om l&auml;mpliga m&aring;tt, men i denna f&ouml;rsta version av DropJaw n&ouml;jde jag mig med ett mindre antal. F&ouml;r en kort diskussion om framtida m&aring;tt se avsnitt 2.4.7. </p>
+
+
+
+<p>Dessutom kan en del av de grundl&auml;ggande HTML-m&aring;tten kombineras f&ouml;r olika syften. Till exempel kan man s&auml;tta samman ett m&aring;tt p&aring; HTML-kodens kvalitet f&ouml;r att p&aring; s&aring; s&auml;tt f&ouml;rs&ouml;ka uppt&auml;cka HTML-kod genererad av kommersiella HTML-redigerare, vilket kan t&auml;nkas vara en egenskap som bidrar till att identifiera vissa genrer.</p>
+
+
+
+
+
+<a name="tabell2"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=2 border=0 width="90%">
+
+<caption><b><i><font size="-1">Tabell 2: Exempel p&aring; stilm&aring;tt i som anv&auml;nds DropJaws analys.</font></i></b></caption>
+
+
+
+<tr>
+
+	<th align="center" valign="top" colspan=2 bgcolor="#EAEAEA">
+
+		<font size=2 face="Verdana, Arial, Ariel, Geneva">HTML-m&aring;tt</font></th></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">CACT</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Antal tecken per "aktivt" HTML-ord, tex &lt;embed&gt;,
+
+		&lt;script&gt; och &lt;applet&gt;.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">CMETA </font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Andel tecken i HTML-ord &lt;meta&gt;.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">CMNTS</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Antal kommentarer i HTML-koden. </font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">HREF</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Andel referenser: dvs antal &lt;a href=...&gt; / TAGS.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">IMG</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Andel bilder, dvs antal &lt;img&gt; / TAGS.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">PUBLWEB</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Antal f&ouml;rekomster av ord som t ex <i>webmaster, copyright</i> eller <i>feedback.</i></font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">TAGS</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">Totalt antal HTML-ord i texten.</font></td></tr>
+
+
+
+<tr>
+
+	<th align="center" valign="top" colspan=2 bgcolor="#EAEAEA">
+
+		<font size=2 face="Verdana, Arial, Ariel, Geneva">Lexikala m&aring;tt</font></th></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">PRON1</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		i, my, me, we, our, us, myself, ourselves, ours, mine</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">EMPHATICS</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">just, really, most, more</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">DOWNTONERS</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		almost, barely, hardly, merely, mildly, nearly, only, partially,
+
+		partly, practically, scarcely, slightly, somewhat</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">IT</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">It</font></td></tr>
+
+
+
+<tr>
+
+	<th align="center" valign="top" colspan=2 bgcolor="#EAEAEA">
+
+		<font size=2 face="Verdana, Arial, Ariel, Geneva">Generella textm&aring;tt</font></th></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">CPW</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Bokst&auml;ver per ord: antal bokst&auml;ver / antal ord.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">DIGS</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Andel r&auml;knetal: antal tal / antal ord.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">LW</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Andel l&aring;nga ord: ord l&auml;ngre &auml;n 7 bokst&auml;ver / antal ord.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">TT</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Ordrikedom (type-token ratio): antal ordtyper / antal ord.
+
+		H&ouml;g TT visar p&aring; dokument med varierad anv&auml;ndning av ord,
+
+		l&aring;g TT antyder att	det finns ord som upprepas.</font></td></tr>
+
+<tr>
+
+	<th align="left" valign="top"><font size=2 face="Verdana, Arial, Ariel, Geneva">WPS</font></th>
+
+	<td><font size=2 face="Verdana, Arial, Ariel, Geneva">
+
+		Ord per mening: antal ord / antal meningar.</font></td></tr>
+
+</table>
+
+</center>
+
+
+
+
+
+<p>N&auml;r HTML-m&aring;tten &auml;r r&auml;knade tas alla HTML-ord bort ur texten f&ouml;r att inte p&aring;verka efterkommande steg, och f&ouml;r att likst&auml;lla dokumentet med vanliga textdokument utan HTML-kod.</p>
+
+
+
+
+
+<h4>2.4.3 Lexikala och generella textm&aring;tt &auml;r stilm&aring;tt p&aring; texten</h4>
+
+
+
+<p>F&ouml;rutom HTML-m&aring;tten, som &auml;r nya och skapade speciellt f&ouml;r material fr&aring;n WWW, anv&auml;nder vi en m&auml;ngd lexikala m&aring;tt sprungna ur Bibers arbete [<a href="#ref_Biber_1989">Biber 1989</a>], samt ett andel generella textm&aring;tt. </p>
+
+
+
+<p>De lexikala m&aring;tten &auml;r ursprungligen anpassade f&ouml;r att vara l&auml;tta att r&auml;kna: de definieras som relativa frekvensen f&ouml;r vissa klasser av ord, t ex personliga pronomen, f&ouml;rst&auml;rkande eller nedtonande uttryck, eller f&ouml;rekomsten av enstaka ord, t ex <i>"it"</i> (<a href="#tabell2">Tabell 2</a>). De lexikala m&aring;tten &auml;r spr&aring;kberoende, men endast i "positiv" bem&auml;rkelse, dvs om en text &auml;r skriven i ett spr&aring;k som saknar motsvarighet i de lexikala m&aring;tten kommer algoritmerna fortfarande att fungera men de lexikala m&aring;tten ger inget bidrag.</p>
+
+
+
+<p>De generella textm&aring;tten &auml;r en m&auml;ngd m&aring;tt som kan ber&auml;knas f&ouml;r vilken text som helst, oavsett spr&aring;k eller typ av dokument. Exempel p&aring; generella textm&aring;tt &auml;r antal bokst&auml;ver per ord, ordrikedom/ordvariation eller andel l&aring;nga ord (<a href="#tabell2">Tabell 2</a>).</p>
+
+
+
+
+
+<h4>2.4.4 Operationalisering av data</h4>
+
+
+
+<blockquote><i>"...by 'operationalization' [we] mean to make data able to be processed mathematically" [<a href="#ref_Hagman_1994">Hagman 1994</a>]</i></blockquote>
+
+
+
+<p>Efter analysen finns data f&ouml;r dokumentet sammanst&auml;llt till ett material som &auml;r m&ouml;jligt att behandla maskinellt. Men trots att de enskilda v&auml;rdena &auml;r normaliserade till ett l&auml;mpligt intervall kan v&auml;rdenas spridning inom intervallet variera stort n&auml;r vi tittar p&aring; hela materialet; vissa v&auml;rden varierar inom hela intervallet, medan andra v&auml;rden varierar endast inom en liten del av intervallet. Detta kan kompenseras genom att transformera v&auml;rdena till <i>normaliserade avvikelser</i> eller <i>relativa v&auml;rden.</i> R&auml;kna ut avvikelsen fr&aring;n medelv&auml;rdet och normalisera med avseende p&aring; standardavvikelsen. Formeln f&ouml;r den normaliserade avvikelsen <i>(differens)</i> f&ouml;r den i:te variabeln hos ett dokument <i>d</i> i kategorin <i>k</i> blir mycket enkel: </p>
+
+
+
+
+
+<p><img src="equation1.gif" width=323 height=66 border=0 alt="Formel 1" align="absmiddle"><br clear=all>
+
+
+
+<p>V&auml;rden f&ouml;r  medelv&auml;rde och standardavvikelse finns i f&ouml;rv&auml;g utr&auml;knat f&ouml;r varje variabel och kategori i referensm&auml;ngden. </p>
+
+
+
+
+
+<h4>2.4.5 N&auml;r stilm&aring;tten appliceras p&aring; referensm&auml;ngden kan man f&aring; en visuell tolkning av hur stilm&aring;tten verkar</h4>
+
+
+
+<p>L&aring;t oss d&aring; &aring;terkalla lite av ovanst&aring;ende. Nu har vi ett testmaterial - en referensm&auml;ngd - som antas vara en bra representation av de dokument som kan v&auml;ntas komma in till systemet. Referensm&auml;ngden &auml;r uppdelad i kategorier enligt en genrekollektion som antas vara tillr&auml;ckligt generell och helt&auml;ckande, dvs rymma alla t&auml;nkbara dokument, och p&aring; samma g&aring;ng enkel att f&ouml;rst&aring;. Vidare kan vi f&ouml;r varje dokument unders&ouml;ka hur ett antal m&aring;tt avviker fr&aring;n normalv&auml;rden uppm&auml;tta i testmaterialet. Dessa m&aring;tt normaliseras dessutom med avseende p&aring; statistisk spridning i testmaterialet, vilket g&ouml;r att de varierar lika mycket inom samma intervall. M&aring;tten kan nu anv&auml;ndas f&ouml;r att best&auml;mma ett dokuments genre.</p>
+
+
+
+<p>N&auml;sta steg blir att kombinera dessa resurser. Vad blir resultatet n&auml;r vi anv&auml;nder stilm&aring;tten p&aring; dokumenten i referensm&auml;ngden? Med hj&auml;lp av statistikverktyg kan man f&ouml;r varje kategori i testmaterialet uppskatta hur de olika m&aring;tten fungerar, se <a href="#tabell3">Tabell 3</a>. Underlaget till tabellen baseras p&aring; samma referensm&auml;ngd som senare anv&auml;nds till inl&auml;rningen.</p>
+
+
+
+<p><a href="#tabell3">Tabell 3</a> &auml;r mycket l&auml;tt att l&auml;sa: Varje rad visar en kategori i referensm&auml;ngden, t ex "Informal, Private" eller "Errors". Varje kolumn motsvarar ett stilm&aring;tt. De f&auml;rgade rutorna visar hur m&aring;tten skiljer sig fr&aring;n normalv&auml;rdet med 95% statistisk signifikans. En ljusgr&aring; ruta med plustecken (t ex ADVSUB/Reports) anger att detta m&aring;tt &auml;r signifikant h&ouml;gt f&ouml;r denna kategori. P&aring; samma s&auml;tt visar en svart ruta med ett minustecken (t ex ADVSUB/Errors) att detta m&aring;tt &auml;r signifikant l&aring;gt f&ouml;r denna kategori. D&auml;r det inte finns n&aring;gon f&auml;rg- och teckenmarkering saknas statistisk signifikans - m&aring;ttet bidrar inte med information om denna kategori.</p>
+
+
+
+<a name="tabell3"></a>
+
+<center>
+
+<a href="table3_big.gif" target="other_window"><img src="table3.gif" width=550 height=199 border=0 alt="Tabell 3: Visualisering av hur alla m&aring;tt samverkar"></a><br clear="all">
+
+<p><b><i><font size="-1">Tabell 3: Visualisering av hur alla m&aring;tt samverkar till att skapa en unik profil f&ouml;r varje genre. H&auml;r visas resultatet av stilm&aring;tten som beskrivs i 2.4.2 och 2.4.3 applicerade p&aring; sj&auml;lva referensm&auml;ngden.<br>
+
+Se &auml;ven <a href="table3_big.gif" target="other_window">tabell i full skala</a> (15kB).</font></i></b></p>
+
+</center>
+
+
+
+<p>I <a href="#tabell3">Tabell 3</a> kan man l&auml;tt se att "Errors" &auml;r en kategori som skiljer sig mycket fr&aring;n de andra genom att den har negativt v&auml;rde p&aring; n&auml;stan alla m&aring;tt, n&aring;got som f&aring; andra kategorier kommer i n&auml;rheten av. Dessutom visar det sig att IMGCOM, ett m&aring;tt som letar reklambilder (eng banners) verkar vara indikativt f&ouml;r dokument i genren "Interactive Pages". Intressant &auml;r att HTML-m&aring;tten f&ouml;r kommentarer och s&aring; kallade &lt;meta&gt;-ord (CMETA) och kommentarer (CMNTS) h&ouml;ga i "Public, Commercial", men l&aring;ga i "Reports", "Discussions" och "Errors". Ett annat intressant exempel &auml;r m&aring;ttet f&ouml;r HTML-formul&auml;r (FORMS) som &auml;r signifikant h&ouml;gt i "Interactive Pages" d&auml;r vi v&auml;ntar oss att finna formul&auml;r f&ouml;r &aring;terkoppling via WWW. </p>
+
+
+
+<p>Intressanta indikationer och m&ouml;nster kan man hitta hur m&aring;nga som helst, men f&ouml;r att vara anv&auml;ndbara vid automatisk genreklassificering m&aring;ste kunskapen transformeras till n&aring;got som g&aring;r att anv&auml;nda i programmets algoritmer. Det &auml;r d&aring; maskininl&auml;rning kommer till nytta.</p>
+
+
+
+
+
+<h4>2.4.6 Maskininl&auml;rning bygger upp en kunskapsbas att anv&auml;ndas i de implementerade algoritmerna</h4>
+
+
+
+<blockquote><i>"Because machine learning can transform training data into knowledge, it holds the potential for automating the process of knowledge acquisition" [<a href="#ref_Langley_1995">Langley 1995</a>].</i></blockquote>
+
+
+
+<p>N&auml;r vi anv&auml;nder maskininl&auml;rningsmetoder i DropJaw &auml;r syftet att utifr&aring;n referensm&auml;ngden skapa en kunskapsbas som ligger till grund vid klassificering av nya ok&auml;nda dokument. Tidigare arbeten med genreklassificering har anv&auml;nt statistiska metoder f&ouml;r att skapa ett antal funktioner till klassificeringen [<a href="#ref_Karlgren_Cutting_1994">Karlgren & Cutting 1994</a>]. I det h&auml;r projektet provade vi en annan metod: ett klassificeringsverktyg, C4.5 [<a href="#ref_Quinlan_1993">Quinlan 1993</a>], som skapar ett beslutstr&auml;d inneh&aring;llande ett antal klassificeringsregler av typen if-then-else (<a href="#figur10">Figur 10</a>).</p>
+
+
+
+<p>Vi anv&auml;nder knappt fyrtio regler till att klassificera dokumenten till en genre i genrekollektionen. Genrerna har med syfte att h&ouml;ja precisionen delats upp i tv&aring; &ouml;vergripande hyperkategorier: <i>"Textual"</i> med genrerna "Journalistic material", "Reports", "Other texts", "FAQs" och "Discussions"; <i>"Non-textual"</i> med genrerna "Informal, Private", "Public, Commercial", "Interactive Pages", "Link Collections", "Listings, Tables" och "Error Messages". Orsaken till uppdelningen kan man l&auml;tt se f&ouml;r blotta &ouml;gat i <a href="#tabell3">Tabell 3</a> d&auml;r man urskiljer en rand l&auml;ngs genrerna "Journalistic material" till och med "FAQs". Denna rand l&ouml;per l&auml;ngs de flesta m&aring;tt och visar att genrerna i hyperkategorin "Textual" inneh&aring;ller dokument med mycket text. &Aring; andra sidan inneh&aring;ller genrerna i hyperkategorin "Non-textual" dokument med mycket HTML-kod. Uppdelningen i hyperkategorier anv&auml;nds endast internt av genreklassificeringsmodulen; motsvarande uppdelning visas inte i gr&auml;nssnittet.</p>
+
+
+
+<a name="figur10"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=8 border=1 width="90%"><tr>
+
+<td bgcolor="#EAEAEA">
+
+<tt><i>Om</i><br>
+
+- det finns mer "because" &auml;n i medel,<br>
+
+- l&auml;ngre ord &auml;n i medel,<br>
+
+- ordrikedomen (type-token ratio) &auml;r h&ouml;gre &auml;n medel,<br>
+
+<i>s&aring;</i><br>
+
+- dokumentet tillh&ouml;r klassen "Textual"<br>
+
+<i>med</i><br>
+
+- 90% s&auml;kerhet.</tt>
+
+</td></tr></table>
+
+<p><b><i><font size="-1">Figur 10: Exempel p&aring; DropJaws klassificeringsregler.</font></i></b></p>
+
+</center>
+
+
+
+<p>Genom att k&ouml;ra dokumenten i referensm&auml;ngden genom klassificeringsreglerna kan man f&aring; en uppfattning om hur bra reglerna fungerar. Den &ouml;vergripande tilldelningen till hyperkategorier fungerar tillfredsst&auml;llande med en tr&auml;ffs&auml;kerhet p&aring; 90%. Tilldelningen inom respektive hyperkategori fungerar med varierande framg&aring;ng: dessa regler prickar r&auml;tt genre med 25-30% s&auml;kerhet.</p>
+
+
+
+<p>Dokument p&aring; annat spr&aring;k &auml;n engelska f&ouml;rv&auml;ntas ge s&auml;mre resultat, fr&auml;mst inom den textbaserade hyperkategorin eftersom den &auml;r den mest spr&aring;kberoende. Den andra hyperkategorin f&ouml;rlitar sig till st&ouml;rre del p&aring; HTML-m&aring;tt och p&aring;verkas d&auml;rf&ouml;r mindre av sj&auml;lva spr&aring;ket, men det &aring;terst&aring;r att verifiera.</p>
+
+
+
+
+
+<h4>2.4.7 Hur genreklassificeringen kan f&ouml;rb&auml;ttras</h4>
+
+
+
+<p>Precisionen kan f&ouml;rb&auml;ttras avsev&auml;rt med fler och b&auml;ttre stilm&aring;tt och en b&auml;ttre upps&auml;ttning genrer. Grammatikm&aring;tten som utgick borde fr&auml;mst ge bidrag till hyperkategorin "Textual", medan fler HTML-m&aring;tt troligtvis lyfter precisionen i hyperkategorin "Non-textual".</p>
+
+
+
+<p>Dessutom spelar tr&auml;ningsunderlaget f&ouml;r maskininl&auml;rningen stor roll: kvalit&eacute;n p&aring; referensm&auml;ngden ger direkt utslag i klassificeringens precision. St&ouml;rre referensm&auml;ngd, konsekvent kategoriserad och indelad i tr&auml;ningsdata och kontrolldata f&ouml;r att verifiera precisionen, borde vara gynnsamt f&ouml;r resultatet.</p>
+
+
+
+<p>En typ av m&aring;tt som skulle vara roliga att testa &auml;r metam&aring;tt p&aring; HTML-m&aring;tten. De vanliga enkla HTML-m&aring;tten vi m&auml;ter idag kan till exempel m&auml;ta <i>andel l&auml;nkar</i> (HTML-referenser) i ett dokument men s&auml;ger inget om <i>l&auml;nkarnas f&ouml;rdelning</i> inom dokumentet. Till exempel skulle man kunna r&auml;kna antal l&auml;nkar per rad och anv&auml;nda standardavvikelsen som metam&aring;tt f&ouml;r att f&ouml;rs&ouml;ka identifiera l&auml;nksamlingar ("Link Collections"), vilka borde ha h&ouml;g andel l&auml;nkar i kombination med l&aring;g standardavvikelse. </p>
+
+
+
+<p>Att skilja p&aring; interna och externa l&auml;nkar kan vara ett intressant m&aring;tt i sig, men kombinerat med ett spridningsm&aring;tt f&ouml;r l&auml;nkarna blir det speciellt intressant. P&aring; s&aring; s&auml;tt skulle man kunna identifiera dokument med inneh&aring;llsf&ouml;rteckning i b&ouml;rjan med l&auml;nkar till ankare i texten. </p>
+
+
+
+<p>Det finns egenskaper i samspelet mellan dokument och genrekollektion som vi inte tar h&auml;nsyn till idag, bland annat m&ouml;jligheten att ett dokument kan tillh&ouml;ra flera genrer samtidigt. Om vi till&aring;ter att dokument samtidigt placeras i flera genrer kan den <i>upplevda precisionen</i> h&ouml;jas eftersom tolkningen av dokumenttyp &auml;r subjektiv. &Auml;ven h&auml;r borde metam&aring;tt kunna hj&auml;lpa oss att identifiera dokument som tillh&ouml;r flera genrer.</p>
+
+
+
+
+
+<!-- ------ Kapitel 3 ----------------------------------------------- -->
+
+
+
+<h2><a name="3"><br>3 &Auml;mnesbaserad klustring</a></h2>
+
+
+
+<p>Detta kapitel behandlar de metoder jag har anv&auml;nt f&ouml;r att skapa en &auml;mnesbaserad struktur bland dokumenten. F&ouml;rst en mycket kort genomg&aring;ng av vad klustring g&aring;r ut p&aring;, samt hur klustring anv&auml;nds i DropJaw. D&auml;refter kommer en f&ouml;rdjupning i vilka metoder jag har valt att anv&auml;nda, hur jag m&auml;ter dokumentens likhet, samt en genomg&aring;ng av algoritmerna. Kapitlet avslutas med ett avsnitt om hur beskrivande nyckelord v&auml;ljs ut.</p>
+
+
+
+
+
+<a name="3.1"><h3>3.1 Klustringsmetoder s&ouml;ker naturliga grupperingar</h3></a>
+
+
+
+<p>Syftet med klustringsmetoder &auml;r att finna <i>naturliga grupperingar</i> bland en upps&auml;ttning element, till exempel bland punkter, individer eller som i v&aring;rt fall dokument. Begreppet naturlig gruppering &auml;r sv&aring;rt att s&auml;tta fingret p&aring; eftersom det fr&auml;mst &auml;r en intuitiv uppfattning. I en bild &auml;r det l&auml;tt att se eventuella grupperingar: omr&aring;den d&auml;r elementen ligger t&auml;tt, omgivet av omr&aring;den med glest mellan elementen. N&auml;r man f&ouml;rdjupar sig blir fr&aring;gan n&auml;stan av filosofisk karakt&auml;r, s&aring; jag n&ouml;jer mig med att beskriva kluster p&aring; f&ouml;ljande enkla och intuitiva s&auml;tt: </p>
+
+
+
+<ul>
+
+	<li>Element i ett och samma kluster skall uppvisa <i>s&aring; stor likhet som
+
+		m&ouml;jligt,</i> det vill s&auml;ga dokumenten i ett kluster b&ouml;r ligga n&auml;ra varandra. 
+
+	<li>Element i olika kluster skall uppvisa s&aring; stor olikhet som m&ouml;jligt, det
+
+		vill s&auml;ga olika kluster b&ouml;r ligga l&aring;ngt ifr&aring;n varandra.
+
+</ul>
+
+
+
+<p>Sedan mitten av sjuttiotalet har datorst&ouml;dda klustringsmetoder anv&auml;nts i s&aring; vitt skilda omr&aring;den som biologi, sociologi, lingvistik och informationss&ouml;kning [<a href="#ref_El-Khouri_1991">El-Khouri 1991</a>]. De vanligast f&ouml;rekommande metoderna delar upp elementm&auml;ngden i disjunkta delm&auml;ngder - inget element f&aring;r tillh&ouml;ra mer &auml;n en delm&auml;ngd - men det existerar &auml;ven metoder som till&aring;ter element att tillh&ouml;ra fler delm&auml;ngder samtidigt [<a href="#ref_Miyamoto_1989">Miyamoto 1989</a>].</p>
+
+
+
+<p>F&ouml;r en mer utf&ouml;rlig diskussion om definitionen av kluster, och f&ouml;r en genomg&aring;ng av grundl&auml;ggande klustringsmetoder, h&auml;nvisar jag till Jain & Dubes [<a href="#ref_Jain_Dubes_1988">Jain & Dubes 1988</a>]. </p>
+
+
+
+
+
+<h4>3.1.1 Klustring bidrar med &auml;mnesgrupperingar till strukturen i gr&auml;nssnittet </h4>
+
+
+
+<p>Klustringsmetoder arbetar utifr&aring;n en m&auml;ngd element helt utan kunskap om vad m&auml;ngden inneh&aring;ller. F&ouml;r att kunna j&auml;mf&ouml;ra element i m&auml;ngden kr&auml;vs ett m&aring;tt p&aring; elementens inb&ouml;rdes likhet, eller n&auml;rhet. Eftersom metoderna anv&auml;nder <i>likhetsm&aring;ttet</i> som enda kriterium kan klusterstrukturen byggas upp oberoende av vilka element som finns i elementm&auml;ngden. </p>
+
+
+
+<p>Denna egenskap hos klustringsmetoder g&ouml;r att de passar bra f&ouml;r &auml;mnesgruppering i DropJaw eftersom det inte p&aring; f&ouml;rhand g&aring;r att tala om vilka dokument som kommer som resultat fr&aring;n en s&ouml;kning. Vi vill skapa grupperingar baserade p&aring; dokumentens &auml;mne, det vill s&auml;ga grupper av dokument som handlar om samma sak, och d&auml;rf&ouml;r anv&auml;nds ett likhetsm&aring;tt som baserar sig p&aring; dokumentens ordinneh&aring;ll. </p>
+
+
+
+<p>F&ouml;r att anv&auml;ndaren skall kunna dra nytta av de strukturer som klustringsmetoderna bygger upp m&aring;ste klustrens inneh&aring;ll beskrivas p&aring; n&aring;got s&auml;tt som &auml;r l&auml;tt att f&ouml;rst&aring;. I DropJaw anv&auml;nds ett antal nyckelord som speglar vad ett typiskt dokument ur klustret kan handla om. Motsvarande teknik har tidigare anv&auml;nts av Cutting et al. [<a href="#ref_Cutting_Karger_Pedersen_Tukey_1992">Cutting et al. 1992</a>]. </p>
+
+
+
+<p>&Auml;mnesgrupperingarna visas i gr&auml;nssnittet som rader med nyckelorden l&auml;ngst till v&auml;nster.</p>
+
+
+
+
+
+<a name="3.2"><h3>3.2 Klustring i DropJaw - fokus p&aring; snabb bearbetning</h3></a>
+
+
+
+<p>Bra klustring kostar b&aring;de tid och processorkraft - det har vi inte r&aring;d med i DropJaw, och d&auml;rf&ouml;r m&aring;ste metoderna f&ouml;renklas f&ouml;r att passa gr&auml;nssnittets krav p&aring; snabbhet. B&auml;ttre snabbt &auml;n r&auml;tt.</p>
+
+
+
+<p>De flesta klustringsalgoritmer f&ouml;ruts&auml;tter att hela dokumentm&auml;ngden finns tillg&auml;nglig n&auml;r algoritmen startas, men eftersom DropJaw arbetar med Internet som databas och sj&auml;lva s&ouml;ktj&auml;nsten ligger utanf&ouml;r DropJaw kan den f&ouml;ruts&auml;ttningen inte uppfyllas. Gr&auml;nssnittets h&ouml;ga krav p&aring; interaktivitet g&ouml;r att det &auml;r om&ouml;jligt att v&auml;nta p&aring; att alla dokument fr&aring;n en s&ouml;kning anl&auml;nder innan klustringsalgoritmen startas. Det beh&ouml;vs en klustringsalgoritm som snabbt kommer ig&aring;ng och levererar ett antal kluster till gr&auml;nssnittet; n&auml;r sedan dokumenten anl&auml;nder ett efter ett ut&ouml;kas de befintliga klustren efter hand. </p>
+
+
+
+<p>Teknik f&ouml;r att utf&ouml;ra snabb klustring i rektangul&auml;r tid, <i>O(kn),</i> har utvecklats tidigare av gruppen bakom Scatter/Gather [<a href="#ref_Cutting_Karger_Pedersen_Tukey_1992">Cutting et al. 1992</a>]. DropJaw anv&auml;nder samma tillv&auml;gag&aring;ngss&auml;tt och liknande typ av algoritmer eftersom tekniken &auml;r etablerad och relativt l&auml;tt att implementera. F&ouml;renklingar och anpassningar till aktuella f&ouml;rh&aring;llanden f&ouml;rekommer, men p&aring; det stora hela &auml;r det samma teknik.</p>
+
+
+
+<p>Den snabba klustringen i DropJaw utf&ouml;rs i tv&aring; steg:</p>
+
+
+
+<ol>
+
+	<li><i>Initial klustring:</i> I en f&ouml;rsta m&auml;ngd av <i>n</i> dokument hittas <i>k</i>
+
+		stycken centrumpunkter. Dessa centrumpunkter fungerar som
+
+		initiala kluster i n&auml;sta steg. Centrumpunkterna hittas med
+
+		en standardalgoritm som har <nobr><i>O(n<sup>2</sup>)</i></nobr> komplexitet, men eftersom
+
+		n s&auml;tts till ett begr&auml;nsat v&auml;rde kommer &auml;ven komplexiteten
+
+		att h&aring;llas begr&auml;nsad.
+
+	<li><i>L&ouml;pande klustring:</i> Tilldela varje dokument till det kluster vars
+
+		centrumpunkt ligger n&auml;rmast. Detta steg &auml;r inte beroende av att
+
+		dokumentm&auml;ngden &auml;r komplett, och kan d&auml;rf&ouml;r anv&auml;ndas inkrementellt -
+
+		varje dokument behandlas i tur och ordning.
+
+</ol>
+
+
+
+<p>P&aring; detta s&auml;tt kan gr&auml;nssnittets krav uppfyllas: s&aring; fort den initiala klustringen &auml;r avklarad kan gr&auml;nssnittet visa ett antal &auml;mnesgrupperingar. Dessa grupperingar fylls sedan p&aring; under den l&ouml;pande klustringen. Resultatet av den h&auml;r typen av snabb klustring blir inte lika bra som f&ouml;r vanliga klustringsmetoder d&auml;r det finns resurser att anv&auml;nda mer komplexa algoritmer.</p>
+
+
+
+<p>Vi har arbetat med antagandet att det &auml;r l&auml;mpligt med h&ouml;gst fem kluster i gr&auml;nssnittet [<a href="#ref_Hearst_Pedersen_1996">Hearst & Pedersen 1996</a>]. Detta har &auml;ven visat sig vara till f&ouml;rdel f&ouml;r klustringsalgoritmerna: antal kluster <i>(k)</i> &auml;r en faktor som p&aring;verkar s&aring;v&auml;l komplexiteten i gr&auml;nssnittet som komplexiteten i den initiala klustringen. Fem kluster &auml;r lagom. F&ouml;r f&aring; och f&ouml;r stora kluster ger inte den precision som &ouml;nskas; varje kluster kommer att inneh&aring;lla dokument av helt skilda inneh&aring;ll. &Aring; andra sidan &auml;r det lika illa med f&ouml;r m&aring;nga kluster; de blir sv&aring;ra att &ouml;verblicka samtidigt som den initiala klustringen tar l&auml;ngre tid att utf&ouml;ra.</p>
+
+
+
+
+
+<h4>3.2.1 Likhetsm&aring;ttet anv&auml;nds f&ouml;r att j&auml;mf&ouml;ra dokument</h4>
+
+
+
+<p>De flesta klustringsmetoder baseras p&aring; en bin&auml;r relation mellan elementen. Med detta m&aring;tt som bas konstruerar algoritmerna ett system av kluster [<a href="#ref_VanRijsbergen_1979">van Rijsbergen 1979</a>]. Den bin&auml;ra relationen beskrivs omv&auml;xlande som "likhet/olikhet", "grad av association" eller som "avst&aring;nd/n&auml;rhet". Ett s&aring;dant m&aring;tt beh&ouml;vs &auml;ven till DropJaws klustringsmetoder, och lyckligtvis finns det n&auml;ra till hands.</p>
+
+
+
+<p>N&aring;gra av de mest framg&aring;ngsrika och v&auml;l utprovade metoderna inom informationss&ouml;kning &auml;r de termfrekvensbaserade metoderna under samlingsnamnet <i>tf <font size="-1" face="Arial, Helvetica">x</font> idf</i> (Term Frequency  <font size="-1" face="Arial, Helvetica">x</font> Inversed Document Frequency). Dessa metoder baserar sig p&aring; antagandet att frekvensen &auml;r ett bra m&aring;tt p&aring; hur viktig en term &auml;r - termer med varken f&ouml;r h&ouml;g eller f&ouml;r l&aring;g frekvens &auml;r l&auml;mpade att representera dokumentets inneh&aring;ll. Detta antagande gjordes ursprungligen 1957 av Hans Peter Luhn [<a href="#ref_Luhn_1957">Luhn 1957</a>]. </p>
+
+
+
+<p>F&ouml;r att kunna j&auml;mf&ouml;ra dokument m&aring;ste dokumentet ges en reducerad representation som p&aring; n&aring;got s&auml;tt &aring;terspeglar dokumentets inneh&aring;ll. Termfrekvensmetoderna anv&auml;nder en <i>termvektor</i> - en vektor d&auml;r varje term som f&ouml;rekommer i dokumentet finns representerad med en position i vektorn [<a href="#ref_Salton_Buckley_1988">Salton & Buckley 1988</a>]. Det handlar helt enkelt om att r&auml;kna hur m&aring;nga g&aring;nger varje term/ord f&ouml;rekommer i texten, s&aring; kallad <i>TF</i> (Term Frequency). Ord som har h&ouml;g frekvens men inte &auml;r relevanta f&ouml;r &auml;mnet (t ex jag, det, och, men) filtreras bort, vanligtvis med hj&auml;lp av listor p&aring; icke &ouml;nskv&auml;rda ord. Resultatet blir en vektor <i>{<nobr>t<sub>1</sub>,</nobr> <nobr>t<sub>2</sub>,</nobr> <nobr>t<sub>3</sub>,</nobr> ...}</i> d&auml;r varje position motsvarar en term som &auml;r relevant f&ouml;r inneh&aring;llet, och varje v&auml;rde anger antal g&aring;nger motsvarande term f&ouml;rekommer i dokumentet.</p>
+
+
+
+<p>Termer som &auml;r vanliga i ett dokument men ocks&aring; vanliga i alla andra dokument &auml;r inte s&aring; anv&auml;ndbara f&ouml;r att beskriva ett dokument. Man beh&ouml;ver ett s&auml;tt att urskilja de termer som &auml;r <i>speciellt utm&auml;rkande</i> f&ouml;r ett dokument. Genom att f&ouml;r varje term <i>i</i> r&auml;kna det antal dokument d&auml;r term <i>i</i> f&ouml;rekommer f&aring;s ett m&aring;tt f&ouml;r dokumentfrekvensen f&ouml;r term <i>i</i>, kallat <i>d<sub>i</sub></i>. Kvoten <i>N/d<sub>i</sub></i> av antal dokument <i>N</i> och dokumentfrekvensen <i>d<sub>i</sub></i> bildar ett m&aring;tt som ger h&ouml;gt v&auml;rde till termer som endast f&ouml;rekommer i f&aring; dokument. Detta m&aring;tt kallas <i>IDF</i> (Inversed Document Frequency). IDF anv&auml;nds som vikt till varje term; resultatet blir en viktad vektor <i>{<nobr>w<sub>1</sub>,</nobr> <nobr>w<sub>2</sub>,</nobr> <nobr>w<sub>3</sub>,</nobr> ...}.</i> Tyv&auml;rr bygger IDF p&aring; ett antagande om att antal dokument, <i>N,</i> &auml;r k&auml;nt i f&ouml;rv&auml;g. Det st&auml;ller till problem eftersom vi anv&auml;nder Internet som databas och d&auml;rf&ouml;r inte kan best&auml;mma antal dokument innan alla dokument &auml;r h&auml;mtade, vilket kan ta oacceptabelt l&aring;ng tid. Detta behandlas mer utf&ouml;rligt nedan (se <a href="#3.2.2">avsnitt 3.2.2</a>).</p>
+
+
+
+<p>Givet att dokumentens inneh&aring;ll representeras av termvektorer kan ett likhetsm&aring;tt f&ouml;r dokumenten skapas genom att j&auml;mf&ouml;ra termvektorerna med varandra, vilket &auml;r enkelt att g&ouml;ra med vanlig vektorprodukt. Graden av likhet mellan dokumenten <i>D<sub>q</sub></i> och <i>D<sub>p</sub></i> kan l&auml;tt beskrivas med:</p>
+
+
+
+<p><img src="equation2.gif" width=241 height=58 border=0 alt="Formel 2"></p>
+
+
+
+<p>Det finns ytterligare en faktor man beh&ouml;ver ta h&auml;nsyn till: dokumentens l&auml;ngd. L&aring;nga dokument ger h&ouml;ga v&auml;rden i termvektorn eftersom termerna f&ouml;rekommer m&aring;nga g&aring;nger. H&auml;r f&ouml;rv&auml;ntas dokumentens l&auml;ngd variera stort, d&auml;rf&ouml;r m&aring;ste termvektorerna normaliseras f&ouml;r att vara j&auml;mf&ouml;rbara. Salton f&ouml;resl&aring;r s&aring; kallad cosinusnormalisering, d&auml;r varje vikt i termvektorn bildar kvoten med hela vektorns euklidiska l&auml;ngd [<a href="#ref_Salton_Buckley_1988">Salton & Buckley 1988</a>]. L&auml;ngdnormaliseringen f&ouml;r en vikt <i>w<sub>i</sub></i> ges av:</p>
+
+
+
+<p><img src="equation3.gif" width=137 height=71 border=0 alt="Formel 3"></p>
+
+
+
+<p>S&auml;tter man in (2) i (1) erh&aring;ller man den v&auml;lk&auml;nda formeln f&ouml;r cosinuskoefficienten. Den kan direkt anv&auml;ndas som likhetsm&aring;tt; den geometriska tolkningen bottnar i vinklar mellan vektorer [<a href="#ref_Nicholson_1990">Nicholson 1990</a>]. Detta m&aring;tt anv&auml;nds f&ouml;r dokumentj&auml;mf&ouml;relser i DropJaw:</p>
+
+
+
+<p><img src="equation4.gif" width=350 height=119 border=0 alt="Formel 4"></p>
+
+
+
+<p>M&aring;tt som liknar detta har tidigare anv&auml;nts i system f&ouml;r informationss&ouml;kning, till exempel SMART [<a href="#ref_Salton_McGill_1983">Salton & McGill 1983</a>]. </p>
+
+
+
+
+
+<a name="3.2.2"><h4>3.2.2 Dynamiska dokumentm&auml;ngder kan skapa problem</h4></a>
+
+
+
+<p>Som tidigare n&auml;mnts finns en sv&aring;righet med att anv&auml;nda Internet som databas: det g&aring;r inte p&aring; f&ouml;rhand att tala om hur m&aring;nga dokument som kommer att h&auml;mtas. En s&ouml;kning kan resultera i tio eller tiotusen dokument, och f&ouml;r varje dokument &auml;r det os&auml;kert om det kan h&auml;mtas utan problem. Samtidigt st&auml;ller gr&auml;nssnittet s&aring;dana krav att det inte g&aring;r att v&auml;nta tills alla dokument har h&auml;mtats.</p>
+
+
+
+<p>DropJaw hanterar dynamiska dokumentm&auml;ngder med en enkel men praktisk l&ouml;sning: termvektorn till&aring;ts v&auml;xa dynamiskt n&auml;r nya dokument anl&auml;nder till systemet. Tidiga dokument har mycket korta termvektorer, sena dokument kan ha mycket l&aring;nga termvektorer. Vid j&auml;mf&ouml;relse mellan dokumenten f&ouml;rl&auml;ngs den kortaste termvektorn med nollv&auml;rden, s&aring; att det g&aring;r att j&auml;mf&ouml;ra dem med hj&auml;lp av likhetsm&aring;ttet. </p>
+
+
+
+<p>Dynamiska dokumentm&auml;ngder st&auml;ller till ytterligare knepigheter vid ber&auml;kningen av dokumentfrekvensen, IDF. Dokumentfrekvensen baseras p&aring; totalt antal dokument vilket &auml;r om&ouml;jligt att f&ouml;ruts&auml;ga innan samtliga dokument &auml;r h&auml;mtade. Jag tar till ett knep f&ouml;r att hantera detta: f&ouml;rutsatt att antalet dokument h&aring;lls konstant under hela j&auml;mf&ouml;relsen kan IDF ber&auml;knas l&ouml;pande vid varje j&auml;mf&ouml;relse. F&ouml;r att lyckas med detta m&aring;ste jag ta ett steg tillbaka f&ouml;rbi den viktade termvektorn: separera termvektorn s&aring; att den best&aring;r av sina tv&aring; ursprungliga delar termfrekvens (TF) och dokumentfrekvens (IDF). Ber&auml;kna sedan IDF baserat p&aring; antal dokument <i>vid tiden f&ouml;r j&auml;mf&ouml;relsen</i> och anv&auml;nd detta tillf&auml;lliga v&auml;rde som vikt wi i likhetsm&aring;ttet. P&aring; s&aring; s&auml;tt kan jag anv&auml;nda IDF &auml;ven kombinerat med dynamiska dokumentm&auml;ngder.</p>
+
+
+
+
+
+<h4>3.2.3 Initial hierarkisk klustring skapar de f&ouml;rsta &auml;mnesgrupperingarna</h4>
+
+
+
+<p>Till den initiala klustringen anv&auml;nder DropJaw en av de vanligaste klustringsalgoritmerna, s&aring; kallad hierarkisk, agglomerativ klustring. Denna typ av klustring strukturerar elementen till en n&auml;stlad struktur av kluster [<a href="#ref_Jain_Dubes_1988">Jain & Dubes 1988</a>]. Algoritmen avbryts n&auml;r det &aring;terst&aring;r <i>k</i> stycken kluster; denna variabel kan st&auml;llas fr&aring;n gr&auml;nssnittet i intervallet 3-10.</p>
+
+
+
+<p>En f&ouml;rdel med hierarkisk agglomerativ klustring &auml;r att den &auml;r mycket enkel att implementera med hj&auml;lp av matriser. S&auml;rskilt central &auml;r n&auml;rhetsmatrisen (eng proximity matrix) d&auml;r likheten mellan varje element listas. Samtidigt visar n&auml;rhetsmatrisen p&aring; orsaken till den hierarkiska klustringens d&aring;liga tidsegenskaper - n&auml;r varje element m&aring;ste j&auml;mf&ouml;ras med varje annat element blir tidskomplexiteten ofr&aring;nkomligen <nobr><i>O(n<sup>2</sup>).</i></nobr></p>
+
+
+
+<p>Tidskomplexiteten spelar inte s&aring; stor roll eftersom denna initiala klustring inte arbetar med hela dokumentm&auml;ngden utan endast med en liten fast delm&auml;ngd p&aring; n&aring;got tjugotal dokument. Men denna f&ouml;rsta delm&auml;ngd ger i sin tur upphov till vissa sv&aring;righeter. Jag tvingas till ett obekv&auml;mt antagande, n&auml;mligen att <i>de f&ouml;rsta dokumenten som anl&auml;nder till DropJaw &auml;r representativa f&ouml;r hela dokumentm&auml;ngden.</i> Detta antagande &auml;r med st&ouml;rsta sannolikhet &auml;r alltf&ouml;r optimistiskt, men det &auml;r n&ouml;dv&auml;ndigt eftersom gr&auml;nssnittet st&auml;ller h&ouml;gre krav p&aring; snabbhet &auml;n precision.</p>
+
+
+
+<p>Denna typ av agglomerativa klustringsmetoder beh&ouml;ver ett kriterium f&ouml;r att best&auml;mma vilka kluster som skall sl&aring;s ihop n&auml;r man bildar st&ouml;rre partitioner. Vanliga metoder h&auml;mtade fr&aring;n grafteorin &auml;r s&aring; kallad enkell&auml;nkning (eng single-link) och komplett l&auml;nkning (eng complete-link) [<a href="#ref_Jain_Dubes_1988">Jain & Dubes 1988</a>]. B&aring;da dessa metoder bygger p&aring; att klusterstrukturen &auml;r representerad som en matris d&auml;r varje element finns representerat. I DropJaw har jag valt att l&aring;ta de f&auml;rdiga klustren representeras endast av sin <i>centroid,</i> medelv&auml;rdet av alla ing&aring;ende dokument, f&ouml;r att slippa spara referenser till samtliga dokumentrepresentationer. Centroiden motsvaras av ett typdokument, representativt f&ouml;r alla dokument som ing&aring;r i klustret. L&ouml;sningen med centroiden l&auml;mpar sig dock varken f&ouml;r enkell&auml;nkning eller komplett l&auml;nkning; effektivaste l&ouml;sningen kallas centroidmetoden och betecknas UPGMC i [<a href="#ref_Jain_Dubes_1988">Jain & Dubes 1988</a>].</p>
+
+
+
+<p>Trots den uppenbart effektiva l&ouml;sningen gjorde jag ett f&ouml;rs&ouml;k att j&auml;mf&ouml;ra UPGMC med enkell&auml;nkning. Minneskraven blev lite st&ouml;rre f&ouml;r enkell&auml;nkning men inga uppenbara skillnader i prestanda kunde uppt&auml;ckas; varken tiden eller precisionen f&ouml;rb&auml;ttrades n&auml;mnv&auml;rt. Detta beror fr&auml;mst p&aring; att startm&auml;ngden dokument &auml;r f&ouml;r liten f&ouml;r att kunna uppt&auml;cka skillnader i precision, samt att st&ouml;rsta delen av tiden f&ouml;rbrukas i likhetsm&aring;ttet vilket &auml;r lika f&ouml;r b&aring;da alternativen.</p>
+
+
+
+
+
+<h4>3.2.4 L&ouml;pande klustring grupperar de efterf&ouml;ljande dokumenten</h4>
+
+
+
+<p>Den l&ouml;pande klustringen bygger vidare p&aring; de kluster som skapats av den initiala klustringen. Varje inkommande dokument j&auml;mf&ouml;rs med redan existerande kluster och l&auml;ggs till det kluster d&auml;r dokumentet passar b&auml;st, dvs det kluster vars centroid ligger n&auml;rmast dokumentets centroid. Cutting et al. [<a href="#ref_Cutting_Karger_Pedersen_Tukey_1992">Cutting et al. 1992</a>] har kallat metoden f&ouml;r "Assign-to-Nearest". Metoden &auml;r inkrementell, den behandlar nya dokument alltefter de anl&auml;nder. Dessutom j&auml;mf&ouml;rs varje dokument endast med ett fixt antal centroider; metoden blir d&auml;rf&ouml;r relativt billig med sin linj&auml;ra komplexitet. </p>
+
+
+
+<p>F&ouml;r j&auml;mf&ouml;relser mellan dokument och kluster anv&auml;nds samma likhetsm&aring;tt som tidigare beskrivits. Detta m&ouml;jligg&ouml;rs av att klustrets centroid best&aring;r av ett typdokument - j&auml;mf&ouml;relser mellan kluster och dokument reduceras till att bli vanliga dokumentj&auml;mf&ouml;relser. Att endast anv&auml;nda centroider f&ouml;r att representera kluster ger dock vissa nackdelar:</p>
+
+
+
+<ol>
+
+	<li>I DropJaw uppdateras centroiden varje g&aring;ng ett dokument l&auml;ggs
+
+		till ett kluster. Detta kan ge upphov till att klustrets centroid
+
+		vandrar, och i f&ouml;rl&auml;ngningen till att flera kluster konvergerar p&aring;
+
+		ett icke &ouml;nskv&auml;rt s&auml;tt. Denna effekt &auml;r ej tillr&auml;ckligt unders&ouml;kt.
+
+	<li>Det &auml;r sv&aring;rt att ta h&auml;nsyn till utliggare, dvs dokument som ligger
+
+		l&aring;ngt fr&aring;n centroiden och ej b&ouml;r till&aring;tas p&aring;verka centroiden eftersom
+
+		det kan resultera i s&auml;mre representation av klustrets inneh&aring;ll.
+
+		Problemet &auml;r definitivt inte om&ouml;jligt att l&ouml;sa, men inga &aring;tg&auml;rder har gjorts i DropJaw.
+
+</ol>
+
+
+
+<p>Ytterligare ett moment som bidrar till kvalit&eacute;n hos de resulterande klustren &auml;r den s&aring; kallade klusterf&ouml;r&auml;dlingen (eng cluster refinement). Den enda form av f&ouml;r&auml;dling DropJaw anv&auml;nder intr&auml;ffar d&aring; ett dokument inte passar i n&aring;gon kluster. D&aring; l&aring;ter jag det udda dokumentet bilda ett nytt, eget kluster. Men eftersom antalet kluster skall h&aring;llas till ett konstant v&auml;rde (vilket &auml;r valt i gr&auml;nssnittet) sl&aring;r jag ihop tv&aring; av de gamla kluster som ligger n&auml;rmast varandra till att bilda ett nytt gemensamt kluster. Ytterligare klusterf&ouml;r&auml;dling saknas trots att det skulle inverka positivt p&aring; resultatet. Detta beror fr&auml;mst p&aring; gr&auml;nssnittets krav p&aring; snabbhet och konsistens: klusterf&ouml;r&auml;dling skulle resultera i att klusterstrukturen ideligen omformades vilket ger o&ouml;nskade effekter f&ouml;r gr&auml;nssnittet - b&aring;de &auml;mnesbeskrivningarna och storlek och f&ouml;rdelning av de runda dropparna/bubblorna p&aring;verkas (se <a href="#figur3">Figur 3</a>). </p>
+
+
+
+<p>Utan klusterf&ouml;r&auml;dlingen blir klusterstrukturen grov och oren. S&aring; gott som hela strukturen best&auml;ms under den initiala klustringen, och utan klusterf&ouml;r&auml;dling best&aring;r strukturen under hela den l&ouml;pande klustringen. Som i m&aring;nga andra fall befinner sig snabbhet och kvalitet i ett motsatsf&ouml;rh&aring;llande. Klustringsmetoderna i DropJaw kan b&auml;st beskrivas som "Quick-and-Dirty", men det &auml;r &aring;terigen gr&auml;nssnittets krav p&aring; snabbhet och inkrementell bearbetning som har styrt mina val av algoritmer.</p>
+
+
+
+
+
+<a name="3.3"><h3>3.3 Nyckelord beskriver &auml;mnesklusters inneh&aring;ll</h3></a>
+
+
+
+<p>I gr&auml;nssnittet m&aring;ste klustrens inneh&aring;ll f&ouml;rmedlas till anv&auml;ndaren. Under designen av gr&auml;nssnittet Easify valdes att beskriva klustren med hj&auml;lp av text - med ett antal <i>nyckelord.</i> Denna teknik har tidigare anv&auml;nts av Cutting et al. [<a href="#ref_Cutting_Karger_Pedersen_Tukey_1992">Cutting et al. 1992</a>]. </p>
+
+
+
+<p>Principen &auml;r mycket enkel. Beskrivningen inneh&aring;ller de <i>M</i> mest centrala termerna i klustret. &Aring;terigen spelar klustrets typdokument - centroiden - en central roll: de termer som i centroidens termvektor har h&ouml;gst vikt v&auml;ljs ut som klustrets nyckelord. Eftersom centroiden motsvarar tyngdpunkten i ett kluster motsvarar de utvalda termerna de mest centrala termerna i klustrets. Dessa nyckelord g&aring;r mycket snabbt att generera eftersom centroiden hela tiden h&aring;lls uppdaterad.</p>
+
+
+
+<p>&Aring; andra sidan blir nyckelorden aldrig b&auml;ttre &auml;n resultatet av klustringsmetoderna. Idealet &auml;r kluster d&auml;r samtliga dokument &auml;r starkt relaterade till varandra, men v&aring;ra snabba klustringsmetoder kommer inte riktigt &auml;nda fram, vilket &aring;terspeglas direkt i nyckelorden. V&auml;l sammanh&aring;llna kluster resulterar i koncisa nyckelord som &auml;r l&auml;tta att f&ouml;rst&aring;; spridda kluster resulterar i nyckelord som kan verka f&ouml;rvirrande.</p>
+
+
+
+<a name="figur11"></a>
+
+<center>
+
+<table cellspacing=0 cellpadding=8 border=1 width="90%"><tr>
+
+<td bgcolor="#EAEAEA"><tt>
+
+// No words w/o alpha chars.<br>&nbsp;&nbsp;if( !NextAlpha(pszKeyword) ) return 0;<br>
+
+// No short words.<br>&nbsp;&nbsp;if( strlen(pszKeyword) &lt; 3 ) return 0;<br>
+
+// No dots, no URLs.<br>&nbsp;&nbsp;if( strchr(pszKeyword, '.') ) return 0;<br>
+
+// No slashes, no URLs.<br>&nbsp;&nbsp;if( strchr(pszKeyword, '/') ) return 0;<br>
+
+// No email addresses.<br>&nbsp;&nbsp;if( strchr(pszKeyword, '@') ) return 0;<br>
+
+</tt></td></tr></table>
+
+<p><b><i><font size="-1">Figur 11: Exempel p&aring; heuristiska regler f&ouml;r att f&ouml;rb&auml;ttra nyckelordens kvalitet.</font></i></b></p>
+
+</center>
+
+
+
+<p>Generellt kan kvalit&eacute;n p&aring; nyckelorden endast h&ouml;jas genom b&auml;ttre klustringsmetoder, men viss heuristik kan vara p&aring; sin plats. DropJaw visar inte termer &auml;r kortare &auml;n tre bokst&auml;ver, termer som inneh&aring;ller siffror, alla URLer etc (<a href="#figur11">Figur 11</a>). S&aring;dana termer blir helt enkelt inte godk&auml;nda som nyckelord.</p>
+
+
+
+
+
+<!-- ----------- Kapitel 4 ---------------------------------------- -->
+
+
+
+<h2><a name="4"><br>4 Systemarkitektur</a></h2>
+
+
+
+<p>I detta kapitel ska jag f&ouml;rs&ouml;ka ge en &ouml;versikt &ouml;ver Chunkify, den modul i DropJaw som utf&ouml;r s&ouml;kningarna och strukturerar informationen. Den enda detalj jag granskar n&auml;rmare &auml;r dokumentrepresentationen, vilken &auml;r ett extrakt av information fr&aring;n de ursprungliga dokumenten och det mest centrala objektet i systemet.</p>
+
+
+
+
+
+<a name="4.1"><h3>4.1 Fr&aring;n id&eacute; till l&ouml;sning - med hopp om data fr&aring;n AltaVista</h3></a>
+
+
+
+<p>N&auml;r projektet DropJaw startade var siktet inst&auml;llt p&aring; att utnyttja AltaVista som underlag till flera funktioner eftersom information som AltaVista anv&auml;nder internt borde vara av stort intresse f&ouml;r oss. Den absolut b&auml;sta l&ouml;sningen skulle vara n&aring;gon form av koppling direkt till svenska tj&auml;nsten AltaVista, som f&ouml;r &ouml;vrigt drivs av Telia, men det hade varit alldeles utm&auml;rkt att bara f&aring; tillg&aring;ng till en liten del av AltaVistas databas med all information om dokumenten. Gamla eller nya data spelar ingen roll, det viktiga var att f&aring; tillg&aring;ng till en m&auml;ngd data som redan var analyserad och bearbetad, tillg&aring;ng till f&auml;rdiga dokumentrepresentationer och dokumentindex.</p>
+
+
+
+<p>Tyv&auml;rr f&ouml;ll den f&ouml;rhoppningen ganska snart. Ett m&ouml;te med Telias konsulter Wire Works visade att de inte hade tillg&aring;ng till n&aring;gon form av data; de hade ingen som helst kunskap om databasens format eller inneh&aring;ll. Wire Works erh&aring;ller AltaVistas databas som bin&auml;rfiler p&aring; band direkt fr&aring;n USA, installerar och underh&aring;ller h&aring;rdvaran, men saknar kunskap om hur mjukvaran &auml;r uppbyggd.</p>
+
+
+
+<p>N&auml;r m&ouml;jligheten till data fr&aring;n AltaVista f&ouml;ll bort fanns det tv&aring; alternativ:</p>
+
+
+
+<ol>
+
+	<li>F&ouml;rs&ouml;ka f&aring; tillg&aring;ng till data direkt fr&aring;n Digital i Sverige och USA.
+
+	<li>G&ouml;ra utdragning av alla attribut lokalt, dvs simulera tillg&aring;ng till
+
+		data fr&aring;n server. Systemet skulle fortfarande kunna utnyttja AltaVista
+
+		till s&ouml;kningarna, men h&auml;mtar och bearbetar alla dokument lokalt.
+
+	<li>F&ouml;renkla systemet genom att ta bort alla m&ouml;jligheter till &auml;kta s&ouml;kningar.
+
+		F&ouml;rbered ett antal "s&ouml;kfr&aring;gor" som anv&auml;nds till att demonstrera hur
+
+		systemet skulle kunna fungera.
+
+</ol>
+
+
+
+<p>Jag valde att g&aring; vidare med det andra alternativet, trots att det skulle inneb&auml;ra mycket mer arbete och tid f&ouml;r mig &auml;n ber&auml;knat. Det f&ouml;rsta alternativet &auml;r mycket os&auml;kert och skulle ta alldeles f&ouml;r l&aring;ng tid. Det tredje alternativet inneb&auml;r att systemet skulle f&ouml;rlora f&ouml;r mycket trov&auml;rdighet - utan m&ouml;jlighet till &auml;kta s&ouml;kningar &auml;r det sv&aring;rt att visa att systemet verkligen fungerar. </p>
+
+
+
+<p>Tanken &auml;r att ett framtida system skall utnyttja s&ouml;ktj&auml;nstens server f&ouml;r bearbetningen av dokument. Dokumentrepresentation och genretilldelning kan utf&ouml;ras f&ouml;re s&ouml;kning, resultaten kan sedan skickas direkt till gr&auml;nssnittet. F&ouml;r att simulera detta m&aring;ste varje dokument h&auml;mtas och analyseras lokalt, vilket tar l&aring;ng tid och f&ouml;rbrukar mycket resurser. &Aring; andra sidan ger detta ger vissa f&ouml;rdelar: genreklassificeringen kan testas fullt ut eftersom vi nu har full frihet i v&aring;ra val av stilm&aring;tt - vi har tillg&aring;ng till hela, r&aring;a dokument vilket inte hade varit m&ouml;jligt med data fr&aring;n AltaVistas databas.</p>
+
+
+
+
+
+<a name="4.2"><h3>4.2 Dokumentrepresentationen &auml;r det mest centrala objektet i systemet </h3></a>
+
+
+
+<p>Det mest centrala objektet i systemet &auml;r dokumentrepresentationen: en analyserad, komprimerad och f&ouml;renklad representation av ett dokuments data. En stor del av systemets processor- och minnesresurser f&ouml;rbrukas direkt eller indirekt av dokumentrepresentationen, vilken fungerar som underlag b&aring;de f&ouml;r genreklassificering och &auml;mnesklustring.</p>
+
+
+
+<p>Dokumentrepresentationen best&aring;r fr&auml;mst av en termvektor, inneh&aring;llande frekvensr&auml;knare f&ouml;r varje term som f&ouml;rekommer i dokumentet. Termvektorn anv&auml;nds b&aring;de vid genreklassificering och klustring. Dessutom finns det andra vektorer inneh&aring;llande v&auml;rden f&ouml;r de olika stilm&aring;tten, namn som f&ouml;rekommer i texten, f&ouml;rteckning &ouml;ver ordl&auml;ngdsf&ouml;rdelning, dokumentets spr&aring;k, samt speciella nyckelord som t ex dokumentets URL och ursprungsdator.</p>
+
+
+
+<p>Vissa delar i dokumentrepresentationen anv&auml;nds endast vid genreklassificering och lagras d&auml;rf&ouml;r endast tempor&auml;rt i representationen innan den skickas vidare fr&aring;n komponenten som skapade den. Detta reducerar f&ouml;rbrukningen av minnesresurser, hur stor reduktionen blir beror p&aring; storleksf&ouml;rh&aring;llande mellan termvektor och data f&ouml;r genreklassificeringen. I snitt uppvisas knappt 30% reduktion.</p>
+
+
+
+
+
+<a name="4.3"><h3>4.3 Systemets olika komponenter - prototypens ryggrad</h3></a>
+
+
+
+<p>Systemet &auml;r uppbyggt av komponenter sammankopplade enligt en r&ouml;rmodell (eng pipeline model). Varje komponent fyller en specifik uppgift och de enskilda komponenterna &auml;r sammankopplade. Eftersom systemets uppgift &auml;r att behandla dokument kan man se systemet som en satsvis bearbetning (eng batch processing) per dokument enligt producent/konsument-modellen (eng producer-consumer), allting sammankopplat med mellanliggande datastrukturer. Denna typ av uppgift &auml;r l&auml;mpligt att beskriva med en funktionsmodell, medan b&aring;de objektmodell och tillst&aring;ndsmodell &auml;r mycket enkla [<a href="#ref_Rumbaugh_Blaha_1991">Rumbaugh et al. 1991</a>].</p>
+
+
+
+<p>Gr&auml;nssnittets krav p&aring; dynamiska kopplingar, d&auml;r nya grupperingar skall kunna kopplas in efter tidigare grupperingar, uppfylls genom m&ouml;jligheten att seriekoppla den sista komponenten i valfritt antal steg (<a href="#figur12">Figur 12</a>). Komponenter kan allts&aring; kopplas in och kopplas bort samtidigt som dokument h&auml;mtas fr&aring;n Internet och bearbetas i systemets &ouml;vriga komponenter. Vissa komponenter l&auml;mpar sig f&ouml;r seriekoppling, andra l&auml;mpar sig f&ouml;r parallellkoppling.</p>
+
+
+
+<a name="figur12"></a>
+
+<img src="image6.gif" width=227 height=560 border=0 alt="Figur 12: Chunkifys funktionsmodell" align="left" hspace=10>
+
+
+
+<p>Systemets fyra komponenter visas i <b>Figur 12, till v&auml;nster:</b> UrlAgent, FetchAgent, StatAgent och ClusterAgent. Varje komponent &auml;r implementerad i sin egen tr&aring;d (eng thread) och arbetar d&auml;rf&ouml;r oberoende av de andra: finns det inte data att tillg&aring; sover tr&aring;den utan att konsumera processorresurser. Kommunikationen mellan komponenterna &auml;r tr&aring;ds&auml;ker (eng thread safe) med hj&auml;lp av semaforer och/eller mutex.</p>
+
+
+
+<p>Den f&ouml;rsta komponenten (UrlAgent) har till uppgift att h&auml;mta URLer fr&aring;n en extern s&ouml;ktj&auml;nst. Idag anv&auml;nder Chunkify endast en s&aring;dan komponent, men komponenten l&auml;mpar sig v&auml;l f&ouml;r parallellkoppling och skulle d&auml;rf&ouml;r kunna fr&aring;ga flera s&ouml;ktj&auml;nster samtidigt. UrlAgent skapar en lista med URLer som g&ouml;rs tillg&auml;nglig f&ouml;r n&auml;sta komponent.</p>
+
+
+
+<p>Den andra komponenten (FetchAgent) h&auml;mtar de dokument fr&aring;n Internet som finns i URL-listan. F&ouml;r att &ouml;ka prestandan arbetar fyra FetchAgent parallellt med att h&auml;mta dokument fr&aring;n Internet. H&auml;mtade dokument lagras som tempor&auml;ra filer i datorns lokala filsystem.</p>
+
+
+
+<p>N&auml;sta komponent (StatAgent) analyserar dokumenten och skapar en dokumentrepresentation (se 4.2). Denna dokumentrepresentation ligger till grund f&ouml;r genreklassificering och klustring. &Auml;ven genreklassificering utf&ouml;rs h&auml;r f&ouml;r att minimera datam&auml;ngden som dokumentrepresentationen m&aring;ste inneh&aring;lla n&auml;r den tillhandah&aring;lls f&ouml;r n&auml;sta komponent. M&ouml;jlighet finns till parallell bearbetning men det inneb&auml;r ingen prestanda&ouml;kning p&aring; enprocessorsystem eftersom processorresursen &auml;r en begr&auml;nsande faktor.</p>
+
+
+
+<p>Sista komponenten (ClusterAgent) klustrar tillg&auml;ngliga dokumentrepresentationer med avseende p&aring; inneh&aring;ll (se kapitel 1). Denna komponent tillhandah&aring;ller samma typ av data som den konsumerar, och kan d&auml;rf&ouml;r seriekopplas i &ouml;nskv&auml;rt antal steg. Varje steg motsvarar en omgruppering i gr&auml;nssnittet d&aring; en m&auml;ngd av anv&auml;ndaren utvalda dokument omgrupperas f&ouml;r b&auml;ttre &ouml;versikt, se kapitel 1.4 och [<a href="#ref_Hallberg_1998">Hallberg 1998</a>].</p>
+
+
+
+<p>Systemet har vissa flaskhalsar - delar d&auml;r systemets prestanda begr&auml;nsas av tillg&auml;ngliga resurser. F&ouml;rst och fr&auml;mst begr&auml;nsas systemet av att det m&aring;ste h&auml;mta alla dokument fr&aring;n Internet. Ofta blir det l&aring;nga v&auml;ntetider vilket inte alltid kan avhj&auml;lpas med fler parallellkopplade komponenter. Men om vi antar att det alltid finns full tillg&aring;ng till data fr&aring;n h&auml;mtade dokument blir dokumentanalysen i StatAgent n&auml;sta flaskhals; analysen b&ouml;r i framtiden utf&ouml;ras direkt hos s&ouml;ktj&auml;nsten i samband med att dokumentet bearbetas f&ouml;r lagring i databasen. Sist har vi klustringskomponenten som tar mycket resurser i anspr&aring;k. Eftersom klustringen &auml;r helt beroende av hur anv&auml;ndaren agerar med gr&auml;nssnittet, dvs vilka omgrupperingar som beg&auml;rs, kan denna del inte lika enkelt centraliseras p&aring; s&ouml;ktj&auml;nsten utan b&ouml;r utf&ouml;ras lokalt. Effektiviteten kan troligtvis h&ouml;jas med effektivare klustringsalgoritmer, skr&auml;ddarsydda f&ouml;r &auml;ndam&aring;let.</p>
+
+
+
+<p>Trots flaskhalsarna tar prototypens s&ouml;kningar inte oacceptabelt l&aring;ng tid. Vanligtvis presenteras ett f&ouml;rsta resultat inom en minut efter s&ouml;kningen p&aring;b&ouml;rjats, och sedan fylls dokumenten p&aring; allteftersom de h&auml;mtas fr&aring;n Internet. Hur l&aring;ng tid det tar innan alla dokument har h&auml;mtats beror mycket p&aring; hur snabba servrar som levererar dokumenten, men en full s&ouml;kning med tv&aring;hundra dokument tar mellan fem och tio minuter. Prototypen g&aring;r allts&aring; att anv&auml;nda till interaktiva s&ouml;kningar, om &auml;n inte med samma hastighet som om den hade integrerats i en s&ouml;ktj&auml;nst.</p>
+
+
+
+
+
+<a name="4.4"><h3>4.4 M&ouml;jligheter och f&ouml;rb&auml;ttringar</h3></a>
+
+
+
+<p>Eftersom systemet &auml;r komponentbaserat l&auml;mpar det sig v&auml;l att implementera direkt i en komponentbaserad objektmodell, t ex COM (Component Object Model) eller CORBA, vilka s&auml;tter upp en &ouml;vergripande paradigm f&ouml;r interaktion mellan olika mjukvarukomponenter [<a href="#ref_Chappel_1996">Chappel 1996</a>]. Att anv&auml;nda en standardiserad komponentmodell ger direkt m&ouml;jlighet till distribuerad bearbetning och om man v&auml;ljer COM som modell finns ActiveX tillg&auml;ngligt f&ouml;r Internetbaserade l&ouml;sningar vilka &auml;ven passar bra i det fall d&aring; st&ouml;rre delen av arbetet utf&ouml;rs centralt p&aring; en server.</p>
+
+
+
+<p>Det skulle &auml;ven kunna ges m&ouml;jlighet att simulera s&ouml;kningar trots att man inte &auml;r kopplad till Internet. Med hj&auml;lp av AltaVistas Personal Extensions, en lokal s&ouml;kmotor som fungerar och ser ut som AltaVista, i kombination med en (i dag ej existerande) skr&auml;ddarsydd UrlAgent, kan s&ouml;kningar g&ouml;ras lokalt p&aring; samma s&auml;tt som det fungerar idag bortsett fr&aring;n att alla dokument h&auml;mtas direkt fr&aring;n lokal disk. I detta fall reduceras den f&ouml;rsta flaskhalsen: systemet slipper v&auml;nta p&aring; att externa servrar skall leverera dokumenten, och d&auml;rf&ouml;r kan f&ouml;ljande delar av systemet jobba f&ouml;r fullt. Man kan f&ouml;rv&auml;nta sig en mycket snabb start, men n&auml;r klustring och genreklassificering arbetar kommer systemets resurser att anv&auml;ndas fullt ut vilket troligtvis kommer att m&auml;rkas i form av f&ouml;rdr&ouml;jningar och l&auml;ngre reaktionstider i gr&auml;nssnittet. Jag bed&ouml;mer att en s&ouml;kning som on-line tar fem till tio minuter kommer att ta mellan en och tv&aring; minuter om man anv&auml;nder Private Extensions.</p>
+
+
+
+<p></p>
+
+
+
+<!-- ---------- Kapitel 5 ---------------------------------- -->
+
+
+
+<h2><a name="5"><br>5 Slutord</a></h2>
+
+
+
+<p>M&aring;let med DropJaw-projektet var bland annat en fullt fungerande prototyp f&ouml;r att testa om id&eacute;erna h&aring;ller. Vi n&aring;dde dit. Sj&auml;lvklart saknas detaljer i gr&auml;nssnittet, och delar av underliggande algoritmer &auml;r kraftigt f&ouml;renklade, men programmet fungerar. Det har utf&ouml;rts mindre tester f&ouml;r att f&aring; en bed&ouml;mning p&aring; hur anv&auml;ndare reagerar p&aring; konceptet. En f&ouml;rsta utv&auml;rdering av testerna visade att det &auml;r l&auml;tt att f&ouml;rst&aring; gr&auml;nssnittet och dess funktion. Genrerna var l&auml;tta att f&ouml;rst&aring; och genreklassificeringen upplevs som b&auml;ttre &auml;n vad de tekniska testerna har visat, men nyckelorden som beskriver &auml;mnen &auml;r f&ouml;r d&aring;liga f&ouml;r att vara riktigt till nytta. Alla som har testat DropJaw har utryckt att gr&auml;nssnittet &auml;r sp&auml;nnande och roligt att anv&auml;nda. DropJaw kan inte konkurrera med en vanlig s&ouml;ktj&auml;nst i hastighet eller enkelhet n&auml;r det g&auml;ller s&aring; f&aring; dokument som tv&aring;hundra, men n&auml;r antal dokument v&auml;xer &auml;r den strukturerade visualiseringen en ov&auml;rderlig hj&auml;lp.</p>
+
+
+
+<p>Ett annat m&aring;l har varit att utveckla genreklassificeringen och bygga vidare p&aring; tidigare arbete av Jussi Karlgren. I Chunkify finns nu implementerade algoritmer som genreklassificerar dokument fr&aring;n Internet, men man m&aring;ste komma ih&aring;g att detta &auml;r en f&ouml;rsta version; f&ouml;rhoppningsvis kan andra bygga vidare p&aring; mitt arbete. K&auml;llkod finns tillg&auml;nglig vid behov, men det &auml;r f&ouml;rst och fr&auml;mst id&eacute;er runt genrekollektionen och referensm&auml;ngden som kan utnyttjas och vidareutvecklas i framtida system. </p>
+
+
+
+<p>DropJaw har varit ett sp&auml;nnande och roligt projekt, och min f&ouml;rhoppning &auml;r att id&eacute;erna fr&aring;n DropJaw kan leda vidare och utvecklas till n&aring;got som kommer alla vilsna inv&aring;nare p&aring; Internet till nytta.</p>
+
+
+
+<p>Over and out.<br>
+
+/Dewe</p>
+
+
+
+<p><tt>#end of transmission#</tt></p>
+
+
+
+<!-- ----------- Referenser ------------------------------------ -->
+
+
+
+<h2><a name="6"><br>6 Referenser</a></h2>
+
+
+
+<dl>
+
+
+
+<a name="ref_AltaVista"></a>
+
+<dt>AltaVista 
+
+<dd><i>About AltaVista Search.</i><br>
+
+<a href="http://www.altavista.digital.com/av/content/about.htm">http://www.altavista.digital.com/av/content/about.htm</a> (URL daterad 1998-01-28).<p></p>
+
+
+
+<a name="ref_Ben_Cheikh_1994"></a>
+
+<p><dt>Naoufel Ben Cheikh & Magnus Zackrisson. (1994)
+
+<dd><i>Genrekategorisering av text f&ouml;r filtrering av elektroniska meddelanden.</i> Examensarbete, Institutionen f&ouml;r Data och systemvetenskap. Stockholms universitet.<p></p>
+
+
+
+<a name="ref_Biber_1989"></a>
+
+<p><dt>Douglas Biber. (1989)
+
+<dd>A Typology of English Texts. <i>Linguistics,</i> 27:3-43.<p></p>
+
+
+
+<a name="ref_Chappel_1996"></a>
+
+<p><dt>David Chappel. (1996)
+
+<dd><i>Understanding ActiveX and OLE.</i> Microsoft Press, Redmond.<p></p>
+
+
+
+<a name="ref_Crowston_Williams_1997"></a>
+
+<p><dt>Kevin Crowston & Marie Williams. (1997)
+
+<dd>Reproduced and emergent genres of communication on the World-Wide Web. <i>Hawaii International Conference on System Science, 1997.</i> Wailea, Hawaii.<p></p>
+
+
+
+<a name="ref_Cutting_Karger_Pedersen_Tukey_1992"></a>
+
+<p><dt>Douglass R. Cutting, David R. Karger, Jan O. Pedersen & John W. Tukey. (1992)
+
+<dd>Scatter/Gather: A Cluster-based Approach to Browsing Large Document Collections. <i>Proceedings of the Fifteenth Annual Inernational ACM SIGIR Conference on Research and Development in Information Retrieval,</i> K&ouml;penhamn. ACM, New York.<p></p>
+
+
+
+<a name="ref_Dewe_Karlgren_Bretan_1998"></a>
+
+<p><dt>Johan Dewe, Jussi Karlgren & Ivan Bretan. (1998) 
+
+<dd><a href="http://www.sics.se/diglib/DropJaw/korpus.html" target="other_win">Assembling a Balanced Corpus from the Internet.</a> <i>Proceedings of the 11th Nordic Conference on Computational Linguistics,</i> K&ouml;penhamn.<p></p>
+
+
+
+<a name="ref_El-Khouri_1991"></a>
+
+<p><dt>Bassam Michel El-Khouri. (1991)
+
+<dd>A Methodology for Preparing Data for Cluster Analysis. <i>Stockholms universitet, lic. rapport, Institutionen f&ouml;r Data och systemvetenskap.</i> Stockholms universitet.<p></p>
+
+
+
+<a name="ref_Hagman_1994"></a>
+
+<p><dt>Johan Hagman. (1994)
+
+<dd><i>Information Visualization and Exploration-Potential and Requirements.</i> SSKKII Report #3, G&ouml;teborgs universitet.<p></p>
+
+
+
+<a name="ref_Hallberg_1998"></a>
+
+<p><dt>Anders Hallberg. (1998)
+
+<dd>Visualisering och manipulering av genreklassificerade s&ouml;kresultat. <i>Examensarbete vid Institutionen f&ouml;r numeriska analys och datalogi, NADA.</i> Kungliga tekniska h&ouml;gskolan, Stockholm.<p></p>
+
+
+
+<a name="ref_Harman_1996"></a>
+
+<p><dt>Donna Harman (ed.). (1996)
+
+<dd><i>The Fourth Text REtrieval Conference (TREC-4).</i> National Institute of Standards Special Publication 500-236. Washington.<p></p>
+
+
+
+<a name="ref_Hearst_Pedersen_1996"></a>
+
+<p><dt>Marti A. Hearst & Jan O. Pedersen. (1996)
+
+<dd>Reexamining the Cluster Hyphothesis: Scatter/Gather on Retrieval Results. <i>Proceedings of the Nineteenth Annual International ACM SIGIR Conference on Research and Development in Information Retrieval, Zurich. ACM, New York.</i><p></p>
+
+
+
+<a name="ref_Hussain_Tzikas_1995"></a>
+
+<p><dt>Fahima Polly Hussain & Ioannis Tzikas. (1995)
+
+<dd><i>Ordstatistisk kategorisering av text f&ouml;r filtrering av elektroniska meddelanden.</i> Examensarbete, Institutionen f&ouml;r Data och systemvetenskap. Stockholms universitet.<p></p>
+
+
+
+<a name="ref_Jain_Dubes_1988"></a>
+
+<p><dt>Anil K. Jain & Richard C. Dubes. (1988) 
+
+<dd><i>Algorithms for Clustering Data.</i> Prentice Hall Advanced Reference Series.<p></p>
+
+
+
+<a name="ref_Karlgren_Cutting_1994"></a>
+
+<p><dt>Jussi Karlgren & Douglass Cutting. (1994)
+
+<dd>Recognizing Text Genres with Simple Metrics Using Discriminant Analysis. <i>Proceedings of 15th International Conference on Computational Linguistics (COLING),</i> Kyoto. (In the Computation and Language E-Print Archive: cmp-lg/9410008).<p></p>
+
+
+
+<a name="ref_Karlgren_1996"></a>
+
+<p><dt>Jussi Karlgren. (1996)
+
+<dd>Stylistic Variation in an Information Retrieval Experiment. <i>Proceedings of the Second International Conference on New Methods in Language Processing - NeMLaP 2.</i> Ankara: Bilkent University.<p></p>
+
+
+
+<a name="ref_Karlgren_Straszheim_1997"></a>
+
+<p><dt>Jussi Karlgren & Troy Straszheim. (1997)
+
+<dd>Visualizing Stylistic Variation. <i>Proceedings of the 30th Hawaii International Conference on System Siences.</i> Maui, Hawaii.<p></p>
+
+
+
+<a name="ref_Langley_1995"></a>
+
+<p><dt>Pat Langley. (1995)
+
+<dd><i>Elements of Machine Learning.</i> Morgan Kaufmann Publishers, Inc.<p></p>
+
+
+
+<a name="ref_Luhn_1957"></a>
+
+<p><dt>Hans Peter Luhn. (1957)
+
+<dd>A Statistical Approach to Mechanized Encoding and Searching of Literary Information. <i>IBM Journal of Research and Development 1 (4)</i> 309-317. (Reprinted in H.P.Luhn: Pioneer of Information Science, selected works. Claire K. Schultz (ed.) 1968. New York: Sparta.)<p></p>
+
+
+
+<a name="ref_Magellan"></a>
+
+<p><dt>Magellan 
+
+<dd><i>Welcome to Magellan.</i><br>
+
+<a href="http://www.mckinley.com/magellan/">http://www.mckinley.com/magellan/</a> (URL daterad 1998-01-28)<p></p>
+
+
+
+<a name="ref_Magellan_Voyeur"></a>
+
+<p><dt>Magellan Voyeur
+
+<dd><i>Welcome to Voyeur.</i><br>
+
+<a href="http://voyeur.mckinley.com/cgi-bin/voyeur.cgi">http://voyeur.mckinley.com/cgi-bin/voyeur.cgi</a> (URL daterad 1998-01-28)<p></p>
+
+
+
+<a name="ref_Miyamoto_1989"></a>
+
+<p><dt>Sadaaki Miyamoto. (1989)
+
+<dd><i>Fussy Sets in Information Retrieval and Cluster Analysis.</i> University of Tsukuba, Japan<p></p>
+
+
+
+<a name="ref_Nicholson_1990"></a>
+
+<p><dt>Keith W. Nicholson. (1990)
+
+<dd><i>Elementary Linear Algebra, with applications.</i> Second Edition. PWS-KENT Publishing Company, Boston.<p></p>
+
+
+
+<a name="ref_Orlikowski_Yates_1994a"></a>
+
+<p><dt>Wanda J. Orlikowski & Joanne Yates. (1994a) 
+
+<dd>Genre Repertoire: The Structuring of Communicative Practices in Organizations. <i>Administrative Sciences Quarterly, 33,</i> 541-574.<p></p>
+
+
+
+<a name="ref_Orlikowski_Yates_1994b"></a>
+
+<p><dt>Wanda J. Orlikowski & Joanne Yates. (1994b)
+
+<dd>Genre Repertoire: Norms and Forms for Work and Interaction. <i>Center for Coordination Science Technical Report #166.</i> MIT Sloan School Working Paper #3671-94. Massachusetts.<p></p>
+
+
+
+<a name="ref_Quinlan_1993"></a>
+
+<p><dt>J. Ross Quinlan. (1993)
+
+<dd><i>C4.5 Programs for Machine Learning.</i> The Morgan Kaufmann Series in Machine Learning, Pat Langley (ed.). Morgan Kaufmann Publishers, Inc.<p></p>
+
+
+
+<a name="ref_VanRijsbergen_1979"></a>
+
+<p><dt>C. J. Van Rijsbergen. (1979)
+
+<dd><i>Information Retrieval.</i> Butterworths, second edition.<p></p>
+
+
+
+<a name="ref_Rumbaugh_Blaha_1991"></a>
+
+<p><dt>James Rumbaugh, Michael Blaha, William Premerlani, Frederick Eddy & William Lorensen. (1991)
+
+<dd><i>Object-Oriented Modelling and Design.</i> Prentice-Hall, Inc. New Jersey, USA.<p></p>
+
+
+
+<a name="ref_Salton_Buckley_1988"></a>
+
+<p><dt>Gerard Salton & Christopher Buckley. (1988)
+
+<dd>Term-Weighting Approaches In Automatic Text Retrieval. <i>Information Processing & Management, Vol 24, No. 5</i>, 513-523.<p></p>
+
+
+
+<a name="ref_Salton_McGill_1983"></a>
+
+<p><dt>Gerard Salton & Michael J. McGill. (1983) 
+
+<dd><i>Introduction to Modern Information Retrieval.</i> McGraw-Hill.<p></p>
+
+
+
+<a name="ref_Shneiderman_Byrd_Croft_1997"></a>
+
+<p><dt>Ben Shneiderman, D. Byrd & W. B. Croft. (1997) 
+
+<dd>Clarifying Search: A User-Interface Framework for Text Searches, <i>D-Lib Magazine,</i> January 1997, ISSN 1082-9873<p></p>
+
+
+
+</dl></td></tr></table> <!-- End of Main Table -->
+
+</body>
+
+</html>
+

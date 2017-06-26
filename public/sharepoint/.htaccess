@@ -1,0 +1,4 @@
+RewriteEngine on
+
+# Redirect feed to feedburner
+RewriteRule rss.xml http://feeds.feedburner.com/dewe/sharepoint [R=301]

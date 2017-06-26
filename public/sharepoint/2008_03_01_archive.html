@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>.SharePoint: mars 2008</title>
+<script type="text/javascript">(function() { var a=window;function e(b){this.t={};this.tick=function(c,h,d){d=d?d:(new Date).getTime();this.t[c]=[d,h]};this.tick("start",null,b)}var f=new e;a.jstiming={Timer:e,load:f};try{a.jstiming.pt=a.gtbExternal&&a.gtbExternal.pageT()||a.external&&a.external.pageT}catch(g){};a.tickAboveFold=function(b){b=b;var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}b=c;b<=750&&a.jstiming.load.tick("aft")};var i=false;function j(){if(!i){i=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",j,false):a.attachEvent("onscroll",j); })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.dewe.net/sharepoint/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="http://www.dewe.net/sharepoint/rss.xml" />
+<link rel="service.post" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.blogger.com/feeds/24218888/posts/default" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=24218888" />
+ <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/3727950723-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=24218888&zx=0de7503c-54ac-40ac-8204-e13c84b918a3"/><script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/1188848481-backlink.js"></script>
+<script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/463928704-backlink_control.js"></script>
+<script type="text/javascript">var BL_backlinkURL = "http://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "24218888";</script>
+
+<link rel="stylesheet" type="text/css" href="http://www.dewe.net/sharepoint/styles.css" />
+<meta name="ICBM" content="59.276667, 18.07417" />
+<meta name="DC.title" content=".SharePoint" />
+<script type="text/javascript">
+   // fix bad rss link
+   var linktags = document.getElementsByTagName("link");
+   for (var i = linktags.length; i>=0; i--)
+   {
+      var linktag = linktags[i];	
+      if (linktag && linktag.getAttribute("href") == "http://www.dewe.net/sharepoint/rss.xml")
+      {
+         linktag.setAttribute("href", "http://feeds.feedburner.com/dewe/sharepoint");
+         break;
+      }
+   }
+</script>
+</head>
+
+<body>
+
+<div id="header">
+
+  <h1 id="blog-title">
+    <a href="http://www.dewe.net/sharepoint/">
+    
+	.SharePoint
+    
+    </a>
+  </h1>
+  <p id="description">En blogg pÃ¥ svenska om SharePoint i synnerhet och .Net i allmÃ¤nhet</p>
+
+</div>
+
+<!-- Begin #content -->
+<div id="content">
+
+<!-- Begin #main -->
+<div id="main"><div id="main2">
+
+
+
+  
+      <h2 class="date-header">2008-03-27</h2> 
+  
+
+  <!-- Begin .post -->
+  <div class="post"><a name="2433650260974810403"></a>
+         
+    <h3 class="post-title">
+	 
+	 XmlFormView webpart trick
+	 
+    </h3>
+    
+
+	         <div class="post-body">
+	<div>
+      <div style="clear:both;"></div><p>N&#228;r man l&#228;gger till en XmlFormView webpart (som publicerar browser enabled InfoPath forms) visas meddelandet &quot;The form has been closed&quot;. Meddelandet beror p&#229; att webparten inte pekar p&#229; n&#229;got formul&#228;r och f&#246;ljaktligen inte &#228;r r&#228;tt konfigurerad. </p>  <p>Problemet &#228;r att meddelandet tar &#246;ver hela sk&#228;rmen, p&#229; n&#229;got pseoudo-ajax-man&#233;r, och hindrar effektivt &#229;tkomst till web part settings.</p>  <p>Trick: skapa och publicera ett enkelt formul&#228;r, och f&#246;rkonfigurera en XmlFormView webpart s&#229; att XsnLocation pekar p&#229; samma formul&#228;r. Voil&#224;. Ett problem mindre.</p>  <div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:20a6a4f2-e95a-41fe-aec5-70d2a7131dc2" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/sharepoint" rel="tag">sharepoint</a>,<a href="http://technorati.com/tags/forms%20services" rel="tag">forms services</a>,<a href="http://technorati.com/tags/webparts" rel="tag">webparts</a>,<a href="http://technorati.com/tags/developer" rel="tag">developer</a></div>  <div style="clear:both; padding-bottom:0.25em"></div>
+    </div>
+    </div>
+    
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html" type="text/javascript" charset="utf-8"></script>
+
+    <p class="post-footer">
+      <em>Posted 3/27/2008 | <a href="http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html" title="permanent link">Permalink</a>
+      
+        | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=2433650260974810403"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=2433650260974810403;>Comments (2)</a>
+        | <a href="http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html#links">Links to this post</a>
+      
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=2433650260974810403" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      </em>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <!-- End #comments -->
+
+
+
+  
+
+  <!-- Begin .post -->
+  <div class="post"><a name="4428569533718603053"></a>
+         
+    <h3 class="post-title">
+	 
+	 Page Layouts: ZoneTemplate vs AllUsersWebPart
+	 
+    </h3>
+    
+
+	         <div class="post-body">
+	<div>
+      <div style="clear:both;"></div><p>Kom ih&#229;g: Om du deklarerar webparts p&#229; en page layout ska du anv&#228;nda <a href="http://msdn2.microsoft.com/en-us/library/ms446831.aspx" target="_blank">&lt;AllUsersWebPart&gt;</a> i moduldeklarationen som <a href="http://msdn2.microsoft.com/en-us/library/ms441170.aspx" target="_blank">provisionerar din page layout</a>. Basta.</p>  <p>Deklarera <em>inte</em> <a href="http://msdn2.microsoft.com/en-us/library/bb153523.aspx" target="_blank">webparts i en &lt;ZoneTemplate&gt;</a>, det kan ge upphov till mystiska effekter som hallucinationer, paranoia och <em>dubbla webparts varav en inte g&#229;r att redigera</em>.</p>  <div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:8771f14a-ab75-41dc-ac03-d5b056b32cbb" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/sharepoint" rel="tag">sharepoint</a>,<a href="http://technorati.com/tags/moss" rel="tag">moss</a>,<a href="http://technorati.com/tags/wcm" rel="tag">wcm</a>,<a href="http://technorati.com/tags/developer" rel="tag">developer</a>,<a href="http://technorati.com/tags/webparts" rel="tag">webparts</a></div>  <div style="clear:both; padding-bottom:0.25em"></div>
+    </div>
+    </div>
+    
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/03/page-layouts-zonetemplate-vs.html" type="text/javascript" charset="utf-8"></script>
+
+    <p class="post-footer">
+      <em>Posted 3/27/2008 | <a href="http://www.dewe.net/sharepoint/2008/03/page-layouts-zonetemplate-vs.html" title="permanent link">Permalink</a>
+      
+        | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=4428569533718603053"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=4428569533718603053;>Comments (0)</a>
+        | <a href="http://www.dewe.net/sharepoint/2008/03/page-layouts-zonetemplate-vs.html#links">Links to this post</a>
+      
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=4428569533718603053" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      </em>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <!-- End #comments -->
+
+
+
+  
+      <h2 class="date-header">2008-03-25</h2> 
+  
+
+  <!-- Begin .post -->
+  <div class="post"><a name="1874634055227443821"></a>
+         
+    <h3 class="post-title">
+	 
+	 Konfigurera Visual Studio fÃ¶r att debugga .NET Frameworks kÃ¤llkod
+	 
+    </h3>
+    
+
+	         <div class="post-body">
+	<div>
+      <div style="clear:both;"></div><p>H&#228;r &#228;r en artikel som visar hur du aktiverar nya funktioner i Visual Studio 2008 f&#246;r att debugga rakt ner i .Net Frameworks k&#228;llkod: <a href="http://blogs.msdn.com/sburke/archive/2008/01/16/configuring-visual-studio-to-debug-net-framework-source-code.aspx" target="_blank"><strong>Configuring Visual Studio to Debug .NET Framework Source Code</strong></a>. </p>  <p>S&#229; h&#228;r g&#246;r man i korta drag (men l&#228;s hela artikeln ovan i alla fall) :</p>  <ol>   <li>Installera <a href="https://connect.microsoft.com/VisualStudio/Downloads/DownloadDetails.aspx?DownloadID=10443&amp;wa=wsignin1.0">Visual Studio 2008 QFE</a>. </li>    <li>VS 2008 &gt; Tools &gt; Options &gt; Debugging &gt; General:      <ul>       <li>St&#228;ng av &quot;Enable Just My Code (Managed Only)&quot; </li>        <li>S&#228;tt p&#229; &quot;Enable Source Server Support&quot; </li>     </ul>   </li>    <li>G&#229; till . . . &gt; Debugging &gt; Symbols:</li>    <ul>     <li>L&#228;gg till &quot;http://referencesource.microsoft.com/symbols&quot; som symbol location</li>      <li>Ange en cache location</li>      <li>Klicka i &quot;Search the above locations only when...&quot;</li>   </ul>    <li>Debugga och stanna p&#229; l&#228;mplig breakpoint, ta upp call stack, h&#246;gerklicka p&#229; ett .Net assembly och v&#228;lj &quot;Load Symbols&quot;. </li>    <li>Forts&#228;tt med F11 (Step Into) ner i assemblyt... </li> </ol>  <p>Observera att n&#228;r man st&#228;nger av &quot;<strong>Enable Just My Code</strong>&quot; blir det sn&#228;ppet jobbigare att debugga mot GAC, se: <a href="http://www.dewe.net/sharepoint/2007/11/debugga-mot-gac-utan-att-kopiera-pdb.html">Debugga mot GAC utan att kopiera PDB-filerna</a>.</p>  <div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:fff0b848-038e-478c-bf1e-03ca580972ab" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a href="http://technorati.com/tags/visual%20studio" rel="tag">visual studio</a>,<a href="http://technorati.com/tags/debug" rel="tag">debug</a>,<a href="http://technorati.com/tags/developer" rel="tag">developer</a></div>  <div style="clear:both; padding-bottom:0.25em"></div>
+    </div>
+    </div>
+    
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/03/konfigurera-visual-studio-fr-att.html" type="text/javascript" charset="utf-8"></script>
+
+    <p class="post-footer">
+      <em>Posted 3/25/2008 | <a href="http://www.dewe.net/sharepoint/2008/03/konfigurera-visual-studio-fr-att.html" title="permanent link">Permalink</a>
+      
+        | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=1874634055227443821"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=1874634055227443821;>Comments (0)</a>
+        | <a href="http://www.dewe.net/sharepoint/2008/03/konfigurera-visual-studio-fr-att.html#links">Links to this post</a>
+      
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=1874634055227443821" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      </em>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <!-- End #comments -->
+
+
+
+  
+      <h2 class="date-header">2008-03-03</h2> 
+  
+
+  <!-- Begin .post -->
+  <div class="post"><a name="2455347118942892620"></a>
+         
+    <h3 class="post-title">
+	 
+	 Windows Live Writer
+	 
+    </h3>
+    
+
+	         <div class="post-body">
+	<div>
+      <div style="clear:both;"></div><p>Har du testat <a title="Windows Live Writer overview" href="http://get.live.com/writer/overview" target="_blank">Windows Live Writer</a> &#228;n? Det &#228;r en klient f&#246;r att skriva blogg-inl&#228;gg, och &#228;r ganska imponerande trots sitt enkla gr&#228;nssnitt. Det &#228;r bland det b&#228;sta jag sett i genren, j&#228;mf&#246;rt med att anv&#228;nda Bloggers egen webb-editor s&#229; &#228;r det himmelriket. Att det dessutom &#228;r ett exempel p&#229; det som Microsofts kallar <a href="http://msdn2.microsoft.com/en-us/architecture/aa699384.aspx" target="_blank">Software+Services</a> &#228;r lite kul...</p>  <p>Vid f&#246;rsta anblicken &#228;r det inte mer &#228;n en enkel textredigerare, men tittar man under ytan finns det mer att se:</p>  <ul>   <li>Live Writer funkar rakt av med m&#229;nga (de flesta? alla?) bloggmotorer, via standard-APIer.</li>    <li>Jag ser inl&#228;gget precis som det kommer att se ut, trots att jag har anpassat mallen hos Blogger - Live Writer kopplade upp sig och h&#228;mtade ner mallen. Najs. </li>    <li>L&#228;tt att anv&#228;nda - du &#228;r bokstavligen ig&#229;ng p&#229; under 3 min - och gr&#228;nssnittet f&#246;rklarar sig sj&#228;lv. </li>    <li>Klockren hantering av uppladdning av bilder; i mitt fall ska de inte skickas samma v&#228;g som texten. </li>    <li>Drafts, offline-redigering, redigera gamla inl&#228;gg, publiceringsdatum, rel attribut p&#229; l&#228;nkar (f&#246;r taggar), kategorier, mm, mm. </li>    <li>Utbyggbar... Spana in <a title="Windows Live Writer SDK" href="http://download.microsoft.com/download/f/9/a/f9a19f2d-cec4-4a25-9b0b-eb9655ea7561/Windows%20Live%20Writer%20SDK%20(Beta).msi" target="_blank">SDK:t</a>. Det finns redan <a title="Windows Live Gallery" href="http://gallery.live.com/results.aspx?c=0&amp;bt=9&amp;pl=8&amp;st=5" target="_blank">ett g&#228;ng plug-in</a> om du inte orkar skriva sj&#228;lv. </li> </ul>  <p>Jag beh&#246;ver v&#228;l knappast till&#228;gga att det h&#228;r inl&#228;gget &#228;r skrivet med Live Writer. </p> <span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/live" target="_blank" rel="tag">live</a>, <a href="http://technorati.com/tag/utility" target="_blank" rel="tag">utility</a></span>  <div style="clear:both; padding-bottom:0.25em"></div>
+    </div>
+    </div>
+    
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/03/windows-live-writer.html" type="text/javascript" charset="utf-8"></script>
+
+    <p class="post-footer">
+      <em>Posted 3/03/2008 | <a href="http://www.dewe.net/sharepoint/2008/03/windows-live-writer.html" title="permanent link">Permalink</a>
+      
+        | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=2455347118942892620"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=2455347118942892620;>Comments (3)</a>
+        | <a href="http://www.dewe.net/sharepoint/2008/03/windows-live-writer.html#links">Links to this post</a>
+      
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=2455347118942892620" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      </em>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <!-- End #comments -->
+
+
+
+  
+
+  <!-- Begin .post -->
+  <div class="post"><a name="1782957036985147670"></a>
+         
+    <h3 class="post-title">
+	 <a href="http://friendlybit.com/html/default-html-in-sharepoint-2007/trackback/" title="external link">
+	 Default HTML in Sharepoint 2007
+	 </a>
+    </h3>
+    
+
+	         <div class="post-body">
+	<div>
+      <div style="clear:both;"></div><p><a href="http://friendlybit.com/" target="_blank">Emil Stenstr&#246;m</a> har skrivit en intressant artikel om default.master och HTML-koden som den spottar ur sig: <a href="http://friendlybit.com/html/default-html-in-sharepoint-2007/" target="_blank"><strong>Default HTML in Sharepoint 2007</strong></a>. </p>  <blockquote>   <p><em>Default.master contains the worst code I&#8217;ve ever seen, and it&#8217;s really disappointing to see that from a product with &#8220;2007&#8243; in it. Microsoft have failed in every possible way when it comes to the interface code, and I believe the only way out is to rebuild Sharepoint from scratch (not likely to happen).</em></p> </blockquote>  <p>Huvudet p&#229; spiken, it ain't pretty. P&#229; s&#228;tt och vis &#228;r det v&#228;rre &#228;n SPS 2003. Man undrar ibland om Microsoft har haft PRAO-elever som gr&#228;nssnitts&#173;programmerare.</p>  <p>Nu funderar jag bara p&#229; om jag ska l&#228;gga med Emils blogg i listan &#246;ver <a href="http://www.dewe.net/sharepoint/2008/02/svenska-sharepoint-bloggare.html">svenska SharePoint-bloggare</a>, man vill ju inte f&#246;rol&#228;mpa n&#229;gon... :-)</p>  <p><strong>Uppdatering</strong>: Det h&#228;r inl&#228;gget &#228;r inte komplett utan att n&#228;mna <a href="http://aks.hisoftware.com/" target="_blank">Accessibility Toolkit for SharePoint (AKS)</a>. Och just idag har det kommit en ny version (v1.1) som riktar sig mot collaborations sites:</p>  <blockquote>   <p><em>This latest update to the AKS provides increased levels of accessibility across <strong>the collaborative environment</strong>. It includes 21 new control adapters for the Blogs and Wikis that have been developed to enhance the accessibility of the Web parts and individual controls within Microsoft Office SharePoint Server 2007. (</em><a href="http://aks.hisoftware.com/" target="_blank"><em>http://aks.hisoftware.com</em></a><em>)</em></p> </blockquote> <span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a>, <a href="http://technorati.com/tag/master+pages" target="_blank" rel="tag">master pages</a>, <a href="http://technorati.com/tag/css" target="_blank" rel="tag">css</a></span>  <div style="clear:both; padding-bottom:0.25em"></div>
+    </div>
+    </div>
+    
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/02/default-html-in-sharepoint-2007.html" type="text/javascript" charset="utf-8"></script>
+
+    <p class="post-footer">
+      <em>Posted 3/03/2008 | <a href="http://www.dewe.net/sharepoint/2008/02/default-html-in-sharepoint-2007.html" title="permanent link">Permalink</a>
+      
+        | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=1782957036985147670"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=1782957036985147670;>Comments (2)</a>
+        | <a href="http://www.dewe.net/sharepoint/2008/02/default-html-in-sharepoint-2007.html#links">Links to this post</a>
+      
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=1782957036985147670" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      </em>
+    </p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+  
+  <!-- Begin #comments -->
+ 
+
+  <!-- End #comments -->
+
+<script type="text/javascript" src="http://www.blogger.com/static/v1/common/js/1499043574-csitaillib.js"></script>
+<script>if (typeof(window.attachCsiOnload) != 'undefined' && window.attachCsiOnload != null) { window.attachCsiOnload('ext_blogspot'); }</script>
+</div></div>
+<!-- End #main -->
+
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar"><div id="sidebar2">
+  
+  <h2 class="sidebar-title">Search this blog</h2>
+  <!-- Google CSE Search Box Begins  -->
+  <form action="http://www.google.com/cse" id="searchbox_001494439661427669059:ads-mjm9oya" target="_blank">
+    <input type="hidden" name="cx" value="001494439661427669059:ads-mjm9oya" />
+    <input type="text" name="q" size="20" />
+    <input type="submit" name="sa" value=" S&ouml;k " />
+  </form>
+  <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_001494439661427669059%3Aads-mjm9oya&lang=sv"></script>
+  <!-- Google CSE Search Box Ends -->
+  <ul></ul>
+
+  <ul id="links">
+    
+    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="http://www.dewe.net/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
+  </ul>
+
+  <!-- Begin #profile-container -->
+
+   <div id="profile-container"><h2 class="sidebar-title">Om mig</h2>
+<dl class="profile-datablock">
+<dd class="profile-data"><strong>Namn:</strong>  Johan Dewe </dd>
+<dd class="profile-data"><strong>Plats:</strong>  Stockholm, Sweden </dd></dl>
+<p class="profile-textblock">Systemarkitekt pÃ¥ FritidsresorÂ AB.</p>
+<p class="profile-link"><a href="http://www.blogger.com/profile/13235019595667853405">Visa hela min profil</a></p></div>
+   
+  <!-- End #profile -->
+
+  <h2 class="sidebar-title">Links</h2>
+  <ul id="links">
+    <li><a href="http://office.microsoft.com/en-us/sharepointserver/FX101211721033.aspx" target="_blank">MOSS 2007 Help and How-to</a></li>
+    <li><a href="http://technet.microsoft.com/en-us/library/cc263630.aspx" target="_blank">MOSS 2007 Technical Library</a></li>
+    <li><a href="http://msdn2.microsoft.com/en-us/office/aa905503.aspx" target="_blank">MOSS 2007 Developer Portal</a></li>
+    <li><a href="http://msdn2.microsoft.com/en-us/library/ms550992.aspx" target="_blank">MOSS 2007 SDK</a></li>
+    <li><a href="http://msdn2.microsoft.com/en-us/library/ms441339.aspx" target="_blank">WSS 3.0 SDK</a></li>
+    <li><a href="http://support.microsoft.com/?scid=ph;en-us;11373" target="_blank">MOSS Support Center</a></li>
+    <li><a href="http://www.strandinterconnect.se" target="_blank">Strand Interconnect AB</a></li>
+  </ul>
+
+  <h2 class="sidebar-title">Previous Posts</h2>
+  <ul id="recently">
+    
+        <li><a href="http://www.dewe.net/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
+     
+        <li><a href="http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
+     
+  </ul>
+    
+
+  <h2 class="sidebar-title">Archives</h2>
+  <ul class="archive-list">
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_04_01_archive.html">april 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_09_01_archive.html">september 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_11_01_archive.html">november 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2006_12_01_archive.html">december 2006</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_04_01_archive.html">april 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_11_01_archive.html">november 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2007_12_01_archive.html">december 2007</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
+     
+       <li><a href="http://www.dewe.net/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
+     
+    </ul>
+  
+
+  
+  <h2 class="sidebar-title">Blogroll</h2>
+  <ul>
+     <li><a target="_blank" href="http://feeds.feedburner.com/sharepointmsteamblogs">SharePoint MS team blogs</a><br/>
+       SharePoint Team Blog, ECM Team Blog and more.</li>
+     <li><a target="_blank" href="http://feeds.feedburner.com/sharepointmsblogs">SharePoint MS individual blogs</a><br/>
+       SharePoint related people from Microsoft.</li>
+     <li><a target="_blank" href="http://feeds.feedburner.com/sharepointmvpblogs">SharePoint MVP blogs (English)</a><br/>
+       Includes SharePoint MVPs who have blogs in English.</li>
+     <li><a target="_blank" href="http://sharepoint.microsoft.com/blogs/fromthefield">SharePoint Dedicated Support Engineers blog</a><br/>
+       Lessons from the field.</li>
+     <li><a target="_blank" href="http://blogs.msdn.com/sharepointdesigner/">Microsoft SharePoint Designer team blog</a><br/>
+       Loads of tips and tricks with SPD.</li>
+  </ul>
+  
+
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+  
+  <!--
+  <p>This is a paragraph of text that could go in the sidebar.</p>
+  -->
+  
+
+
+</div></div>
+<!-- End #sidebar -->
+
+
+</div>
+<!-- End #content -->
+
+
+
+<!-- Begin #footer -->
+<div id="footer"><hr />
+  <p><!--This is an optional footer. If you want text here, place it inside these tags, and remove this comment. -->&nbsp;</p>
+
+</div>
+<!-- End #footer -->
+
+
+
+</body>
+</html>

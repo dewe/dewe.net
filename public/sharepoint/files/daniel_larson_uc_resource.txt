@@ -1,0 +1,49 @@
+protected Control LoadControl(string resourceName)
+{
+    Control control = null;
+    string simpleAssembly = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+    simpleAssembly = simpleAssembly.Substring(0, simpleAssembly.IndexOf(','));
+    string path = string.Format(ControlPathFormat, simpleAssembly, resourceName);
+    try
+    {
+        control = Page.LoadControl(path);
+    }
+    catch(FileNotFoundException)
+    {
+        this.DeployControl(resourceName, path);
+        control = Page.LoadControl(path);
+    }
+    return (control);
+}
+ 
+/// <summary>
+/// Deploys the control to the page
+/// </summary>
+/// <param name="controlName">the name of the control resource</param>
+/// <param name="controlPath">the path top the control</param>
+private void DeployControl(string controlName, string controlPath)
+{
+    WindowsImpersonationContext wic = WindowsIdentity.Impersonate(IntPtr.Zero);
+    try 
+    {
+        Stream xstream =
+            Assembly.GetExecutingAssembly().GetManifestResourceStream(controlName);
+        TextReader reader = new StreamReader(xstream);
+        string control = reader.ReadToEnd();
+        string filePath = this.Page.Server.MapPath(controlPath);
+        FileInfo info = new FileInfo(filePath);
+        string dirPath = info.DirectoryName;
+        if (Directory.Exists(dirPath) == false)
+        {
+            DirectoryInfo pathInfo = Directory.CreateDirectory(dirPath);
+        }
+        StreamWriter writer = File.CreateText(filePath);
+        writer.Write(control);
+        writer.Flush();
+        writer.Close();
+    }
+    finally 
+    {
+        wic.Undo();
+    }
+}

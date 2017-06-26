@@ -1,0 +1,75 @@
+body { 
+	background-color:#CCCC99; 
+	color:#666633; 
+	font-family: Verdana, Arial, Geneva, Helvetica; 
+	font-size: 13px; 
+	margin-top: 25px; 
+	margin-right: 25px; 
+	margin-bottom: 25px; 
+	margin-left: 25px; 
+	background-image: url(kwb_bg.gif); 
+	background-repeat: no-repeat; 
+	background-attachment: fixed
+}
+table { 
+	font-family: Verdana, Arial, Geneva, Helvetica; 
+	font-size: 13px; 
+	color: #666633
+}
+a { 
+	text-decoration: underline; 
+	color: #666633
+}
+a:hover { 
+	text-decoration: underline; 
+	color: #CC6633
+}
+a:active { 
+	color: #CC6633
+}
+p { 
+	margin-top: 0px; 
+	margin-bottom: 15px
+}
+h3 { 
+	margin-bottom: 5px
+}
+h2 { 
+	margin-bottom: 5px
+}
+h4 { 
+	margin-bottom: 2px; 
+	font-size: 13px; 
+	font-weight: bold
+}
+.footer { 
+	font-size: 9.5px; 
+	font-style: italic; 
+	font-weight: normal; 
+	position: relative; 
+	bottom: 3; 
+	right: 3; 
+	align; text-align: right; 
+	margin-top: 30px; 
+	border-top: solid 1px #666633
+}
+th {  
+	border-color: black black #666633; 
+	border-bottom-width: 1px
+}
+ol { 
+	margin-top: 0px; 
+	margin-bottom: 15px; 
+	margin-left: 30px; 
+	list-style-position: outside; 
+	list-style-type: upper-roman 
+}
+.comment {  
+	font-size: 11px
+}
+.comment_name {  
+	font-size: 10px; 
+	c-olor: #333333; 
+	font-style: italic
+}
+
