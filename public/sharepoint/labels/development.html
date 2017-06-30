@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
 <meta name="generator" content="Blogger" />
-<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.dewe.net/sharepoint/atom.xml" />
-<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="http://www.dewe.net/sharepoint/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="/sharepoint/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="/sharepoint/rss.xml" />
 <link rel="service.post" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.blogger.com/feeds/24218888/posts/default" />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://beta.blogger.com/rsd.g?blogID=24218888" />
 <style type="text/css">
@@ -18,7 +18,7 @@
 <script type="text/javascript" src="http://beta.blogger.com/js/backlink_control.js"></script>
 <script type="text/javascript">var BL_backlinkURL = "http://beta.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "24218888";</script>
 
-<link rel="stylesheet" type="text/css" href="http://www.dewe.net/sharepoint/styles.css">
+<link rel="stylesheet" type="text/css" href="/sharepoint/styles.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 	.SharePoint
 	
   </h1>
-  <p id="description">En blogg pÃ¥ svenska om SharePoint i synnerhet och .Net i allmÃ¤nhet</p>
+  <p id="description">En blogg på svenska om SharePoint i synnerhet och .Net i allmänhet</p>
 
 </div>
 
@@ -51,22 +51,22 @@
          
     <h3 class="post-title">
 	 
-	 KÃ¤llkoden till MOSS AspMenu
+	 Källkoden till MOSS AspMenu
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      MS har slÃ¤ppt kÃ¤llkoden fÃ¶r klassen <em>AspMenu</em>, som Ã¤r en Ã¤rver frÃ¥n ASP.Net 2.0 klassen <em>Menu</em>. AspMenu fixar nÃ¥gra problem med ASP.Net 2.0 Menu:<ol><li><em>If the mouse pointer happens to be hovering over a menu item that exposes a fly-out as the page is loading, it is possible that an error dialog will appear stating: "Internet Explorer cannot open the Internet site, Operation aborted" and a blank page will be shown upon clicking OK. It seems that the problem arises from attempting to append to the DOM before it is properly initialized.</em></li><li><em>If SSL termination is employed on a site with a menu, users will be greeted with âThis page contains both secure and nonsecure items. Do you want to display the nonsecure items?â when hovering over a menu item which exposes fly-outs. (http://support.microsoft.com/?id=910444)</em></li><li><em>In right-to-left locales, the fly-out indicator arrow still points from left-to-right.</em></li></ol><br />AspMeny har i API:t misstag blivit sealed, vilket hindrar egna anpassningar. SÃ¥ nu finns alltsÃ¥ koden att ladda hem under namnet <em>MossMenu</em>: <a href="http://blogs.msdn.com/sharepoint/attachment/1193926.ashx">http://blogs.msdn.com/sharepoint/attachment/1193926.ashx</a><br /><br />Originalartikeln frÃ¥n SharePoint Team Blog hÃ¤r: <br /><a href="http://blogs.msdn.com/sharepoint/archive/2006/12/02/customizing-the-wss-3-0-moss-2007-menu-control.aspx" target="_blank">Customizing the WSS 3.0/MOSS 2007 Menu Control - MossMenu source code released</a><br /><br /><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/wss" target="_blank" rel="tag">wss</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a></span><p class="blogger-labels">Labels: <a rel='tag' href="http://www.dewe.net/sharepoint/labels/development.html">development</a>, <a rel='tag' href="http://www.dewe.net/sharepoint/labels/moss.html">moss</a>, <a rel='tag' href="http://www.dewe.net/sharepoint/labels/wss.html">wss</a></p>
+      MS har släppt källkoden för klassen <em>AspMenu</em>, som är en ärver från ASP.Net 2.0 klassen <em>Menu</em>. AspMenu fixar några problem med ASP.Net 2.0 Menu:<ol><li><em>If the mouse pointer happens to be hovering over a menu item that exposes a fly-out as the page is loading, it is possible that an error dialog will appear stating: "Internet Explorer cannot open the Internet site, Operation aborted" and a blank page will be shown upon clicking OK. It seems that the problem arises from attempting to append to the DOM before it is properly initialized.</em></li><li><em>If SSL termination is employed on a site with a menu, users will be greeted with “This page contains both secure and nonsecure items. Do you want to display the nonsecure items?” when hovering over a menu item which exposes fly-outs. (http://support.microsoft.com/?id=910444)</em></li><li><em>In right-to-left locales, the fly-out indicator arrow still points from left-to-right.</em></li></ol><br />AspMeny har i API:t misstag blivit sealed, vilket hindrar egna anpassningar. Så nu finns alltså koden att ladda hem under namnet <em>MossMenu</em>: <a href="http://blogs.msdn.com/sharepoint/attachment/1193926.ashx">http://blogs.msdn.com/sharepoint/attachment/1193926.ashx</a><br /><br />Originalartikeln från SharePoint Team Blog här: <br /><a href="http://blogs.msdn.com/sharepoint/archive/2006/12/02/customizing-the-wss-3-0-moss-2007-menu-control.aspx" target="_blank">Customizing the WSS 3.0/MOSS 2007 Menu Control - MossMenu source code released</a><br /><br /><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/wss" target="_blank" rel="tag">wss</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a></span><p class="blogger-labels">Labels: <a rel='tag' href="/sharepoint/labels/development.html">development</a>, <a rel='tag' href="/sharepoint/labels/moss.html">moss</a>, <a rel='tag' href="/sharepoint/labels/wss.html">wss</a></p>
     </div>
     </div>
     
     <p class="post-footer">
-      <em>Posted 12/09/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/enterprise-content-management-ecm-team.html" title="permanent link">Permalink</a>
+      <em>Posted 12/09/2006 | <a href="/sharepoint/2006/12/enterprise-content-management-ecm-team.html" title="permanent link">Permalink</a>
       
         | <a href="https://beta.blogger.com/comment.g?blogID=24218888&postID=116570055364732754"location.href=https://beta.blogger.com/comment.g?blogID=24218888&postID=116570055364732754;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/enterprise-content-management-ecm-team.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/enterprise-content-management-ecm-team.html#links">Links to this post</a>
       
       <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://beta.blogger.com/post-edit.g?blogID=24218888&postID=116570055364732754" title="Edit Post"><span class="quick-edit-icon">&nbsp;</span></a></span>
       </em>
@@ -104,13 +104,13 @@
 
   <ul id="links">
     
-    <li><a href="http://www.dewe.net/sharepoint/atom.xml"><img src="http://www.dewe.net/sharepoint/images/fib12.png" /></a>&nbsp;<a href="http://www.dewe.net/sharepoint/atom.xml">Atom site feed</a></li>
-    <li><a href="http://www.dewe.net/sharepoint/rss.xml"><img src="http://www.dewe.net/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://www.dewe.net/sharepoint/rss.xml">RSS site feed</a></li>   
+    <li><a href="/sharepoint/atom.xml"><img src="/sharepoint/images/fib12.png" /></a>&nbsp;<a href="/sharepoint/atom.xml">Atom site feed</a></li>
+    <li><a href="/sharepoint/rss.xml"><img src="/sharepoint/images/fi12.png" /></a>&nbsp;<a href="/sharepoint/rss.xml">RSS site feed</a></li>   
   </ul>
 
   <!-- Begin #profile-container -->
 
-            <div id="profile-container"> <h2 class="sidebar-title">About Me</h2> <dl class="profile-datablock">  <dd class="profile-data">  <strong>Name:</strong>  Johan Dewe   </dd>  <dd class="profile-data">  <strong>Location:</strong>  Stockholm, SE   </dd>  </dl>  <p class="profile-textblock"> Systemarkitekt pÃ¥ Strand&nbsp;Interconnect&nbsp;AB. </p>  <p class="profile-link"> <a href="http://www.blogger.com/profile/13235019595667853405">View my complete profile</a> </p> </div> 
+            <div id="profile-container"> <h2 class="sidebar-title">About Me</h2> <dl class="profile-datablock">  <dd class="profile-data">  <strong>Name:</strong>  Johan Dewe   </dd>  <dd class="profile-data">  <strong>Location:</strong>  Stockholm, SE   </dd>  </dl>  <p class="profile-textblock"> Systemarkitekt på Strand&nbsp;Interconnect&nbsp;AB. </p>  <p class="profile-link"> <a href="http://www.blogger.com/profile/13235019595667853405">View my complete profile</a> </p> </div> 
    
   <!-- End #profile -->
 
@@ -126,25 +126,25 @@
   <h2 class="sidebar-title">Previous Posts</h2>
     <ul id="recently">
     
-        <li><a href="http://www.dewe.net/sharepoint/2006/12/enterprise-content-management-ecm-team.html">KÃ¤llkoden till MOSS AspMenu</a></li>
+        <li><a href="/sharepoint/2006/12/enterprise-content-management-ecm-team.html">Källkoden till MOSS AspMenu</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/12/office-2007-virtual-labs.html">Office 2007 Virtual Labs</a></li>
+        <li><a href="/sharepoint/2006/12/office-2007-virtual-labs.html">Office 2007 Virtual Labs</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/tips-wsssearchcom.html">Tips: WssSearch.com</a></li>
+        <li><a href="/sharepoint/2006/11/tips-wsssearchcom.html">Tips: WssSearch.com</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/tjena-moss.html">Tjena MOSS!</a></li>
+        <li><a href="/sharepoint/2006/11/tjena-moss.html">Tjena MOSS!</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/sharepoint-och-powershell.html">SharePoint och PowerShell</a></li>
+        <li><a href="/sharepoint/2006/11/sharepoint-och-powershell.html">SharePoint och PowerShell</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/wss-30-fr-nedladdning.html">WSS 3.0 fÃ¶r nedladdning</a></li>
+        <li><a href="/sharepoint/2006/11/wss-30-fr-nedladdning.html">WSS 3.0 för nedladdning</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/visual-studio-2005-extensions-for-wss.html">Visual Studio 2005 Extensions for WSS 3.0</a></li>
+        <li><a href="/sharepoint/2006/11/visual-studio-2005-extensions-for-wss.html">Visual Studio 2005 Extensions for WSS 3.0</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/microsoft-learning-fler-gratis-kurser.html">Microsoft Learning: fler gratis-kurser</a></li>
+        <li><a href="/sharepoint/2006/11/microsoft-learning-fler-gratis-kurser.html">Microsoft Learning: fler gratis-kurser</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/2007-office-system-rtm.html">2007 Office System RTM</a></li>
+        <li><a href="/sharepoint/2006/11/2007-office-system-rtm.html">2007 Office System RTM</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2006/11/wap-och-wdp-lirar-inte-riktigt-ihop.html">WAP och WDP lirar inte riktigt ihop</a></li>
+        <li><a href="/sharepoint/2006/11/wap-och-wdp-lirar-inte-riktigt-ihop.html">WAP och WDP lirar inte riktigt ihop</a></li>
      
   </ul>
     
@@ -152,23 +152,23 @@
   <h2 class="sidebar-title">Archives</h2>
     <ul class="archive-list">
    	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
+    	<li><a href="/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_04_01_archive.html">april 2006</a></li>
+    	<li><a href="/sharepoint/2006_04_01_archive.html">april 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
+    	<li><a href="/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
+    	<li><a href="/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
+    	<li><a href="/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_09_01_archive.html">september 2006</a></li>
+    	<li><a href="/sharepoint/2006_09_01_archive.html">september 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
+    	<li><a href="/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_11_01_archive.html">november 2006</a></li>
+    	<li><a href="/sharepoint/2006_11_01_archive.html">november 2006</a></li>
 	  
-    	<li><a href="http://www.dewe.net/sharepoint/2006_12_01_archive.html">december 2006</a></li>
+    	<li><a href="/sharepoint/2006_12_01_archive.html">december 2006</a></li>
 	  
 
   </ul>

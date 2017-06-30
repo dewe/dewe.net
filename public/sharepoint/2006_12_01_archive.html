@@ -6,16 +6,16 @@
 <script type="text/javascript">(function() { var a=window;function e(b){this.t={};this.tick=function(c,h,d){d=d?d:(new Date).getTime();this.t[c]=[d,h]};this.tick("start",null,b)}var f=new e;a.jstiming={Timer:e,load:f};try{a.jstiming.pt=a.gtbExternal&&a.gtbExternal.pageT()||a.external&&a.external.pageT}catch(g){};a.tickAboveFold=function(b){b=b;var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}b=c;b<=750&&a.jstiming.load.tick("aft")};var i=false;function j(){if(!i){i=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",j,false):a.attachEvent("onscroll",j); })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
 <meta name="generator" content="Blogger" />
-<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
-<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.dewe.net/sharepoint/atom.xml" />
-<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="http://www.dewe.net/sharepoint/rss.xml" />
+
+<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="/sharepoint/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="/sharepoint/rss.xml" />
 <link rel="service.post" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.blogger.com/feeds/24218888/posts/default" />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=24218888" />
  <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/3727950723-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=24218888&zx=0de7503c-54ac-40ac-8204-e13c84b918a3"/><script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/1188848481-backlink.js"></script>
 <script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/463928704-backlink_control.js"></script>
 <script type="text/javascript">var BL_backlinkURL = "http://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "24218888";</script>
 
-<link rel="stylesheet" type="text/css" href="http://www.dewe.net/sharepoint/styles.css" />
+<link rel="stylesheet" type="text/css" href="/sharepoint/styles.css" />
 <meta name="ICBM" content="59.276667, 18.07417" />
 <meta name="DC.title" content=".SharePoint" />
 <script type="text/javascript">
@@ -24,7 +24,7 @@
    for (var i = linktags.length; i>=0; i--)
    {
       var linktag = linktags[i];	
-      if (linktag && linktag.getAttribute("href") == "http://www.dewe.net/sharepoint/rss.xml")
+      if (linktag && linktag.getAttribute("href") == "/sharepoint/rss.xml")
       {
          linktag.setAttribute("href", "http://feeds.feedburner.com/dewe/sharepoint");
          break;
@@ -38,13 +38,13 @@
 <div id="header">
 
   <h1 id="blog-title">
-    <a href="http://www.dewe.net/sharepoint/">
+    <a href="/sharepoint/">
     
 	.SharePoint
     
     </a>
   </h1>
-  <p id="description">En blogg pÃ¥ svenska om SharePoint i synnerhet och .Net i allmÃ¤nhet</p>
+  <p id="description">En blogg på svenska om SharePoint i synnerhet och .Net i allmänhet</p>
 
 </div>
 
@@ -65,26 +65,26 @@
          
     <h3 class="post-title">
 	 
-	 ExtranÃ¤t med SQL membership provider
+	 Extranät med SQL membership provider
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>HÃ¤r kommer en hyfsat kortfattad instruktion fÃ¶r hur man sÃ¤tter WSS med formulÃ¤rbaserad inloggning och ASP.Net 2.0 SQL Membership Provider. Instruktionerna Ã¤r mest menade som minnesanteckningar; de fÃ¶rutsÃ¤tter grundlÃ¤ggande kunskap om IIS 6.0, SSL och ASP.Net 2.0 provider model.</p><p>Genom att utÃ¶ka (extend) en Web Appication fÃ¥r du tvÃ¥ eller flera IIS-webbar som visar samma innehÃ¥ll ur SharePoint. Du kan ge IIS-webbarna olika egenskaper; i det hÃ¤r fallet lÃ¥ter jag den fÃ¶rsta IIS-webben anvÃ¤nda integrerad sÃ¤kerhet, medan den utÃ¶kade IIS-webben fÃ¥r formulÃ¤rbaserad inloggning med ASP.Net 2.0 Membership Provider.<p><img src="http://www.dewe.net/sharepoint/images/wss_multi_iis_websites.png" /></p><p>Instruktionerna Ã¤r mest menade som minnesanteckningar; de fÃ¶rutsÃ¤tter grundlÃ¤ggande kunskap om IIS 6.0, SSL, ASP.Net 20 och Membership Providers.</p><h3>FÃ¶rberedelse: Installera WSS eller MOSS</h3><p>Installera server och se till att det finns en Web Application med integrerad sÃ¤kerhet (NTML eller Kerberos). Verifiera att det finns en Site Collection och att du kan logga in.</p><h3>Skapa en membership-databas</h3><p>Generera script fÃ¶r att skapa en ASP.Net membership database:<br><code>aspnet_regsql -A all -d Moss_AspNetDb -sqlexportonly &lt;filename&gt;</code></p><p>Eventuellt rÃ¤cker det med <code>-A mp</code> eller <code>-A m</code>.</p><p>KÃ¶r filen i SQL Server Management Studio, verifiera att databasen ser korrekt ut.</p><p>LÃ¤gg till servicekontot fÃ¶r IIS-webbarnas application pool till databasrollen <b>AspNet_Membership_BasicAccess</b>. LÃ¤gg till ditt eget domÃ¤nkonto till rollen <b>AspNet_Membership_FullAccess</b>.</p><h3>Anslut till databasen och skapa en anvÃ¤ndare</h3><p>Skapa ett nytt Web Site-projekt i Visual Studio 2005, och konfigurera det med instÃ¤llningar fÃ¶r membership providern.</p><p>LÃ¤gg till sektionen connection strings under noden configuration:</p><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;!--</span><span style="color: green;">Connection strings for membership provider</span><span style="color: blue;">--&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">connectionStrings</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">add</span><span style="color: blue;"> </span><span style="color: red;">name</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Moss_AspNetDb_ConnectionString</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp; </span><span style="color: red;">connectionString</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Data Source=DBSERVER;Initial Catalog=Moss_AspNetDb;Integrated Security=True</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp; </span><span style="color: red;">providerName</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">System.Data.SqlClient</span>&quot;<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: #a31515;">connectionStrings</span><span style="color: blue;">&gt;</span></p></div><p>LÃ¤gg till sektionen membership section under noden system.web:</p><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;!--</span><span style="color: green;"> membership provider </span><span style="color: blue;">--&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">membership</span><span style="color: blue;"> </span><span style="color: red;">defaultProvider</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Extranet</span>&quot;<span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">providers</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp; &lt;</span><span style="color: #a31515;">add</span><span style="color: blue;"> </span><span style="color: red;">name</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Extranet</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">type</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">System.Web.Security.SqlMembershipProvider, System.Web,Version=2.0.0.0,</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">connectionStringName</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Moss_AspNetDb_ConnectionString</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">enablePasswordRetrieval</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">false</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">enablePasswordReset</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">true</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">requiresQuestionAndAnswer</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">false</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">applicationName</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">MossExtranet</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">requiresUniqueEmail</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">true</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">passwordFormat</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Hashed</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">maxInvalidPasswordAttempts</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">5</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">minRequiredPasswordLength</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">8</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">minRequiredNonalphanumericCharacters</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">1</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">passwordAttemptWindow</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">10</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">passwordStrengthRegularExpression</span><span style="color: blue;">=</span>&quot;&quot;<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;/</span><span style="color: #a31515;">providers</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: #a31515;">membership</span><span style="color: blue;">&gt;</span></p></div><p>AngÃ¥ende val av providernamn: man kan givetvis anvÃ¤nda standardnamnet AspNetSqlMembershipProvider. Jag valde att istÃ¤llet anvÃ¤nda âExtranetâ eftersom anvÃ¤ndarkontonamnen fÃ¥r detta som prefix i SharePoint (till exempel Extranet:TestUser).</p><p>Application name kan lÃ¤mnas default (&quot;/&quot;). Men om du, som jag, Ã¤ndrar till nÃ¥got annat, sÃ¥ mÃ¥ste det vara lika fÃ¶r alla ASP.Net providers i din applikation, annars fÃ¥r du problem.</p><p>Testa att instÃ¤llningarna fungerar genom att starta ASP.Net Configuration (ASP.Net Web Site Administration Tool). Skapa en testanavÃ¤ndare.</p><p>Nu Ã¤r databasen och providern fÃ¶rberedd. Dags att titta pÃ¥ IIS och SharePoint.</p><h3>UtÃ¶ka din Web Application</h3><p>Skapa en ny IIS Web Site och fÃ¶rbered den med SSL med hjÃ¤lp av IIS Administration tools. </p><p>I Central Administration, fliken Application Management, klicka pÃ¥ Create or extend Web application, och vÃ¤lj Extend an existing Web application.</p><ul><li>VÃ¤lj den Web Application som ska utÃ¶kas.</li><li>VÃ¤lj din nya IIS Web Site som ska anvÃ¤ndas fÃ¶r utÃ¶kningen (eller skapa ny)</li><li>Port 443 fÃ¶r SSL.</li><li>BehÃ¥ll SSL.</li><li>Kontrollera URL:en, samt ange zon Extranet. Detta kommer att lÃ¤gga till URL:en som en âalternate access mappingâ, dvs en alternativ adress fÃ¶r din Web Application.</li></ul><p>Klicka Ok. Verifiera att du kan logga in pÃ¥ den nya adressen, och att du ser samma innehÃ¥ll som pÃ¥ den fÃ¶rsta adressen.</p><p>Nu har du tvÃ¥ IIS-webbar som visar samma SharePoint-site pÃ¥ tvÃ¥ olika URL:er.</p><h3>Uppdatera web.config <i>bÃ¥da</i> IIS-webbarna</h3><p>LÃ¤gg till instÃ¤llningar fÃ¶r SQL membership providern i bÃ¥da IIS-webbarna. VarfÃ¶r inte bara i den utÃ¶kade IIS-webben dÃ¤r formulÃ¤rinloggning ska anvÃ¤ndas? Jo, fÃ¶r den IIS-webben med integrerad sÃ¤kerhet kommer att anvÃ¤ndas fÃ¶r att hantera SharePoint-grupper â och dÃ¥ behÃ¶ver du sÃ¶ka och lÃ¤gga till anvÃ¤ndare frÃ¥n membership providern. DÃ¤rfÃ¶r mÃ¥ste Ã¤ven den IIS-webben fÃ¥ dessa instÃ¤llningar.</p><p>Tag instÃ¤llarna i web.config frÃ¥n Web Site-projektet och lÃ¤gg till i web.config fÃ¶r <i>bÃ¥da</i> IIS-webbarna (ja, ja, &nbsp;sluta tjata).</p><p>Uppdatera elementet PeoplePickerWildCards med namnet pÃ¥ providern:</p><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">PeoplePickerWildcards</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">clear</span><span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">add</span><span style="color: blue;"> </span><span style="color: red;">key</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Extranet</span>&quot;<span style="color: blue;"> </span><span style="color: red;">value</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">%</span>&quot;<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: #a31515;">PeoplePickerWildcards</span><span style="color: blue;">&gt;</span></p></div><!--endfragment--><p>Eventuellt kan man lÃ¤gga till en role-provider ocksÃ¥, men det har inte jag gjort i det hÃ¤r fallet.</p><h3>Konfigurera web.config fÃ¶r Central Administration</h3><p>Det rekommenderas att man lÃ¤gger till instÃ¤llningar fÃ¶r membership providern Ã¤ven i Central Administration. Detta Ã¤r nÃ¶dvÃ¤ndigt i de fall man centralt behÃ¶ver tilldela behÃ¶righeter eller en policy till en anvÃ¤ndare frÃ¥n providern.</p><p>Jag hoppade Ã¶ver detta tills vidare. </p><h3>Konfigurera autentiseringsmetod i SharePoint</h3><p>I Central administration, fliken Application Management, klicka pÃ¥ Authentication Providers.</p><p>Ange rÃ¤tt webbapplikation och klicka pÃ¥ zonen Extranet.</p><p>Ãndra Authentication Type till âFormsâ och ange âExtranetâ som Membership provider name. Spara instÃ¤llningarna.</p><h3>Test</h3><p>Logga in pÃ¥ den fÃ¶rsta IIS-webben som vanligt. Ge behÃ¶righeter till testanvÃ¤ndaren du skapade tidigare. Det ska fungera att hitta anvÃ¤ndaren med people pickern.</p><p>Ãppna den utÃ¶kade IIS-webben. Du ska nu se SharePoints inloggningsformulÃ¤r. Verifiera att det gÃ¥r att logga in med testanvÃ¤ndaren.</p><h3>Administration av anvÃ¤ndare</h3><p>Vidareutveckla din Web Site i Visual Studio med sidor fÃ¶r att administrera anvÃ¤ndare. &nbsp;Placera webbapplikationen under Central Administration (http://CentralAdminSite:port/MyUserAdministration).</p><p>Pretty simple and straight forward. </p><p>God Jul.</p><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/sharepoint">sharepoint</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/deploymnet">deployment</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Här kommer en hyfsat kortfattad instruktion för hur man sätter WSS med formulärbaserad inloggning och ASP.Net 2.0 SQL Membership Provider. Instruktionerna är mest menade som minnesanteckningar; de förutsätter grundläggande kunskap om IIS 6.0, SSL och ASP.Net 2.0 provider model.</p><p>Genom att utöka (extend) en Web Appication får du två eller flera IIS-webbar som visar samma innehåll ur SharePoint. Du kan ge IIS-webbarna olika egenskaper; i det här fallet låter jag den första IIS-webben använda integrerad säkerhet, medan den utökade IIS-webben får formulärbaserad inloggning med ASP.Net 2.0 Membership Provider.<p><img src="/sharepoint/images/wss_multi_iis_websites.png" /></p><p>Instruktionerna är mest menade som minnesanteckningar; de förutsätter grundläggande kunskap om IIS 6.0, SSL, ASP.Net 20 och Membership Providers.</p><h3>Förberedelse: Installera WSS eller MOSS</h3><p>Installera server och se till att det finns en Web Application med integrerad säkerhet (NTML eller Kerberos). Verifiera att det finns en Site Collection och att du kan logga in.</p><h3>Skapa en membership-databas</h3><p>Generera script för att skapa en ASP.Net membership database:<br><code>aspnet_regsql -A all -d Moss_AspNetDb -sqlexportonly &lt;filename&gt;</code></p><p>Eventuellt räcker det med <code>-A mp</code> eller <code>-A m</code>.</p><p>Kör filen i SQL Server Management Studio, verifiera att databasen ser korrekt ut.</p><p>Lägg till servicekontot för IIS-webbarnas application pool till databasrollen <b>AspNet_Membership_BasicAccess</b>. Lägg till ditt eget domänkonto till rollen <b>AspNet_Membership_FullAccess</b>.</p><h3>Anslut till databasen och skapa en användare</h3><p>Skapa ett nytt Web Site-projekt i Visual Studio 2005, och konfigurera det med inställningar för membership providern.</p><p>Lägg till sektionen connection strings under noden configuration:</p><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;!--</span><span style="color: green;">Connection strings for membership provider</span><span style="color: blue;">--&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">connectionStrings</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">add</span><span style="color: blue;"> </span><span style="color: red;">name</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Moss_AspNetDb_ConnectionString</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp; </span><span style="color: red;">connectionString</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Data Source=DBSERVER;Initial Catalog=Moss_AspNetDb;Integrated Security=True</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp; </span><span style="color: red;">providerName</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">System.Data.SqlClient</span>&quot;<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: #a31515;">connectionStrings</span><span style="color: blue;">&gt;</span></p></div><p>Lägg till sektionen membership section under noden system.web:</p><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;!--</span><span style="color: green;"> membership provider </span><span style="color: blue;">--&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">membership</span><span style="color: blue;"> </span><span style="color: red;">defaultProvider</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Extranet</span>&quot;<span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">providers</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp; &lt;</span><span style="color: #a31515;">add</span><span style="color: blue;"> </span><span style="color: red;">name</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Extranet</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">type</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">System.Web.Security.SqlMembershipProvider, System.Web,Version=2.0.0.0,</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">connectionStringName</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Moss_AspNetDb_ConnectionString</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">enablePasswordRetrieval</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">false</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">enablePasswordReset</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">true</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">requiresQuestionAndAnswer</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">false</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">applicationName</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">MossExtranet</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">requiresUniqueEmail</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">true</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">passwordFormat</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Hashed</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">maxInvalidPasswordAttempts</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">5</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">minRequiredPasswordLength</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">8</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">minRequiredNonalphanumericCharacters</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">1</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">passwordAttemptWindow</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">10</span>&quot;</p><p style="margin: 0px;"><span style="color: blue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="color: red;">passwordStrengthRegularExpression</span><span style="color: blue;">=</span>&quot;&quot;<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;/</span><span style="color: #a31515;">providers</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: #a31515;">membership</span><span style="color: blue;">&gt;</span></p></div><p>Angående val av providernamn: man kan givetvis använda standardnamnet AspNetSqlMembershipProvider. Jag valde att istället använda ”Extranet” eftersom användarkontonamnen får detta som prefix i SharePoint (till exempel Extranet:TestUser).</p><p>Application name kan lämnas default (&quot;/&quot;). Men om du, som jag, ändrar till något annat, så måste det vara lika för alla ASP.Net providers i din applikation, annars får du problem.</p><p>Testa att inställningarna fungerar genom att starta ASP.Net Configuration (ASP.Net Web Site Administration Tool). Skapa en testanavändare.</p><p>Nu är databasen och providern förberedd. Dags att titta på IIS och SharePoint.</p><h3>Utöka din Web Application</h3><p>Skapa en ny IIS Web Site och förbered den med SSL med hjälp av IIS Administration tools. </p><p>I Central Administration, fliken Application Management, klicka på Create or extend Web application, och välj Extend an existing Web application.</p><ul><li>Välj den Web Application som ska utökas.</li><li>Välj din nya IIS Web Site som ska användas för utökningen (eller skapa ny)</li><li>Port 443 för SSL.</li><li>Behåll SSL.</li><li>Kontrollera URL:en, samt ange zon Extranet. Detta kommer att lägga till URL:en som en ”alternate access mapping”, dvs en alternativ adress för din Web Application.</li></ul><p>Klicka Ok. Verifiera att du kan logga in på den nya adressen, och att du ser samma innehåll som på den första adressen.</p><p>Nu har du två IIS-webbar som visar samma SharePoint-site på två olika URL:er.</p><h3>Uppdatera web.config <i>båda</i> IIS-webbarna</h3><p>Lägg till inställningar för SQL membership providern i båda IIS-webbarna. Varför inte bara i den utökade IIS-webben där formulärinloggning ska användas? Jo, för den IIS-webben med integrerad säkerhet kommer att användas för att hantera SharePoint-grupper – och då behöver du söka och lägga till användare från membership providern. Därför måste även den IIS-webben få dessa inställningar.</p><p>Tag inställarna i web.config från Web Site-projektet och lägg till i web.config för <i>båda</i> IIS-webbarna (ja, ja, &nbsp;sluta tjata).</p><p>Uppdatera elementet PeoplePickerWildCards med namnet på providern:</p><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: #a31515;">PeoplePickerWildcards</span><span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">clear</span><span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: #a31515;">add</span><span style="color: blue;"> </span><span style="color: red;">key</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">Extranet</span>&quot;<span style="color: blue;"> </span><span style="color: red;">value</span><span style="color: blue;">=</span>&quot;<span style="color: blue;">%</span>&quot;<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: #a31515;">PeoplePickerWildcards</span><span style="color: blue;">&gt;</span></p></div><!--endfragment--><p>Eventuellt kan man lägga till en role-provider också, men det har inte jag gjort i det här fallet.</p><h3>Konfigurera web.config för Central Administration</h3><p>Det rekommenderas att man lägger till inställningar för membership providern även i Central Administration. Detta är nödvändigt i de fall man centralt behöver tilldela behörigheter eller en policy till en användare från providern.</p><p>Jag hoppade över detta tills vidare. </p><h3>Konfigurera autentiseringsmetod i SharePoint</h3><p>I Central administration, fliken Application Management, klicka på Authentication Providers.</p><p>Ange rätt webbapplikation och klicka på zonen Extranet.</p><p>Ändra Authentication Type till ”Forms” och ange ”Extranet” som Membership provider name. Spara inställningarna.</p><h3>Test</h3><p>Logga in på den första IIS-webben som vanligt. Ge behörigheter till testanvändaren du skapade tidigare. Det ska fungera att hitta användaren med people pickern.</p><p>Öppna den utökade IIS-webben. Du ska nu se SharePoints inloggningsformulär. Verifiera att det går att logga in med testanvändaren.</p><h3>Administration av användare</h3><p>Vidareutveckla din Web Site i Visual Studio med sidor för att administrera användare. &nbsp;Placera webbapplikationen under Central Administration (http://CentralAdminSite:port/MyUserAdministration).</p><p>Pretty simple and straight forward. </p><p>God Jul.</p><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/sharepoint">sharepoint</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/deploymnet">deployment</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/12/extrant-med-sql-membership-provider.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/12/extrant-med-sql-membership-provider.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 12/22/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/extrant-med-sql-membership-provider.html" title="permanent link">Permalink</a>
+      <em>Posted 12/22/2006 | <a href="/sharepoint/2006/12/extrant-med-sql-membership-provider.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=5303887961554345650"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=5303887961554345650;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/extrant-med-sql-membership-provider.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/extrant-med-sql-membership-provider.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=5303887961554345650" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=5303887961554345650" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -116,19 +116,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>LÃ¤s och klicka vidare till downloads hÃ¤r:<br /><a target="_blank" href="http://msdn.microsoft.com/vstudio/support/vs2005sp1/">Visual Studio 2005 Service Pack 1 (SP1)</a><br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/developer">developer</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Läs och klicka vidare till downloads här:<br /><a target="_blank" href="http://msdn.microsoft.com/vstudio/support/vs2005sp1/">Visual Studio 2005 Service Pack 1 (SP1)</a><br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/developer">developer</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/12/vs-2005-sp1.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/12/vs-2005-sp1.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 12/16/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/vs-2005-sp1.html" title="permanent link">Permalink</a>
+      <em>Posted 12/16/2006 | <a href="/sharepoint/2006/12/vs-2005-sp1.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=3403353823224943601"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=3403353823224943601;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/vs-2005-sp1.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/vs-2005-sp1.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=3403353823224943601" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=3403353823224943601" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -153,26 +153,26 @@
          
     <h3 class="post-title">
 	 
-	 MOSS och WSS pÃ¥ svenska
+	 MOSS och WSS på svenska
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div><a target="_blank" href="http://blogs.technet.com/pontush/archive/2006/12/11/wss-p-svenska-och-svenskt-spr-kpaket-tillg-ngligt.aspx">Pontus</a> tipsar om att MOSS nu finns pÃ¥ svenska. Hittar den inte pÃ¥ MSDN Ã¤nnu, men en trial version finns pÃ¥ <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=2e6e5a9c-ebf6-4f7f-8467-f4de6bd6b831&DisplayLang=sv">Microsoft Downloads</a>. Det ska bli intressant att se hur Ã¶versÃ¤ttarna har lyckats den hÃ¤r gÃ¥ngen... (SPS 2003 var ju inte klockren pÃ¥ alla punkter).<br /><br />Svenskt sprÃ¥kpaket fÃ¶r WSS finns ocksÃ¥ att hÃ¤mta: <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=36ee1bf0-652c-4e38-b247-f29b3eefa048&DisplayLang=sv">WSS 3.0 Language Pack - Svenska</a><br /><br />Observera att man numera ska skilja pÃ¥ language packs fÃ¶r WSS respektive MOSS:<br /><blockquote><em>Language packs are available to install on WSS only, MOSS, MOSS for Search, Office Forms Server, and Project Server installations. For MOSS, MOSS for Search, Forms Server, and Project Server installations, the Office server products Language Pack (a.k.a. ServerLanguagePack) needs to be installed; this will take care of all sites. The WSS Language Packs (a.k.a. SharePointLanguagePack) are for WSS stand-alone installations. (<a target="_blank" href="http://blogs.msdn.com/sharepoint/archive/2006/08/17/702956.aspx">SharePoint Team Blog</a>)</em></blockquote><br />DÃ¥ instÃ¤ller sig genast frÃ¥gan: nÃ¤r kommer language packs fÃ¶r MOSS?<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/sharepoint">sharepoint</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/moss">moss</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/wss">wss</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div><a target="_blank" href="http://blogs.technet.com/pontush/archive/2006/12/11/wss-p-svenska-och-svenskt-spr-kpaket-tillg-ngligt.aspx">Pontus</a> tipsar om att MOSS nu finns på svenska. Hittar den inte på MSDN ännu, men en trial version finns på <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=2e6e5a9c-ebf6-4f7f-8467-f4de6bd6b831&DisplayLang=sv">Microsoft Downloads</a>. Det ska bli intressant att se hur översättarna har lyckats den här gången... (SPS 2003 var ju inte klockren på alla punkter).<br /><br />Svenskt språkpaket för WSS finns också att hämta: <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=36ee1bf0-652c-4e38-b247-f29b3eefa048&DisplayLang=sv">WSS 3.0 Language Pack - Svenska</a><br /><br />Observera att man numera ska skilja på language packs för WSS respektive MOSS:<br /><blockquote><em>Language packs are available to install on WSS only, MOSS, MOSS for Search, Office Forms Server, and Project Server installations. For MOSS, MOSS for Search, Forms Server, and Project Server installations, the Office server products Language Pack (a.k.a. ServerLanguagePack) needs to be installed; this will take care of all sites. The WSS Language Packs (a.k.a. SharePointLanguagePack) are for WSS stand-alone installations. (<a target="_blank" href="http://blogs.msdn.com/sharepoint/archive/2006/08/17/702956.aspx">SharePoint Team Blog</a>)</em></blockquote><br />Då inställer sig genast frågan: när kommer language packs för MOSS?<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/sharepoint">sharepoint</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/moss">moss</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/wss">wss</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/12/moss-och-wss-p-svenska.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/12/moss-och-wss-p-svenska.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 12/12/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/moss-och-wss-p-svenska.html" title="permanent link">Permalink</a>
+      <em>Posted 12/12/2006 | <a href="/sharepoint/2006/12/moss-och-wss-p-svenska.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=1538313638845913048"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=1538313638845913048;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/moss-och-wss-p-svenska.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/moss-och-wss-p-svenska.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=1538313638845913048" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=1538313638845913048" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -204,19 +204,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>FÃ¶r dig som hÃ¥ller pÃ¥ med webparts och <a href="http://www.dewe.net/sharepoint/2006/11/visual-studio-2005-extensions-for-wss.html">VSeWSS</a>: tag inte fÃ¶r givet att webparts och features Ã¤r en sjÃ¤lvklar kombination, Ã¤ven om det kan verka sÃ¥ nÃ¤r du anvÃ¤nder VSeWSS och fÃ¥r <a target="_blank" href="http://msdn2.microsoft.com/en-us/library/aa973249.aspx">en feature pÃ¥ kÃ¶pet</a>.<br /><br />Precis som Maurice Prather pÃ¥pekar i <a target="_blank" href="http://www.bluedoglimited.com/SharePointThoughts/ViewPost.aspx?ID=259">Visual Studio Extensions for WSS - connecting the dots correctly</a> sÃ¥ Ã¤r features och webparts inte direkt relaterade. Enkelt uttryckt: om koden/assemblyt Ã¤r installerad pÃ¥ servern, och web.config rÃ¤tt konfad med SafeControl, sÃ¥ kommer webparten att exekvera i webpartsidan oavsett om din feature Ã¤r aktiverad eller ej.<br /><br />Jag Ã¤r inte helt sÃ¤ker pÃ¥ best practices hÃ¤r, men i fÃ¶rsta hand skulle jag nog sikta pÃ¥ att gÃ¶ra ett <a href="http://www.dewe.net/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html">Solution Package</a> med en eller flera webparts, men utan nÃ¥gon feature involverad. Dessutom Ã¤r det nog klokt att begrÃ¤nsa antal site features, om inte annat fÃ¶r att det blir trÃ¥ngt i grÃ¤nssnittet. <br /><br />FÃ¶rresten, finns det nÃ¥got skrivet om max antal features i en site? (Blink, blink Stefan)<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/sharepoint">sharepoint</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/wss">wss</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/webparts">webparts</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/development">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>För dig som håller på med webparts och <a href="/sharepoint/2006/11/visual-studio-2005-extensions-for-wss.html">VSeWSS</a>: tag inte för givet att webparts och features är en självklar kombination, även om det kan verka så när du använder VSeWSS och får <a target="_blank" href="http://msdn2.microsoft.com/en-us/library/aa973249.aspx">en feature på köpet</a>.<br /><br />Precis som Maurice Prather påpekar i <a target="_blank" href="http://www.bluedoglimited.com/SharePointThoughts/ViewPost.aspx?ID=259">Visual Studio Extensions for WSS - connecting the dots correctly</a> så är features och webparts inte direkt relaterade. Enkelt uttryckt: om koden/assemblyt är installerad på servern, och web.config rätt konfad med SafeControl, så kommer webparten att exekvera i webpartsidan oavsett om din feature är aktiverad eller ej.<br /><br />Jag är inte helt säker på best practices här, men i första hand skulle jag nog sikta på att göra ett <a href="/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html">Solution Package</a> med en eller flera webparts, men utan någon feature involverad. Dessutom är det nog klokt att begränsa antal site features, om inte annat för att det blir trångt i gränssnittet. <br /><br />Förresten, finns det något skrivet om max antal features i en site? (Blink, blink Stefan)<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/sharepoint">sharepoint</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/wss">wss</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/webparts">webparts</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/development">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/12/visual-studio-extensions-for-wss.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/12/visual-studio-extensions-for-wss.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 12/11/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/visual-studio-extensions-for-wss.html" title="permanent link">Permalink</a>
+      <em>Posted 12/11/2006 | <a href="/sharepoint/2006/12/visual-studio-extensions-for-wss.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=116585377502023168"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=116585377502023168;>Comments (2)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/visual-studio-extensions-for-wss.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/visual-studio-extensions-for-wss.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=116585377502023168" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=116585377502023168" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -239,26 +239,26 @@
          
     <h3 class="post-title">
 	 
-	 KÃ¤llkoden till MOSS AspMenu
+	 Källkoden till MOSS AspMenu
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>MS har slÃ¤ppt kÃ¤llkoden fÃ¶r klassen <em>AspMenu</em>, som Ã¤r en Ã¤rver frÃ¥n ASP.Net 2.0 klassen <em>Menu</em>. AspMenu fixar nÃ¥gra problem med ASP.Net 2.0 Menu:<ol><li><em>If the mouse pointer happens to be hovering over a menu item that exposes a fly-out as the page is loading, it is possible that an error dialog will appear stating: "Internet Explorer cannot open the Internet site, Operation aborted" and a blank page will be shown upon clicking OK. It seems that the problem arises from attempting to append to the DOM before it is properly initialized.</em></li><li><em>If SSL termination is employed on a site with a menu, users will be greeted with âThis page contains both secure and nonsecure items. Do you want to display the nonsecure items?â when hovering over a menu item which exposes fly-outs. (http://support.microsoft.com/?id=910444)</em></li><li><em>In right-to-left locales, the fly-out indicator arrow still points from left-to-right.</em></li></ol><br />AspMeny har i objektmodellen av misstag blivit <em>sealed</em>, vilket hindrar egna anpassningar. SÃ¥ nu finns alltsÃ¥ koden att ladda hem under namnet <em>MossMenu</em>: <a href="http://blogs.msdn.com/sharepoint/attachment/1193926.ashx">http://blogs.msdn.com/sharepoint/attachment/1193926.ashx</a><br /><br />Originalartikeln frÃ¥n SharePoint Team Blog hÃ¤r: <br /><a href="http://blogs.msdn.com/sharepoint/archive/2006/12/02/customizing-the-wss-3-0-moss-2007-menu-control.aspx" target="_blank">Customizing the WSS 3.0/MOSS 2007 Menu Control - MossMenu source code released</a><br /><br /><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/wss" target="_blank" rel="tag">wss</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>MS har släppt källkoden för klassen <em>AspMenu</em>, som är en ärver från ASP.Net 2.0 klassen <em>Menu</em>. AspMenu fixar några problem med ASP.Net 2.0 Menu:<ol><li><em>If the mouse pointer happens to be hovering over a menu item that exposes a fly-out as the page is loading, it is possible that an error dialog will appear stating: "Internet Explorer cannot open the Internet site, Operation aborted" and a blank page will be shown upon clicking OK. It seems that the problem arises from attempting to append to the DOM before it is properly initialized.</em></li><li><em>If SSL termination is employed on a site with a menu, users will be greeted with “This page contains both secure and nonsecure items. Do you want to display the nonsecure items?” when hovering over a menu item which exposes fly-outs. (http://support.microsoft.com/?id=910444)</em></li><li><em>In right-to-left locales, the fly-out indicator arrow still points from left-to-right.</em></li></ol><br />AspMeny har i objektmodellen av misstag blivit <em>sealed</em>, vilket hindrar egna anpassningar. Så nu finns alltså koden att ladda hem under namnet <em>MossMenu</em>: <a href="http://blogs.msdn.com/sharepoint/attachment/1193926.ashx">http://blogs.msdn.com/sharepoint/attachment/1193926.ashx</a><br /><br />Originalartikeln från SharePoint Team Blog här: <br /><a href="http://blogs.msdn.com/sharepoint/archive/2006/12/02/customizing-the-wss-3-0-moss-2007-menu-control.aspx" target="_blank">Customizing the WSS 3.0/MOSS 2007 Menu Control - MossMenu source code released</a><br /><br /><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/wss" target="_blank" rel="tag">wss</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/12/enterprise-content-management-ecm-team.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/12/enterprise-content-management-ecm-team.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 12/11/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/enterprise-content-management-ecm-team.html" title="permanent link">Permalink</a>
+      <em>Posted 12/11/2006 | <a href="/sharepoint/2006/12/enterprise-content-management-ecm-team.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=116570055364732754"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=116570055364732754;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/enterprise-content-management-ecm-team.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/enterprise-content-management-ecm-team.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=116570055364732754" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=116570055364732754" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -290,19 +290,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Mer utbildning frÃ¥n Microsoft - virtuella laborationer:<br /><br /><blockquote><em>It's simple-no complex setup or installation is required to try out 2007 Microsoft Office system. You get a downloadable manual and a 90-minute block of time for each module. You can sign up for additional 90-minute blocks anytime.</em></blockquote><br /><p><strong>2007 Microsoft Office System</strong></p><ul><li><a href="http://go.microsoft.com/?linkid=5661795">Virtual Lab Express: Microsoft 2007 Office System Overview (30 min)</a></li><li><a href="http://go.microsoft.com/?linkid=5717924">Programmatic Manipulation of the Microsoft Office Open XML Formats</a> </li><li><a href="http://go.microsoft.com/?linkid=5695777">Understanding the 2007 Microsoft Office System User Experience and Interface Design</a> </li><li><a href="http://go.microsoft.com/?linkid=5293210">Office SharePoint Server 2007 Functional and Architectural Overview</a> </li><li><a href="http://go.microsoft.com/?linkid=5293206">Benefits of Deploying the 2007 Office System</a> </li><li><a href="http://go.microsoft.com/?linkid=5293207">Overview of the 2007 Microsoft Office System Components</a> </li></ul><p><strong>Windows SharePoint Services 3.0 </strong></p><ul><li><a href="http://go.microsoft.com/?linkid=5717922">Creating Workflows for Windows SharePoint Services</a> </li><li><a href="http://go.microsoft.com/?linkid=5717923">Introducing Content Types for Windows SharePoint Services 3.0</a> </li><li><a href="http://go.microsoft.com/?linkid=5174327">What&#39;s New in Windows SharePoint Services Feature Walkthrough</a> </li><li><a href="http://go.microsoft.com/?linkid=5293208">Introduction to Windows SharePoint Services 3.0</a> </li><li><a href="http://go.microsoft.com/?linkid=5174326">Microsoft Windows SharePoint Services Installation and Configuration</a> </li><li><a href="http://go.microsoft.com/?linkid=5293209">Implementing and Administering Windows SharePoint Services 3.0</a> </li></ul><p><strong>Office SharePoint Server 2007 </strong></p><ul><li><a href="http://go.microsoft.com/?linkid=5174325">What&#39;s New in Microsoft Office SharePoint Server 2007 Feature Walkthrough</a> </li><li><a href="http://go.microsoft.com/?linkid=5174328">Microsoft Office SharePoint Server 2007 Installation and Configuration</a> </li><li><a href="http://go.microsoft.com/?linkid=5174324">Microsoft Office SharePoint Server 2007 Records Management Deployment and Configuration</a> </li><li><a href="http://go.microsoft.com/?linkid=5174323">Microsoft Office SharePoint Server 2007 Enterprise Features Administration</a> </li><li><a href="http://go.microsoft.com/?linkid=5293213">Business Solutions Using Office SharePoint Server 2007</a> </li><li><a href="http://go.microsoft.com/?linkid=5293211">Enterprise Content Management with Office SharePoint Server 2007</a> </li><li><a href="http://go.microsoft.com/?linkid=5293212">Organizing and Finding Resources with Office SharePoint Server 2007</a> </li></ul><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a>, <a target="_blank" href="http://technorati.com/tag/learning" rel="tag">learning</a>, <a target="_blank" href="http://technorati.com/tag/office" rel="tag">office</a>, <a target="_blank" href="http://technorati.com/tag/wss" rel="tag">wss</a>, <a target="_blank" href="http://technorati.com/tag/moss" rel="tag">moss</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Mer utbildning från Microsoft - virtuella laborationer:<br /><br /><blockquote><em>It's simple-no complex setup or installation is required to try out 2007 Microsoft Office system. You get a downloadable manual and a 90-minute block of time for each module. You can sign up for additional 90-minute blocks anytime.</em></blockquote><br /><p><strong>2007 Microsoft Office System</strong></p><ul><li><a href="http://go.microsoft.com/?linkid=5661795">Virtual Lab Express: Microsoft 2007 Office System Overview (30 min)</a></li><li><a href="http://go.microsoft.com/?linkid=5717924">Programmatic Manipulation of the Microsoft Office Open XML Formats</a> </li><li><a href="http://go.microsoft.com/?linkid=5695777">Understanding the 2007 Microsoft Office System User Experience and Interface Design</a> </li><li><a href="http://go.microsoft.com/?linkid=5293210">Office SharePoint Server 2007 Functional and Architectural Overview</a> </li><li><a href="http://go.microsoft.com/?linkid=5293206">Benefits of Deploying the 2007 Office System</a> </li><li><a href="http://go.microsoft.com/?linkid=5293207">Overview of the 2007 Microsoft Office System Components</a> </li></ul><p><strong>Windows SharePoint Services 3.0 </strong></p><ul><li><a href="http://go.microsoft.com/?linkid=5717922">Creating Workflows for Windows SharePoint Services</a> </li><li><a href="http://go.microsoft.com/?linkid=5717923">Introducing Content Types for Windows SharePoint Services 3.0</a> </li><li><a href="http://go.microsoft.com/?linkid=5174327">What&#39;s New in Windows SharePoint Services Feature Walkthrough</a> </li><li><a href="http://go.microsoft.com/?linkid=5293208">Introduction to Windows SharePoint Services 3.0</a> </li><li><a href="http://go.microsoft.com/?linkid=5174326">Microsoft Windows SharePoint Services Installation and Configuration</a> </li><li><a href="http://go.microsoft.com/?linkid=5293209">Implementing and Administering Windows SharePoint Services 3.0</a> </li></ul><p><strong>Office SharePoint Server 2007 </strong></p><ul><li><a href="http://go.microsoft.com/?linkid=5174325">What&#39;s New in Microsoft Office SharePoint Server 2007 Feature Walkthrough</a> </li><li><a href="http://go.microsoft.com/?linkid=5174328">Microsoft Office SharePoint Server 2007 Installation and Configuration</a> </li><li><a href="http://go.microsoft.com/?linkid=5174324">Microsoft Office SharePoint Server 2007 Records Management Deployment and Configuration</a> </li><li><a href="http://go.microsoft.com/?linkid=5174323">Microsoft Office SharePoint Server 2007 Enterprise Features Administration</a> </li><li><a href="http://go.microsoft.com/?linkid=5293213">Business Solutions Using Office SharePoint Server 2007</a> </li><li><a href="http://go.microsoft.com/?linkid=5293211">Enterprise Content Management with Office SharePoint Server 2007</a> </li><li><a href="http://go.microsoft.com/?linkid=5293212">Organizing and Finding Resources with Office SharePoint Server 2007</a> </li></ul><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a>, <a target="_blank" href="http://technorati.com/tag/learning" rel="tag">learning</a>, <a target="_blank" href="http://technorati.com/tag/office" rel="tag">office</a>, <a target="_blank" href="http://technorati.com/tag/wss" rel="tag">wss</a>, <a target="_blank" href="http://technorati.com/tag/moss" rel="tag">moss</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/12/office-2007-virtual-labs.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/12/office-2007-virtual-labs.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 12/05/2006 | <a href="http://www.dewe.net/sharepoint/2006/12/office-2007-virtual-labs.html" title="permanent link">Permalink</a>
+      <em>Posted 12/05/2006 | <a href="/sharepoint/2006/12/office-2007-virtual-labs.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=116535601735291860"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=116535601735291860;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/12/office-2007-virtual-labs.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/12/office-2007-virtual-labs.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=116535601735291860" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=116535601735291860" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -340,7 +340,7 @@
 
   <ul id="links">
     
-    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="http://www.dewe.net/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
+    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
   </ul>
 
   <!-- Begin #profile-container -->
@@ -349,7 +349,7 @@
 <dl class="profile-datablock">
 <dd class="profile-data"><strong>Namn:</strong>  Johan Dewe </dd>
 <dd class="profile-data"><strong>Plats:</strong>  Stockholm, Sweden </dd></dl>
-<p class="profile-textblock">Systemarkitekt pÃ¥ FritidsresorÂ AB.</p>
+<p class="profile-textblock">Systemarkitekt på Fritidsresor AB.</p>
 <p class="profile-link"><a href="http://www.blogger.com/profile/13235019595667853405">Visa hela min profil</a></p></div>
    
   <!-- End #profile -->
@@ -368,25 +368,25 @@
   <h2 class="sidebar-title">Previous Posts</h2>
   <ul id="recently">
     
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
+        <li><a href="/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
+        <li><a href="/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
+        <li><a href="/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
+        <li><a href="/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
+        <li><a href="/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
+        <li><a href="/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
+        <li><a href="/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
+        <li><a href="/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
+        <li><a href="/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
+        <li><a href="/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
      
   </ul>
     
@@ -394,51 +394,51 @@
   <h2 class="sidebar-title">Archives</h2>
   <ul class="archive-list">
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
+       <li><a href="/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_04_01_archive.html">april 2006</a></li>
+       <li><a href="/sharepoint/2006_04_01_archive.html">april 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
+       <li><a href="/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
+       <li><a href="/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
+       <li><a href="/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_09_01_archive.html">september 2006</a></li>
+       <li><a href="/sharepoint/2006_09_01_archive.html">september 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
+       <li><a href="/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_11_01_archive.html">november 2006</a></li>
+       <li><a href="/sharepoint/2006_11_01_archive.html">november 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_12_01_archive.html">december 2006</a></li>
+       <li><a href="/sharepoint/2006_12_01_archive.html">december 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
+       <li><a href="/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
+       <li><a href="/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
+       <li><a href="/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_04_01_archive.html">april 2007</a></li>
+       <li><a href="/sharepoint/2007_04_01_archive.html">april 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
+       <li><a href="/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
+       <li><a href="/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
+       <li><a href="/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_11_01_archive.html">november 2007</a></li>
+       <li><a href="/sharepoint/2007_11_01_archive.html">november 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_12_01_archive.html">december 2007</a></li>
+       <li><a href="/sharepoint/2007_12_01_archive.html">december 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
+       <li><a href="/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
+       <li><a href="/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
+       <li><a href="/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
+       <li><a href="/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
+       <li><a href="/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
      
     </ul>
   

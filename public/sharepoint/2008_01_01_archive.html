@@ -6,16 +6,16 @@
 <script type="text/javascript">(function() { var a=window;function e(b){this.t={};this.tick=function(c,h,d){d=d?d:(new Date).getTime();this.t[c]=[d,h]};this.tick("start",null,b)}var f=new e;a.jstiming={Timer:e,load:f};try{a.jstiming.pt=a.gtbExternal&&a.gtbExternal.pageT()||a.external&&a.external.pageT}catch(g){};a.tickAboveFold=function(b){b=b;var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}b=c;b<=750&&a.jstiming.load.tick("aft")};var i=false;function j(){if(!i){i=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",j,false):a.attachEvent("onscroll",j); })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
 <meta name="generator" content="Blogger" />
-<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
-<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.dewe.net/sharepoint/atom.xml" />
-<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="http://www.dewe.net/sharepoint/rss.xml" />
+
+<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="/sharepoint/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="/sharepoint/rss.xml" />
 <link rel="service.post" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.blogger.com/feeds/24218888/posts/default" />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=24218888" />
  <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/3727950723-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=24218888&zx=0de7503c-54ac-40ac-8204-e13c84b918a3"/><script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/1188848481-backlink.js"></script>
 <script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/463928704-backlink_control.js"></script>
 <script type="text/javascript">var BL_backlinkURL = "http://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "24218888";</script>
 
-<link rel="stylesheet" type="text/css" href="http://www.dewe.net/sharepoint/styles.css" />
+<link rel="stylesheet" type="text/css" href="/sharepoint/styles.css" />
 <meta name="ICBM" content="59.276667, 18.07417" />
 <meta name="DC.title" content=".SharePoint" />
 <script type="text/javascript">
@@ -24,7 +24,7 @@
    for (var i = linktags.length; i>=0; i--)
    {
       var linktag = linktags[i];	
-      if (linktag && linktag.getAttribute("href") == "http://www.dewe.net/sharepoint/rss.xml")
+      if (linktag && linktag.getAttribute("href") == "/sharepoint/rss.xml")
       {
          linktag.setAttribute("href", "http://feeds.feedburner.com/dewe/sharepoint");
          break;
@@ -38,13 +38,13 @@
 <div id="header">
 
   <h1 id="blog-title">
-    <a href="http://www.dewe.net/sharepoint/">
+    <a href="/sharepoint/">
     
 	.SharePoint
     
     </a>
   </h1>
-  <p id="description">En blogg pÃ¥ svenska om SharePoint i synnerhet och .Net i allmÃ¤nhet</p>
+  <p id="description">En blogg på svenska om SharePoint i synnerhet och .Net i allmänhet</p>
 
 </div>
 
@@ -65,26 +65,26 @@
          
     <h3 class="post-title">
 	 
-	 STSDEV - kodgenerator fÃ¶r SharePoint-projekt
+	 STSDEV - kodgenerator för SharePoint-projekt
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Det hÃ¤r ser lovande ut. <a target="_blank" href="http://blog.tedpattison.net/">Ted Pattison</a> <a target="_blank" href="http://www.codeplex.com/stsdev/People/ProjectPeople.aspx">m&nbsp;fl</a> har skapat en kodgenerator fÃ¶r SharePoint-projekt. Jag brukar fÃ¶rsÃ¶ka att hinna testa saker innan jag nÃ¤mner dem hÃ¤r pÃ¥ bloggen, men det hÃ¤r ser sÃ¥ spÃ¤nnande ut att jag slÃ¤nger upp en artikel pÃ¥ stubben.<br /><br /><blockquote><em>"STSDEV is a proof-of-concept utility application which demonstrates how to generate Visual Studio project files and solution files to facilitate the development and deployment of templates and components for the SharePoint 2007 platform including Windows SharePoint Services 3.0 (WSS) and Microsoft Office SharePoint Server 2007 (MOSS)."</em> </blockquote>Enligt introduktionen Ã¤r STSDEV ett verktyg som:<br /><ol><li>skapar en Visual Studion solution och genererar projektstruktur.</li><li>fÃ¶renklar bygg/test/debuggning av SharePoint solution packages (.wsp).</li><li>automatiserar skapande och uppdatering av manifest.xml och .ddf filer.</li><li>lÃ¤gger till vanliga kommandon fÃ¶r SharePoint-utvecklare (i form av msbuild targets, Ã¤r min gissning).</li></ol><p>STSDEV ligger pÃ¥ CodePlex: <a target="_blank" href="http://www.codeplex.com/stsdev"><strong>http://www.codeplex.com/stsdev</strong></a></p><p></p><p>Hanteringen av solutions packages med manifest.xml och .ddf-filer Ã¤r idag en oÃ¤ndligt omstÃ¤ndlig manuell process, dÃ¤r varje fÃ¶rÃ¤ndring mÃ¥ste infÃ¶ras pÃ¥ flera stÃ¤llen i projektfilerna. Upplagt fÃ¶r fel, med andra ord. MÃ¤nskliga faktorn gÃ¶r sig hÃ¶rd dagligen. <br /><br />Om STSDEV kan rÃ¥da bot pÃ¥ detta, eller minska omfattningen nÃ¥got, sÃ¥ kommer detta bli ett viktigt verktyg i min lÃ¥da. Att man dessutom fÃ¥r en bra projektstruktur pÃ¥ kÃ¶pet Ã¤r en riktig bonus.</p><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/developer" target="_blank" rel="tag">developer</a>, <a href="http://technorati.com/tag/utility" target="_blank" rel="tag">utility</a>, <a href="http://technorati.com/tag/solution" target="_blank" rel="tag">solution</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Det här ser lovande ut. <a target="_blank" href="http://blog.tedpattison.net/">Ted Pattison</a> <a target="_blank" href="http://www.codeplex.com/stsdev/People/ProjectPeople.aspx">m&nbsp;fl</a> har skapat en kodgenerator för SharePoint-projekt. Jag brukar försöka att hinna testa saker innan jag nämner dem här på bloggen, men det här ser så spännande ut att jag slänger upp en artikel på stubben.<br /><br /><blockquote><em>"STSDEV is a proof-of-concept utility application which demonstrates how to generate Visual Studio project files and solution files to facilitate the development and deployment of templates and components for the SharePoint 2007 platform including Windows SharePoint Services 3.0 (WSS) and Microsoft Office SharePoint Server 2007 (MOSS)."</em> </blockquote>Enligt introduktionen är STSDEV ett verktyg som:<br /><ol><li>skapar en Visual Studion solution och genererar projektstruktur.</li><li>förenklar bygg/test/debuggning av SharePoint solution packages (.wsp).</li><li>automatiserar skapande och uppdatering av manifest.xml och .ddf filer.</li><li>lägger till vanliga kommandon för SharePoint-utvecklare (i form av msbuild targets, är min gissning).</li></ol><p>STSDEV ligger på CodePlex: <a target="_blank" href="http://www.codeplex.com/stsdev"><strong>http://www.codeplex.com/stsdev</strong></a></p><p></p><p>Hanteringen av solutions packages med manifest.xml och .ddf-filer är idag en oändligt omständlig manuell process, där varje förändring måste införas på flera ställen i projektfilerna. Upplagt för fel, med andra ord. Mänskliga faktorn gör sig hörd dagligen. <br /><br />Om STSDEV kan råda bot på detta, eller minska omfattningen något, så kommer detta bli ett viktigt verktyg i min låda. Att man dessutom får en bra projektstruktur på köpet är en riktig bonus.</p><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a>, <a href="http://technorati.com/tag/developer" target="_blank" rel="tag">developer</a>, <a href="http://technorati.com/tag/utility" target="_blank" rel="tag">utility</a>, <a href="http://technorati.com/tag/solution" target="_blank" rel="tag">solution</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/01/stsdev-kodgenerator-fr-sharepoint.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2008/01/stsdev-kodgenerator-fr-sharepoint.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 1/27/2008 | <a href="http://www.dewe.net/sharepoint/2008/01/stsdev-kodgenerator-fr-sharepoint.html" title="permanent link">Permalink</a>
+      <em>Posted 1/27/2008 | <a href="/sharepoint/2008/01/stsdev-kodgenerator-fr-sharepoint.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=2552436741720200959"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=2552436741720200959;>Comments (2)</a>
-        | <a href="http://www.dewe.net/sharepoint/2008/01/stsdev-kodgenerator-fr-sharepoint.html#links">Links to this post</a>
+        | <a href="/sharepoint/2008/01/stsdev-kodgenerator-fr-sharepoint.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=2552436741720200959" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=2552436741720200959" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -116,19 +116,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>FÃ¶r den vill ha koll pÃ¥ vilka WiFi-kanaler som anvÃ¤nds i nÃ¤romrÃ¥det &ndash; eller bara gÃ¥r loss pÃ¥ geekiga kommandon i stÃ¶rsta allmÃ¤nhet &ndash; kan detta knep vara intressant i Vista:<br /><pre style="padding:5px; background-color: #111111; color: #eeeeee;">c:\&gt;netsh<br />netsh&gt;wlan show networks mode=bssid</pre>Resultatet blir en lista Ã¶ver tillgÃ¤ngliga WLAN pÃ¥ det hÃ¤r formatet:<br /><pre style="padding:5px; background-color: #111111; color: #eeeeee;">SSID 1 : MyHomeWLAN<br />    Network type            : Infrastructure<br />    Authentication          : WPA-Personal<br />    Encryption              : TKIP<br />    BSSID 1                 : 00:19:db:05:0a:fb <br />         Signal             : 68%<br />         Radio Type         : 802.11g<br />         Channel            : 6<br />         Basic Rates (Mbps) : 1 2 5.5 11<br />         Other Rates (Mbps) : 6 9 12 18 24 36 48 54</pre><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/vista">vista</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/wlan">wlan</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>För den vill ha koll på vilka WiFi-kanaler som används i närområdet &ndash; eller bara går loss på geekiga kommandon i största allmänhet &ndash; kan detta knep vara intressant i Vista:<br /><pre style="padding:5px; background-color: #111111; color: #eeeeee;">c:\&gt;netsh<br />netsh&gt;wlan show networks mode=bssid</pre>Resultatet blir en lista över tillgängliga WLAN på det här formatet:<br /><pre style="padding:5px; background-color: #111111; color: #eeeeee;">SSID 1 : MyHomeWLAN<br />    Network type            : Infrastructure<br />    Authentication          : WPA-Personal<br />    Encryption              : TKIP<br />    BSSID 1                 : 00:19:db:05:0a:fb <br />         Signal             : 68%<br />         Radio Type         : 802.11g<br />         Channel            : 6<br />         Basic Rates (Mbps) : 1 2 5.5 11<br />         Other Rates (Mbps) : 6 9 12 18 24 36 48 54</pre><span class="technoratitag">Technorati tags: <a target="_blank" rel="tag" href="http://technorati.com/tag/vista">vista</a>, <a target="_blank" rel="tag" href="http://technorati.com/tag/wlan">wlan</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2008/01/med-vista-klarar-man-sig-utan.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2008/01/med-vista-klarar-man-sig-utan.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 1/24/2008 | <a href="http://www.dewe.net/sharepoint/2008/01/med-vista-klarar-man-sig-utan.html" title="permanent link">Permalink</a>
+      <em>Posted 1/24/2008 | <a href="/sharepoint/2008/01/med-vista-klarar-man-sig-utan.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=971449999330628922"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=971449999330628922;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2008/01/med-vista-klarar-man-sig-utan.html#links">Links to this post</a>
+        | <a href="/sharepoint/2008/01/med-vista-klarar-man-sig-utan.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=971449999330628922" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=971449999330628922" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -166,7 +166,7 @@
 
   <ul id="links">
     
-    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="http://www.dewe.net/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
+    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
   </ul>
 
   <!-- Begin #profile-container -->
@@ -175,7 +175,7 @@
 <dl class="profile-datablock">
 <dd class="profile-data"><strong>Namn:</strong>  Johan Dewe </dd>
 <dd class="profile-data"><strong>Plats:</strong>  Stockholm, Sweden </dd></dl>
-<p class="profile-textblock">Systemarkitekt pÃ¥ FritidsresorÂ AB.</p>
+<p class="profile-textblock">Systemarkitekt på Fritidsresor AB.</p>
 <p class="profile-link"><a href="http://www.blogger.com/profile/13235019595667853405">Visa hela min profil</a></p></div>
    
   <!-- End #profile -->
@@ -194,25 +194,25 @@
   <h2 class="sidebar-title">Previous Posts</h2>
   <ul id="recently">
     
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
+        <li><a href="/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
+        <li><a href="/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
+        <li><a href="/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
+        <li><a href="/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
+        <li><a href="/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
+        <li><a href="/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
+        <li><a href="/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
+        <li><a href="/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
+        <li><a href="/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
+        <li><a href="/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
      
   </ul>
     
@@ -220,51 +220,51 @@
   <h2 class="sidebar-title">Archives</h2>
   <ul class="archive-list">
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
+       <li><a href="/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_04_01_archive.html">april 2006</a></li>
+       <li><a href="/sharepoint/2006_04_01_archive.html">april 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
+       <li><a href="/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
+       <li><a href="/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
+       <li><a href="/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_09_01_archive.html">september 2006</a></li>
+       <li><a href="/sharepoint/2006_09_01_archive.html">september 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
+       <li><a href="/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_11_01_archive.html">november 2006</a></li>
+       <li><a href="/sharepoint/2006_11_01_archive.html">november 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_12_01_archive.html">december 2006</a></li>
+       <li><a href="/sharepoint/2006_12_01_archive.html">december 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
+       <li><a href="/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
+       <li><a href="/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
+       <li><a href="/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_04_01_archive.html">april 2007</a></li>
+       <li><a href="/sharepoint/2007_04_01_archive.html">april 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
+       <li><a href="/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
+       <li><a href="/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
+       <li><a href="/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_11_01_archive.html">november 2007</a></li>
+       <li><a href="/sharepoint/2007_11_01_archive.html">november 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_12_01_archive.html">december 2007</a></li>
+       <li><a href="/sharepoint/2007_12_01_archive.html">december 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
+       <li><a href="/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
+       <li><a href="/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
+       <li><a href="/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
+       <li><a href="/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
+       <li><a href="/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
      
     </ul>
   

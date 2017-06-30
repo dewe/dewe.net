@@ -6,16 +6,16 @@
 <script type="text/javascript">(function() { var a=window;function e(b){this.t={};this.tick=function(c,h,d){d=d?d:(new Date).getTime();this.t[c]=[d,h]};this.tick("start",null,b)}var f=new e;a.jstiming={Timer:e,load:f};try{a.jstiming.pt=a.gtbExternal&&a.gtbExternal.pageT()||a.external&&a.external.pageT}catch(g){};a.tickAboveFold=function(b){b=b;var c=0;if(b.offsetParent){do c+=b.offsetTop;while(b=b.offsetParent)}b=c;b<=750&&a.jstiming.load.tick("aft")};var i=false;function j(){if(!i){i=true;a.jstiming.load.tick("firstScrollTime")}}a.addEventListener?a.addEventListener("scroll",j,false):a.attachEvent("onscroll",j); })();</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
 <meta name="generator" content="Blogger" />
-<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
-<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.dewe.net/sharepoint/atom.xml" />
-<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="http://www.dewe.net/sharepoint/rss.xml" />
+
+<link rel="alternate" type="application/atom+xml" title=".SharePoint - Atom" href="/sharepoint/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title=".SharePoint - RSS" href="/sharepoint/rss.xml" />
 <link rel="service.post" type="application/atom+xml" title=".SharePoint - Atom" href="http://www.blogger.com/feeds/24218888/posts/default" />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=24218888" />
  <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/3727950723-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=24218888&zx=0de7503c-54ac-40ac-8204-e13c84b918a3"/><script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/1188848481-backlink.js"></script>
 <script type="text/javascript" src="http://www.blogger.com/static/v1/v-js/463928704-backlink_control.js"></script>
 <script type="text/javascript">var BL_backlinkURL = "http://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "24218888";</script>
 
-<link rel="stylesheet" type="text/css" href="http://www.dewe.net/sharepoint/styles.css" />
+<link rel="stylesheet" type="text/css" href="/sharepoint/styles.css" />
 <meta name="ICBM" content="59.276667, 18.07417" />
 <meta name="DC.title" content=".SharePoint" />
 <script type="text/javascript">
@@ -24,7 +24,7 @@
    for (var i = linktags.length; i>=0; i--)
    {
       var linktag = linktags[i];	
-      if (linktag && linktag.getAttribute("href") == "http://www.dewe.net/sharepoint/rss.xml")
+      if (linktag && linktag.getAttribute("href") == "/sharepoint/rss.xml")
       {
          linktag.setAttribute("href", "http://feeds.feedburner.com/dewe/sharepoint");
          break;
@@ -38,13 +38,13 @@
 <div id="header">
 
   <h1 id="blog-title">
-    <a href="http://www.dewe.net/sharepoint/">
+    <a href="/sharepoint/">
     
 	.SharePoint
     
     </a>
   </h1>
-  <p id="description">En blogg pÃ¥ svenska om SharePoint i synnerhet och .Net i allmÃ¤nhet</p>
+  <p id="description">En blogg på svenska om SharePoint i synnerhet och .Net i allmänhet</p>
 
 </div>
 
@@ -72,19 +72,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Dagens lÃ¤xa: anvÃ¤nd <em>public static readonly</em> istÃ¤llet fÃ¶r <em>public const</em>.<br /><br />I korthet: det Ã¤r oftast bÃ¤ttre med <em>run-time class constants</em> (konstanta klassvariabler) Ã¤n compile time constants (inkompilerade konstanter), eftersom de senare kompileras som fasta vÃ¤rden in i assemblies.<br /><br />Om du anvÃ¤nder inkompilerade konstanter i ett library, och har ett annat assembly som Ã¤r beroenda av ditt library, sÃ¥ kommer Ã¤ven detta andra assembly att <em>kompilera in dina konstanta vÃ¤rden</em>. Effekten blir att alla assemblies som refererar till ditt library mÃ¥ste kompileras om igen nÃ¤r du Ã¤ndrar pÃ¥ en konstants vÃ¤rde. AnvÃ¤nder du istÃ¤llet konstanta klassvariabler (<em>public static readonly</em>) slipper du denna effekt eftersom konstanternas vÃ¤rden sÃ¤tts i run-time istÃ¤llet fÃ¶r vid kompilering. Sammanfattningsvis, om du vill ha flexibilitet fÃ¶r konstanter som kan komma att Ã¤ndras sÃ¥ Ã¤r det detta som gÃ¤ller:<br /><br /><div style="BACKGROUND: white;font-family:Consolas,monospace;font-size:10pt;color:black;"><p style="MARGIN: 0px"><span style="color:blue;"><strong>public static readonly</strong></span> <span style="color:blue;"><em>type</em></span> <em>identifier</em></p></div><br />Enumerationer dÃ¥? Ja, enum resulterar ocksÃ¥ i inkomplilerade konstanter och lider fÃ¶ljaktligen av samma fenomen. Ãven hÃ¤r mÃ¥ste du alltsÃ¥ vara fÃ¶rsiktig om det finns andra assemblies som Ã¤r beroende av din kod. Microsoft formulerar det sÃ¥ hÃ¤r:<br /><blockquote><em>Assigning additional values [to] new versions of enums, or changing the values of the enum members in a new version, can cause problems for dependant source code. It is often the case that enum values are used in switch statements, and if additional elements have been added to the enum type, the test for default values can return true unexpectedly.<br /><br />If other developers will be using your code, it is important to provide guidelines on how their code should react if new elements are added to any enum types.</em> [<a href="http://msdn2.microsoft.com/en-us/library/sbbt4032.aspx" target="_blank">enum (C# Reference)</a>]</blockquote>NÃ¥ja, pÃ¥ det stora hela Ã¤r vÃ¤l det hÃ¤r inget stort problem; enums brukar ju vara hÃ¥llbara Ã¶ver tiden och med lite versionshantering av dina assemblies sÃ¥ fixar det sig Ã¤ven med andra inkomplierade konstanter.<br /><br />Mer detaljer och resonemang hÃ¤r: <a target="_blank" href="http://www.aspnetpro.com/newsletterarticle/2004/05/asp200405bw_l/asp200405bw_l.asp">Constant Comprehension</a><br /><br /><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/.net" target="_blank" rel="tag">.net</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Dagens läxa: använd <em>public static readonly</em> istället för <em>public const</em>.<br /><br />I korthet: det är oftast bättre med <em>run-time class constants</em> (konstanta klassvariabler) än compile time constants (inkompilerade konstanter), eftersom de senare kompileras som fasta värden in i assemblies.<br /><br />Om du använder inkompilerade konstanter i ett library, och har ett annat assembly som är beroenda av ditt library, så kommer även detta andra assembly att <em>kompilera in dina konstanta värden</em>. Effekten blir att alla assemblies som refererar till ditt library måste kompileras om igen när du ändrar på en konstants värde. Använder du istället konstanta klassvariabler (<em>public static readonly</em>) slipper du denna effekt eftersom konstanternas värden sätts i run-time istället för vid kompilering. Sammanfattningsvis, om du vill ha flexibilitet för konstanter som kan komma att ändras så är det detta som gäller:<br /><br /><div style="BACKGROUND: white;font-family:Consolas,monospace;font-size:10pt;color:black;"><p style="MARGIN: 0px"><span style="color:blue;"><strong>public static readonly</strong></span> <span style="color:blue;"><em>type</em></span> <em>identifier</em></p></div><br />Enumerationer då? Ja, enum resulterar också i inkomplilerade konstanter och lider följaktligen av samma fenomen. Även här måste du alltså vara försiktig om det finns andra assemblies som är beroende av din kod. Microsoft formulerar det så här:<br /><blockquote><em>Assigning additional values [to] new versions of enums, or changing the values of the enum members in a new version, can cause problems for dependant source code. It is often the case that enum values are used in switch statements, and if additional elements have been added to the enum type, the test for default values can return true unexpectedly.<br /><br />If other developers will be using your code, it is important to provide guidelines on how their code should react if new elements are added to any enum types.</em> [<a href="http://msdn2.microsoft.com/en-us/library/sbbt4032.aspx" target="_blank">enum (C# Reference)</a>]</blockquote>Nåja, på det stora hela är väl det här inget stort problem; enums brukar ju vara hållbara över tiden och med lite versionshantering av dina assemblies så fixar det sig även med andra inkomplierade konstanter.<br /><br />Mer detaljer och resonemang här: <a target="_blank" href="http://www.aspnetpro.com/newsletterarticle/2004/05/asp200405bw_l/asp200405bw_l.asp">Constant Comprehension</a><br /><br /><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/.net" target="_blank" rel="tag">.net</a>, <a href="http://technorati.com/tag/development" target="_blank" rel="tag">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/undvik-public-const-i-libraries.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/undvik-public-const-i-libraries.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/25/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/undvik-public-const-i-libraries.html" title="permanent link">Permalink</a>
+      <em>Posted 7/25/2006 | <a href="/sharepoint/2006/07/undvik-public-const-i-libraries.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115347058230868144"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115347058230868144;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/undvik-public-const-i-libraries.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/undvik-public-const-i-libraries.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115347058230868144" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115347058230868144" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -114,19 +114,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Bra artikel om designmÃ¶nstret Singleton, med flera alternativa implementationer och resonemang om enkelhet mot prestanda: <a target="_blank" href="http://www.yoda.arachsys.com/csharp/singleton.html">Implementing the Singleton Pattern in C#</a>.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/.net" rel="tag">.net</a>, <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/designmÃ¶nster" rel="tag">designmÃ¶nster</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Bra artikel om designmönstret Singleton, med flera alternativa implementationer och resonemang om enkelhet mot prestanda: <a target="_blank" href="http://www.yoda.arachsys.com/csharp/singleton.html">Implementing the Singleton Pattern in C#</a>.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/.net" rel="tag">.net</a>, <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/designmönster" rel="tag">designmönster</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/implementing-singleton-pattern-in-c.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/implementing-singleton-pattern-in-c.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/25/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/implementing-singleton-pattern-in-c.html" title="permanent link">Permalink</a>
+      <em>Posted 7/25/2006 | <a href="/sharepoint/2006/07/implementing-singleton-pattern-in-c.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115351844414100267"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115351844414100267;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/implementing-singleton-pattern-in-c.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/implementing-singleton-pattern-in-c.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115351844414100267" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115351844414100267" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -158,19 +158,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Med hjÃ¤lp av Web Deployment Project (WDP) och MSBuild Community Tasks kan man komma runt buggen/problemet med <a href="http://www.dewe.net/sharepoint/2006/07/theme-settings-i-webconfig-i.html">themes i uppdateringsbara fÃ¶rkomplilerade ASP.Net-applikationer</a>. GÃ¶r sÃ¥ hÃ¤r:<ol><li>SÃ¤tt upp ett nytt WDP och Ã¶ppna projektfilen. <br /><br /></li><li>Se till att det alltid skapas en temporÃ¤r katalog fÃ¶r kÃ¤llfilerna genom att lÃ¤gga utÃ¶ka elementet PropertyGroup med:<br /><br /><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: maroon;">EnableCopyBeforeBuild</span><span style="color: blue;">&gt;</span>true<span style="color: blue;">&lt;/</span><span style="color: maroon;">EnableCopyBeforeBuild</span><span style="color: blue;">&gt;</span></p></div><br /></li><li>Uppdatera BeforeBuild target genom att lÃ¤gga till en task som tar bort themes frÃ¥n &lt;pages&gt;-elementet:<br /><br /><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: maroon;">Target</span><span style="color: blue;"> </span><span style="color: red;">Name</span><span style="color: blue;">=</span>"<span style="color: blue;">BeforeBuild</span>"<span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: maroon;">FileUpdate</span><span style="color: blue;"> </span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &nbsp; </span><span style="color: red;">Files</span><span style="color: blue;">=</span>"<span style="color: blue;">$(CopyBeforeBuildTargetPath)\web.config</span>"<span style="color: blue;"> </span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &nbsp; </span><span style="color: red;">Regex</span><span style="color: blue;">=</span>"<span style="color: blue;">(\u003Cpages.*)(theme=\u0022.*?\u0022)</span>"<span style="color: blue;"> </span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &nbsp; </span><span style="color: red;">ReplacementText</span><span style="color: blue;">=</span>"<span style="color: blue;">$1</span>"<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: maroon;">Target</span><span style="color: blue;">&gt;</span></p></div></li></ol>Resultatet blir att aspnet_compiler kÃ¶r mot en web.config utan themes, vilket ger att vi slipper oÃ¶nskade modifieringar av aspx-filen, som jag beskrev i fÃ¶rra artikeln. VoilÃ .<br /><br />Upprepa vid behov med <em>styleSheetTheme</em>.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/asp.net" rel="tag">asp.net</a>, <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/msbuild" rel="tag">msbuild</a>, <a target="_blank" href="http://technorati.com/tag/web+deployment+project" rel="tag">web deployment project</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Med hjälp av Web Deployment Project (WDP) och MSBuild Community Tasks kan man komma runt buggen/problemet med <a href="/sharepoint/2006/07/theme-settings-i-webconfig-i.html">themes i uppdateringsbara förkomplilerade ASP.Net-applikationer</a>. Gör så här:<ol><li>Sätt upp ett nytt WDP och öppna projektfilen. <br /><br /></li><li>Se till att det alltid skapas en temporär katalog för källfilerna genom att lägga utöka elementet PropertyGroup med:<br /><br /><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: maroon;">EnableCopyBeforeBuild</span><span style="color: blue;">&gt;</span>true<span style="color: blue;">&lt;/</span><span style="color: maroon;">EnableCopyBeforeBuild</span><span style="color: blue;">&gt;</span></p></div><br /></li><li>Uppdatera BeforeBuild target genom att lägga till en task som tar bort themes från &lt;pages&gt;-elementet:<br /><br /><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: maroon;">Target</span><span style="color: blue;"> </span><span style="color: red;">Name</span><span style="color: blue;">=</span>"<span style="color: blue;">BeforeBuild</span>"<span style="color: blue;">&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &lt;</span><span style="color: maroon;">FileUpdate</span><span style="color: blue;"> </span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &nbsp; </span><span style="color: red;">Files</span><span style="color: blue;">=</span>"<span style="color: blue;">$(CopyBeforeBuildTargetPath)\web.config</span>"<span style="color: blue;"> </span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &nbsp; </span><span style="color: red;">Regex</span><span style="color: blue;">=</span>"<span style="color: blue;">(\u003Cpages.*)(theme=\u0022.*?\u0022)</span>"<span style="color: blue;"> </span></p><p style="margin: 0px;"><span style="color: blue;">&nbsp; &nbsp; </span><span style="color: red;">ReplacementText</span><span style="color: blue;">=</span>"<span style="color: blue;">$1</span>"<span style="color: blue;"> /&gt;</span></p><p style="margin: 0px;"><span style="color: blue;">&lt;/</span><span style="color: maroon;">Target</span><span style="color: blue;">&gt;</span></p></div></li></ol>Resultatet blir att aspnet_compiler kör mot en web.config utan themes, vilket ger att vi slipper oönskade modifieringar av aspx-filen, som jag beskrev i förra artikeln. Voilà.<br /><br />Upprepa vid behov med <em>styleSheetTheme</em>.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/asp.net" rel="tag">asp.net</a>, <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/msbuild" rel="tag">msbuild</a>, <a target="_blank" href="http://technorati.com/tag/web+deployment+project" rel="tag">web deployment project</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/search-and-replace-med-msbuild-och-web.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/search-and-replace-med-msbuild-och-web.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/20/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/search-and-replace-med-msbuild-och-web.html" title="permanent link">Permalink</a>
+      <em>Posted 7/20/2006 | <a href="/sharepoint/2006/07/search-and-replace-med-msbuild-och-web.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115340664358363389"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115340664358363389;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/search-and-replace-med-msbuild-och-web.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/search-and-replace-med-msbuild-och-web.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115340664358363389" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115340664358363389" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -200,19 +200,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Tycker du att <a href="http://msdn2.microsoft.com/en-us/library/ms171452.aspx">MSBuilds</a> vanliga Tasks Ã¤r fÃ¶r fÃ¥ och lite fÃ¶r klena? BehÃ¶ver du trimma build-processen och gÃ¶ra saker som till exempel:<br /><ul><li>Hantera versionsnummer</li><li>Regex search and replace i filer</li><li>Ladda upp filer till FTP</li><li>Exekvera script inline i en task</li><li>Kontrollera windows services</li><li>Exekvera SQL</li><li>LÃ¤sa, skriva eller transformera xml</li><li>Skapa och kontrollera Application Pools</li></ul>Ta dÃ¥ en en titt pÃ¥ alla nya fina MSBuild Tasks frÃ¥n <a href="http://msbuildtasks.tigris.org/">MSBuild Community Tasks Project</a>!<br /><br />Och eftersom det Ã¤r riktiga MSBuild Tasks sÃ¥ gÃ¥r de fÃ¶ljaktligen att anvÃ¤nda nÃ¤r du bygger med <a href="http://msdn.microsoft.com/asp.net/reference/infrastructure/wdp/">Visual Studio 2005 Web Deployment Project</a>.<br /><br />Ladda hem senaste builden frÃ¥n MSBuild Community Tasks Project, uppdatera din WDP projektfil och lÃ¤gg till en referens till target-filen:<br /><br /><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: maroon;">Import</span><span style="color: blue;"> </span><span style="color: red;">Project</span><span style="color: blue;">=</span>"<span style="color: blue;">$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets</span>"<span style="color: blue;">/&gt;</span></p></div><br />Sen Ã¤r du good to go. VS Intellisense hjÃ¤lper dig pÃ¥ traven, Ã¥tminstone med syntaxen. Dokumentationen kan du ladda hem i det stÃ¶rre paketet som Ã¤ven innehÃ¥ller kÃ¤llkod.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/msbuild" rel="tag">msbuild</a>, <a target="_blank" href="http://technorati.com/tag/.net" rel="tag">.net</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Tycker du att <a href="http://msdn2.microsoft.com/en-us/library/ms171452.aspx">MSBuilds</a> vanliga Tasks är för få och lite för klena? Behöver du trimma build-processen och göra saker som till exempel:<br /><ul><li>Hantera versionsnummer</li><li>Regex search and replace i filer</li><li>Ladda upp filer till FTP</li><li>Exekvera script inline i en task</li><li>Kontrollera windows services</li><li>Exekvera SQL</li><li>Läsa, skriva eller transformera xml</li><li>Skapa och kontrollera Application Pools</li></ul>Ta då en en titt på alla nya fina MSBuild Tasks från <a href="http://msbuildtasks.tigris.org/">MSBuild Community Tasks Project</a>!<br /><br />Och eftersom det är riktiga MSBuild Tasks så går de följaktligen att använda när du bygger med <a href="http://msdn.microsoft.com/asp.net/reference/infrastructure/wdp/">Visual Studio 2005 Web Deployment Project</a>.<br /><br />Ladda hem senaste builden från MSBuild Community Tasks Project, uppdatera din WDP projektfil och lägg till en referens till target-filen:<br /><br /><div style="font-family: Consolas; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">&lt;</span><span style="color: maroon;">Import</span><span style="color: blue;"> </span><span style="color: red;">Project</span><span style="color: blue;">=</span>"<span style="color: blue;">$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets</span>"<span style="color: blue;">/&gt;</span></p></div><br />Sen är du good to go. VS Intellisense hjälper dig på traven, åtminstone med syntaxen. Dokumentationen kan du ladda hem i det större paketet som även innehåller källkod.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/msbuild" rel="tag">msbuild</a>, <a target="_blank" href="http://technorati.com/tag/.net" rel="tag">.net</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/msbuild-community-tasks.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/msbuild-community-tasks.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/20/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/msbuild-community-tasks.html" title="permanent link">Permalink</a>
+      <em>Posted 7/20/2006 | <a href="/sharepoint/2006/07/msbuild-community-tasks.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115339614026809339"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115339614026809339;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/msbuild-community-tasks.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/msbuild-community-tasks.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115339614026809339" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115339614026809339" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -237,26 +237,26 @@
          
     <h3 class="post-title">
 	 
-	 Theme settings i web.config i kombination med fÃ¶rkompilerad ASP.Net
+	 Theme settings i web.config i kombination med förkompilerad ASP.Net
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>En lustig detalj med ASP.Net 2.0 och teman: om du fÃ¶rkompilerar en website sÃ¥ hÃ¥rdlÃ¶ds temanamnet frÃ¥n web.configs <code>&lt;pages&nbsp;theme="mytheme"/&gt;</code>, vilket bland annat har uppmÃ¤rksammats av K.&nbsp;Scott Allen: <a target ="_blank" href="http://odetocode.com/Blogs/scott/archive/2006/02/24/3019.aspx">Caveat With ASP.NET Precompilation and web.config Settings</a>. <br /><br />Det Ã¤r inte direkt det beteende man fÃ¶rvÃ¤ntar sig. Hela poÃ¤ngen med web.config Ã¤r vÃ¤l att man lÃ¤tt ska kunna konfigurera sin applikation efter deployment? <br /><br />Vad mer Ã¤r, om du publicerar en webapplikation i Visual Studio 2005 och vÃ¤ljer "Allow this precompiled site to be updatable" sÃ¥ fÃ¶rvÃ¤ntar du dig att temainstÃ¤llningen i web.config ska fungera trots fÃ¶rkompileringen, eller hur? Det antyder Ã¤ven Scott i sin artikel. Men icke! Inte heller hÃ¤r funkar det som man fÃ¶rvÃ¤ntar sig. Trots att alla aspx-filer gÃ¥r att Ã¤ndra och kompileras dynamiskt <em>sÃ¥ slÃ¥r inte Ã¤ndringar av temainstÃ¤llningen i web.config igenom i webbapplikationen.</em><br /><br />Och hÃ¤r kommer hela poÃ¤ngen med det hÃ¤r inlÃ¤gget: <em><strong>Om du publicerar en uppdateringsbar webbapplikation och har stÃ¤llt in temat i web.config, sÃ¥ lÃ¤gger aspnet_compiler till ett theme-attribut i @Page-direktivet pÃ¥ varje aspx-sida.</strong></em><br /><br />Eftersom lokala instÃ¤llningar i en sida gÃ¶r fÃ¶re instÃ¤llningar i web.config sÃ¥ blir temat i praktiken hÃ¥rdlÃ¶tt i hela applikationen. LÃ¶sningen Ã¤r rimligt enkel: ta bort eller kommentera bort temainstÃ¤llningen ur web.config under publicering/fÃ¶rkompilering och lÃ¤gg till den igen efterÃ¥t.<br /><br />AlltsÃ¥, var uppmÃ¤rksam pÃ¥ hur teman fungerar, ta inget fÃ¶r givet (som vanligt).<br /><br />Trevlig sommarvÃ¤rme fÃ¶r Ã¶vrigt.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/asp.net" rel="tag">asp.net</a>, <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>En lustig detalj med ASP.Net 2.0 och teman: om du förkompilerar en website så hårdlöds temanamnet från web.configs <code>&lt;pages&nbsp;theme="mytheme"/&gt;</code>, vilket bland annat har uppmärksammats av K.&nbsp;Scott Allen: <a target ="_blank" href="http://odetocode.com/Blogs/scott/archive/2006/02/24/3019.aspx">Caveat With ASP.NET Precompilation and web.config Settings</a>. <br /><br />Det är inte direkt det beteende man förväntar sig. Hela poängen med web.config är väl att man lätt ska kunna konfigurera sin applikation efter deployment? <br /><br />Vad mer är, om du publicerar en webapplikation i Visual Studio 2005 och väljer "Allow this precompiled site to be updatable" så förväntar du dig att temainställningen i web.config ska fungera trots förkompileringen, eller hur? Det antyder även Scott i sin artikel. Men icke! Inte heller här funkar det som man förväntar sig. Trots att alla aspx-filer går att ändra och kompileras dynamiskt <em>så slår inte ändringar av temainställningen i web.config igenom i webbapplikationen.</em><br /><br />Och här kommer hela poängen med det här inlägget: <em><strong>Om du publicerar en uppdateringsbar webbapplikation och har ställt in temat i web.config, så lägger aspnet_compiler till ett theme-attribut i @Page-direktivet på varje aspx-sida.</strong></em><br /><br />Eftersom lokala inställningar i en sida gör före inställningar i web.config så blir temat i praktiken hårdlött i hela applikationen. Lösningen är rimligt enkel: ta bort eller kommentera bort temainställningen ur web.config under publicering/förkompilering och lägg till den igen efteråt.<br /><br />Alltså, var uppmärksam på hur teman fungerar, ta inget för givet (som vanligt).<br /><br />Trevlig sommarvärme för övrigt.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/asp.net" rel="tag">asp.net</a>, <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/theme-settings-i-webconfig-i.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/theme-settings-i-webconfig-i.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/18/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/theme-settings-i-webconfig-i.html" title="permanent link">Permalink</a>
+      <em>Posted 7/18/2006 | <a href="/sharepoint/2006/07/theme-settings-i-webconfig-i.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115320375656478673"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115320375656478673;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/theme-settings-i-webconfig-i.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/theme-settings-i-webconfig-i.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115320375656478673" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115320375656478673" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -288,19 +288,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>NÃ¤r man slagit upp samma sak tvÃ¥ gÃ¥nger Ã¤r det dags att skriva ner det sÃ¥ att man slipper leta igen... <br /><br />Ibland behÃ¶ver man ge snygg och/eller lÃ¤sbar feedback, till exempel nÃ¤r man skriver till eventloggen. Och istÃ¤llet fÃ¶r att hÃ¥rdlÃ¶da in mina applikationsnamn i koden fÃ¶redrar jag att plocka fram dem programmatiskt.<br /><br />SÃ¥ hÃ¤r plockar du fram namnet pÃ¥ aktuellt assembly:<br /><br /><div style="font-family: Consolas,monospace; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">using</span> System.Reflection;</p><p style="margin: 0px;"><span style="color: blue;">string</span> an = <span style="color: teal;">Assembly</span>.GetExecutingAssembly().GetName().Name;</p></div><br />Och sÃ¥ hÃ¤r fÃ¥r man namnet pÃ¥ den process som exekverar koden, tvÃ¥ alternativ:<br /><br /><div style="font-family: Consolas,monospace; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">using</span> System.Diagnostics;</p><p style="margin: 0px;"><span style="color: blue;">string</span> pn1 = <span style="color: teal;">Process</span>.GetCurrentProcess().MainModule.ModuleName;</p><p style="margin: 0px;"><span style="color: blue;">string</span> pn2 = <span style="color: teal;">Process</span>.GetCurrentProcess().ProcessName;</p></div><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/.net" rel="tag">.net</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>När man slagit upp samma sak två gånger är det dags att skriva ner det så att man slipper leta igen... <br /><br />Ibland behöver man ge snygg och/eller läsbar feedback, till exempel när man skriver till eventloggen. Och istället för att hårdlöda in mina applikationsnamn i koden föredrar jag att plocka fram dem programmatiskt.<br /><br />Så här plockar du fram namnet på aktuellt assembly:<br /><br /><div style="font-family: Consolas,monospace; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">using</span> System.Reflection;</p><p style="margin: 0px;"><span style="color: blue;">string</span> an = <span style="color: teal;">Assembly</span>.GetExecutingAssembly().GetName().Name;</p></div><br />Och så här får man namnet på den process som exekverar koden, två alternativ:<br /><br /><div style="font-family: Consolas,monospace; font-size: 10pt; color: black; background: white;"><p style="margin: 0px;"><span style="color: blue;">using</span> System.Diagnostics;</p><p style="margin: 0px;"><span style="color: blue;">string</span> pn1 = <span style="color: teal;">Process</span>.GetCurrentProcess().MainModule.ModuleName;</p><p style="margin: 0px;"><span style="color: blue;">string</span> pn2 = <span style="color: teal;">Process</span>.GetCurrentProcess().ProcessName;</p></div><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/development" rel="tag">development</a>, <a target="_blank" href="http://technorati.com/tag/.net" rel="tag">.net</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/applikationsnamn-assembly-name-process.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/applikationsnamn-assembly-name-process.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/07/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/applikationsnamn-assembly-name-process.html" title="permanent link">Permalink</a>
+      <em>Posted 7/07/2006 | <a href="/sharepoint/2006/07/applikationsnamn-assembly-name-process.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115219814926172958"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115219814926172958;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/applikationsnamn-assembly-name-process.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/applikationsnamn-assembly-name-process.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115219814926172958" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115219814926172958" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -332,19 +332,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Ãr du bekant med <a href="http://www.tedpattison.net/UsingFPwithSP.aspx" target="_blank">ghosting/unghosting</a> i Sharepoint? Kortfattat kan man sÃ¤ga att det Ã¤r en oÃ¶nskad bi-effekt som uppstÃ¥r nÃ¤r man redigerar en webbdelssida med Frontpage (eller, gud fÃ¶rbjude, via webdav/webclient). Den Ã¤ndrade sidan sparas i databasen istÃ¤llet fÃ¶r filsystemet pÃ¥ front end-servern, vilket resulterar i mer databas-trafik och sÃ¤mre prestanda.<br /><br />Hur allvarligt det hÃ¤r Ã¤r beror givetvis pÃ¥ aktuell applikation, antal anvÃ¤ndare och belastning pÃ¥ servern. Jag brukar sÃ¤llan bry mig <em>eftersom enkelheten med Frontpage oftast uppvÃ¤ger eventuella prestandafÃ¶rluster.</em><br /><br />I vissa fall behÃ¶ver man dock kontrollera unghosting och konvertera sidor tillbaks till sitt ursprungliga <em>ghostade</em> lÃ¤ge. HÃ¤r Ã¤r ett par verktyg som hjÃ¤lper dig med det:<ul><li><a href="http://www.gotdotnet.com/workspaces/releases/viewuploads.aspx?id=6eff7d8a-92ee-4525-a625-b592bb9d0c95">ReGhost.NET</a></li><li><a href="http://www.bluedoglimited.com/Downloads/pages/Web%20Part%20Toolkit.aspx">Ghosthunter (Web Part Toolkit)</a></li></ul><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Är du bekant med <a href="http://www.tedpattison.net/UsingFPwithSP.aspx" target="_blank">ghosting/unghosting</a> i Sharepoint? Kortfattat kan man säga att det är en oönskad bi-effekt som uppstår när man redigerar en webbdelssida med Frontpage (eller, gud förbjude, via webdav/webclient). Den ändrade sidan sparas i databasen istället för filsystemet på front end-servern, vilket resulterar i mer databas-trafik och sämre prestanda.<br /><br />Hur allvarligt det här är beror givetvis på aktuell applikation, antal användare och belastning på servern. Jag brukar sällan bry mig <em>eftersom enkelheten med Frontpage oftast uppväger eventuella prestandaförluster.</em><br /><br />I vissa fall behöver man dock kontrollera unghosting och konvertera sidor tillbaks till sitt ursprungliga <em>ghostade</em> läge. Här är ett par verktyg som hjälper dig med det:<ul><li><a href="http://www.gotdotnet.com/workspaces/releases/viewuploads.aspx?id=6eff7d8a-92ee-4525-a625-b592bb9d0c95">ReGhost.NET</a></li><li><a href="http://www.bluedoglimited.com/Downloads/pages/Web%20Part%20Toolkit.aspx">Ghosthunter (Web Part Toolkit)</a></li></ul><span class="technoratitag">Technorati tags: <a href="http://technorati.com/tag/sharepoint" target="_blank" rel="tag">sharepoint</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/ghostingunghosting-i-sharepoint-2003.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/ghostingunghosting-i-sharepoint-2003.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/04/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/ghostingunghosting-i-sharepoint-2003.html" title="permanent link">Permalink</a>
+      <em>Posted 7/04/2006 | <a href="/sharepoint/2006/07/ghostingunghosting-i-sharepoint-2003.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115204855140668549"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115204855140668549;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/ghostingunghosting-i-sharepoint-2003.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/ghostingunghosting-i-sharepoint-2003.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115204855140668549" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115204855140668549" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -374,19 +374,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Ny (Ã¤nnu en!) community site om SharePoint: <a target="_blank" href="http://www.sharepointkicks.com/">SharePointKicks.com</a>. <br /><br />Just den hÃ¤r bygger pÃ¥ att alla hjÃ¤lps Ã¥t att betygsÃ¤tta innehÃ¥llet (som digg.com) och fÃ¶rhoppningsvis hamnar det som Ã¤r absolut hetast fÃ¶r tillfÃ¤llet allra Ã¶verst pÃ¥ topplistan. <br /><br />Om det funkar sÃ¥ kan det bli en bra kÃ¤lla till info om SharePoint. Om det inte funkar sÃ¥... ja, dÃ¥ glÃ¶mmer vi den illa kvickt. Den som lever fÃ¥r se.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Ny (ännu en!) community site om SharePoint: <a target="_blank" href="http://www.sharepointkicks.com/">SharePointKicks.com</a>. <br /><br />Just den här bygger på att alla hjälps åt att betygsätta innehållet (som digg.com) och förhoppningsvis hamnar det som är absolut hetast för tillfället allra överst på topplistan. <br /><br />Om det funkar så kan det bli en bra källa till info om SharePoint. Om det inte funkar så... ja, då glömmer vi den illa kvickt. Den som lever får se.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/sharepointkickscom.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/sharepointkickscom.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/04/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/sharepointkickscom.html" title="permanent link">Permalink</a>
+      <em>Posted 7/04/2006 | <a href="/sharepoint/2006/07/sharepointkickscom.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115196468011900063"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115196468011900063;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/sharepointkickscom.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/sharepointkickscom.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115196468011900063" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115196468011900063" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -411,26 +411,26 @@
          
     <h3 class="post-title">
 	 
-	 Web Part Packages Ã  la SharePoint 2007
+	 Web Part Packages à la SharePoint 2007
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>I WSS 3.0 (och fÃ¶ljaktligen Ã¤ven MOSS 2007) kan man sjÃ¶sÃ¤tta siter, funktioner och webparts med hjÃ¤lp av ett <em>solution package</em>, vilket egentligen bara Ã¤r en CAB-fil med manifest och resursfiler precis som tidigare men med stÃ¶rre mÃ¶jligheter. En Solution kan omfatta en eller flera:<ul><li>Site definitions (en konfiguration med navigation, listor, sidor och features)</li><li>Feature definitions (moduler, listor, funktioner som kan aktiveras/deaktiveras fÃ¶r olika scope)</li><li>Web part files (.dwp)</li><li>Template pages (.aspx, Ã¤ven sidor fÃ¶r _layouts)</li><li>Resursfiler (.resx)</li><li>Assemblies (fÃ¶r bin och GAC)</li><li>... mm.</li></ul>SjÃ¤lva installationen Ã¤r sedan en tvÃ¥stegsprocess: fÃ¶rst lÃ¤gger man till sin solution till SharePoint Solution Store, med hjÃ¤lp av <code>stsadm -o addsolution</code>, fÃ¶r att dÃ¤refter placera den pÃ¥ front end-servern med hjÃ¤lp av <code>stsadm -o deploysolution</code>. (Med reservation fÃ¶r fel, uppgifterna hÃ¤r har jag inte testat Ã¤nnu.)<br /><br /><a href="http://sharepointsolutions.blogspot.com/">SharePoint Solutions</a> har en artikel som visar hur man gÃ¶r med webparts och solution packages: <a href="http://sharepointsolutions.blogspot.com/2006/07/deploying-web-parts-with-solution.html">Deploying Web Parts with Solution Packages in WSS v3/MOSS 2007</a>. <br /><br />FÃ¶r den som tycker att makecab.exe Ã¤r omstÃ¤ndlig sÃ¥ tipsar jag om att du kan gÃ¶ra ett <em>CAB Project</em> i Visual Studio, vilket ger alltsÃ¥ ger en CAB-fil som output. Projektmallen hittas under Other Project Types/Setup and Deployment. Jag Ã¤r dock osÃ¤ker om denna metod ger tillrÃ¤cklig kontroll Ã¶ver den resulterande CAB-filen, men det kan vara vÃ¤rt att undersÃ¶ka.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a>, <a target="_blank" href="http://technorati.com/tag/webparts" rel="tag">webparts</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>I WSS 3.0 (och följaktligen även MOSS 2007) kan man sjösätta siter, funktioner och webparts med hjälp av ett <em>solution package</em>, vilket egentligen bara är en CAB-fil med manifest och resursfiler precis som tidigare men med större möjligheter. En Solution kan omfatta en eller flera:<ul><li>Site definitions (en konfiguration med navigation, listor, sidor och features)</li><li>Feature definitions (moduler, listor, funktioner som kan aktiveras/deaktiveras för olika scope)</li><li>Web part files (.dwp)</li><li>Template pages (.aspx, även sidor för _layouts)</li><li>Resursfiler (.resx)</li><li>Assemblies (för bin och GAC)</li><li>... mm.</li></ul>Själva installationen är sedan en tvåstegsprocess: först lägger man till sin solution till SharePoint Solution Store, med hjälp av <code>stsadm -o addsolution</code>, för att därefter placera den på front end-servern med hjälp av <code>stsadm -o deploysolution</code>. (Med reservation för fel, uppgifterna här har jag inte testat ännu.)<br /><br /><a href="http://sharepointsolutions.blogspot.com/">SharePoint Solutions</a> har en artikel som visar hur man gör med webparts och solution packages: <a href="http://sharepointsolutions.blogspot.com/2006/07/deploying-web-parts-with-solution.html">Deploying Web Parts with Solution Packages in WSS v3/MOSS 2007</a>. <br /><br />För den som tycker att makecab.exe är omständlig så tipsar jag om att du kan göra ett <em>CAB Project</em> i Visual Studio, vilket ger alltså ger en CAB-fil som output. Projektmallen hittas under Other Project Types/Setup and Deployment. Jag är dock osäker om denna metod ger tillräcklig kontroll över den resulterande CAB-filen, men det kan vara värt att undersöka.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a>, <a target="_blank" href="http://technorati.com/tag/webparts" rel="tag">webparts</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/03/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html" title="permanent link">Permalink</a>
+      <em>Posted 7/03/2006 | <a href="/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115195851481958903"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115195851481958903;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/web-part-packages-la-sharepoint-2007.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115195851481958903" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115195851481958903" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -453,26 +453,26 @@
          
     <h3 class="post-title">
 	 
-	 SÃ¥ sÃ¤tter du upp Forms Authentication fÃ¶r SharePoint 2007 beta 2
+	 Så sätter du upp Forms Authentication för SharePoint 2007 beta 2
 	 
     </h3>
     
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>HÃ¤r finns en instruktion hur man gÃ¥r tillvÃ¤ga fÃ¶r att sÃ¤tta upp formulÃ¤rbaserad inloggning (Forms Authentication) i beta 2: <a href="http://weblog.vb-tech.com/nick/archive/2006/06/14/1617.aspx?harrison">SharePoint 2007 Forms Authentication</a>. FÃ¶rmodligen anvÃ¤ndbart inom snar framtid...<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Här finns en instruktion hur man går tillväga för att sätta upp formulärbaserad inloggning (Forms Authentication) i beta 2: <a href="http://weblog.vb-tech.com/nick/archive/2006/06/14/1617.aspx?harrison">SharePoint 2007 Forms Authentication</a>. Förmodligen användbart inom snar framtid...<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/sharepoint" rel="tag">sharepoint</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/s-stter-du-upp-forms-authentication-fr.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/s-stter-du-upp-forms-authentication-fr.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/03/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/s-stter-du-upp-forms-authentication-fr.html" title="permanent link">Permalink</a>
+      <em>Posted 7/03/2006 | <a href="/sharepoint/2006/07/s-stter-du-upp-forms-authentication-fr.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115075469439251405"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115075469439251405;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/s-stter-du-upp-forms-authentication-fr.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/s-stter-du-upp-forms-authentication-fr.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115075469439251405" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115075469439251405" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -502,19 +502,19 @@
 
 	         <div class="post-body">
 	<div>
-      <div style="clear:both;"></div>Ett par veckor med fokus pÃ¥ annat, but here goes again. Jag Ã¥terupptÃ¤ckte en gammal utility som Ã¤r praktisk nÃ¤r du ska kopiera formaterad kÃ¤llkod frÃ¥n Visual Studio till HTML. Klockrent verktyg och given (Ã¥ter)installation: <a href="http://www.jtleigh.com/people/colin/software/CopySourceAsHtml/">CopySourceAsHtml (CSAH)</a>.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/visual+studio+2005" rel="tag">visual studio 2005</a>, <a target="_blank" href="http://technorati.com/tag/utility" rel="tag">utility</a></span><div style="clear:both; padding-bottom:0.25em"></div>
+      <div style="clear:both;"></div>Ett par veckor med fokus på annat, but here goes again. Jag återupptäckte en gammal utility som är praktisk när du ska kopiera formaterad källkod från Visual Studio till HTML. Klockrent verktyg och given (åter)installation: <a href="http://www.jtleigh.com/people/colin/software/CopySourceAsHtml/">CopySourceAsHtml (CSAH)</a>.<br /><br /><span class="technoratitag">Technorati tags: <a target="_blank" href="http://technorati.com/tag/visual+studio+2005" rel="tag">visual studio 2005</a>, <a target="_blank" href="http://technorati.com/tag/utility" rel="tag">utility</a></span><div style="clear:both; padding-bottom:0.25em"></div>
     </div>
     </div>
     
-   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=http://www.dewe.net/sharepoint/2006/07/copysourceashtml-csah.html" type="text/javascript" charset="utf-8"></script>
+   <script src="http://feeds.feedburner.com/~s/dewe/sharepoint?i=/sharepoint/2006/07/copysourceashtml-csah.html" type="text/javascript" charset="utf-8"></script>
 
     <p class="post-footer">
-      <em>Posted 7/03/2006 | <a href="http://www.dewe.net/sharepoint/2006/07/copysourceashtml-csah.html" title="permanent link">Permalink</a>
+      <em>Posted 7/03/2006 | <a href="/sharepoint/2006/07/copysourceashtml-csah.html" title="permanent link">Permalink</a>
       
         | <a href="https://www.blogger.com/comment.g?blogID=24218888&postID=115195754743936417"location.href=https://www.blogger.com/comment.g?blogID=24218888&postID=115195754743936417;>Comments (0)</a>
-        | <a href="http://www.dewe.net/sharepoint/2006/07/copysourceashtml-csah.html#links">Links to this post</a>
+        | <a href="/sharepoint/2006/07/copysourceashtml-csah.html#links">Links to this post</a>
       
-      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115195754743936417" title="Redigera inlÃ¤gg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
+      <span class="item-control blog-admin pid-217105390"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=24218888&postID=115195754743936417" title="Redigera inlägg"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span>
       </em>
     </p>
   
@@ -552,7 +552,7 @@
 
   <ul id="links">
     
-    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="http://www.dewe.net/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
+    <li><a href="http://feeds.feedburner.com/dewe/sharepoint"><img src="/sharepoint/images/fi12.png" /></a>&nbsp;<a href="http://feeds.feedburner.com/dewe/sharepoint">RSS site feed</a></li>   
   </ul>
 
   <!-- Begin #profile-container -->
@@ -561,7 +561,7 @@
 <dl class="profile-datablock">
 <dd class="profile-data"><strong>Namn:</strong>  Johan Dewe </dd>
 <dd class="profile-data"><strong>Plats:</strong>  Stockholm, Sweden </dd></dl>
-<p class="profile-textblock">Systemarkitekt pÃ¥ FritidsresorÂ AB.</p>
+<p class="profile-textblock">Systemarkitekt på Fritidsresor AB.</p>
 <p class="profile-link"><a href="http://www.blogger.com/profile/13235019595667853405">Visa hela min profil</a></p></div>
    
   <!-- End #profile -->
@@ -580,25 +580,25 @@
   <h2 class="sidebar-title">Previous Posts</h2>
   <ul id="recently">
     
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
+        <li><a href="/sharepoint/2008/06/tack-och-hej.html">Tack och hej</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
+        <li><a href="/sharepoint/2008/06/det-var-p-tiden.html">Det var p&aring; tiden...</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
+        <li><a href="/sharepoint/2008/06/versttningsgrodor.html">&Ouml;vers&auml;ttningsgrodor</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
+        <li><a href="/sharepoint/2008/06/installera-wss-30-sp1-p-vista.html">Installera WSS 3.0 SP1 p&aring; Vista</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
+        <li><a href="/sharepoint/2008/05/office-kommer-att-stdja-open-document.html">Office kommer att st&ouml;dja Open Document Format</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
+        <li><a href="/sharepoint/2008/05/vad-du-kan-vnta-dig-som-sharepoint.html">Vad du kan v&auml;nta dig som SharePoint-utvecklare...</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
+        <li><a href="/sharepoint/2008/05/live-mesh.html">Live Mesh</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
+        <li><a href="/sharepoint/2008/05/webb-skra-svenska-filnamn.html">Webb-s&auml;kra svenska filnamn</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
+        <li><a href="/sharepoint/2008/05/sharepoint-2007-test-data-population.html">SharePoint 2007 Test Data Population Tool</a></li>
      
-        <li><a href="http://www.dewe.net/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
+        <li><a href="/sharepoint/2008/03/xmlformview-webpart-trick.html">XmlFormView webpart trick</a></li>
      
   </ul>
     
@@ -606,51 +606,51 @@
   <h2 class="sidebar-title">Archives</h2>
   <ul class="archive-list">
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
+       <li><a href="/sharepoint/2006_03_01_archive.html">mars 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_04_01_archive.html">april 2006</a></li>
+       <li><a href="/sharepoint/2006_04_01_archive.html">april 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
+       <li><a href="/sharepoint/2006_05_01_archive.html">maj 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
+       <li><a href="/sharepoint/2006_06_01_archive.html">juni 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
+       <li><a href="/sharepoint/2006_07_01_archive.html">juli 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_09_01_archive.html">september 2006</a></li>
+       <li><a href="/sharepoint/2006_09_01_archive.html">september 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
+       <li><a href="/sharepoint/2006_10_01_archive.html">oktober 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_11_01_archive.html">november 2006</a></li>
+       <li><a href="/sharepoint/2006_11_01_archive.html">november 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2006_12_01_archive.html">december 2006</a></li>
+       <li><a href="/sharepoint/2006_12_01_archive.html">december 2006</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
+       <li><a href="/sharepoint/2007_01_01_archive.html">januari 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
+       <li><a href="/sharepoint/2007_02_01_archive.html">februari 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
+       <li><a href="/sharepoint/2007_03_01_archive.html">mars 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_04_01_archive.html">april 2007</a></li>
+       <li><a href="/sharepoint/2007_04_01_archive.html">april 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
+       <li><a href="/sharepoint/2007_05_01_archive.html">maj 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
+       <li><a href="/sharepoint/2007_06_01_archive.html">juni 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
+       <li><a href="/sharepoint/2007_10_01_archive.html">oktober 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_11_01_archive.html">november 2007</a></li>
+       <li><a href="/sharepoint/2007_11_01_archive.html">november 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2007_12_01_archive.html">december 2007</a></li>
+       <li><a href="/sharepoint/2007_12_01_archive.html">december 2007</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
+       <li><a href="/sharepoint/2008_01_01_archive.html">januari 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
+       <li><a href="/sharepoint/2008_02_01_archive.html">februari 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
+       <li><a href="/sharepoint/2008_03_01_archive.html">mars 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
+       <li><a href="/sharepoint/2008_05_01_archive.html">maj 2008</a></li>
      
-       <li><a href="http://www.dewe.net/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
+       <li><a href="/sharepoint/2008_06_01_archive.html">juni 2008</a></li>
      
     </ul>
   
