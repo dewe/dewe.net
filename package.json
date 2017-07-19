@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "^6.11",
-    "yarn": "^0.24" 
+    "node": "^6.11.1",
+    "yarn": "^0.24"
   },
   "main": "app.js",
   "repository": "git@github.com:dewe/dewe.net.git",
