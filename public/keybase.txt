@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/dewe
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://dewe.net
+  * I am dewe (https://keybase.io/dewe) on keybase.
+  * I have a public key ASC6v7K56vcqNT7f5v2OB3C0XsxvppxrgDXz7rl_TyeCYQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a93ac97d3d9d1a2bb02fb7d6dcea20e71c7f3b7cc2a131cfadc9cb21c3f932450a",
+      "host": "keybase.io",
+      "kid": "0120babfb2b9eaf72a353edfe6fd8e0770b45ecc6fa69c6b8035f3eeb97f4f2782610a",
+      "uid": "98d84d5215e61ec53ffed0af1984cf19",
+      "username": "dewe"
+    },
+    "merkle_root": {
+      "ctime": 1507446805,
+      "hash": "2f50edf39944f8706e39d1044195c04f0b1a697d2ce4f7a2bfe8f119ef87fc99c657d6489bcb5b604c9aa7bb8d1f821db0625e3a771bdb0b2ac2af3d5c28fd57",
+      "hash_meta": "b991b864bcfc09fcf721b2688285548910656688af663126c3481163501b4458",
+      "seqno": 1538339
+    },
+    "service": {
+      "hostname": "dewe.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1507446823,
+  "expire_in": 504576000,
+  "prev": "dcdc4b029dc92423392897bc86abe4c1917cb7f9bfc277f84f6142934eec3e2b",
+  "seqno": 35,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgur+yuer3KjU+3+b9jgdwtF7Mb6aca4A18+65f08ngmEKp3BheWxvYWTFAz17ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwYTkzYWM5N2QzZDlkMWEyYmIwMmZiN2Q2ZGNlYTIwZTcxYzdmM2I3Y2MyYTEzMWNmYWRjOWNiMjFjM2Y5MzI0NTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYmFiZmIyYjllYWY3MmEzNTNlZGZlNmZkOGUwNzcwYjQ1ZWNjNmZhNjljNmI4MDM1ZjNlZWI5N2Y0ZjI3ODI2MTBhIiwidWlkIjoiOThkODRkNTIxNWU2MWVjNTNmZmVkMGFmMTk4NGNmMTkiLCJ1c2VybmFtZSI6ImRld2UifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MDc0NDY4MDUsImhhc2giOiIyZjUwZWRmMzk5NDRmODcwNmUzOWQxMDQ0MTk1YzA0ZjBiMWE2OTdkMmNlNGY3YTJiZmU4ZjExOWVmODdmYzk5YzY1N2Q2NDg5YmNiNWI2MDRjOWFhN2JiOGQxZjgyMWRiMDYyNWUzYTc3MWJkYjBiMmFjMmFmM2Q1YzI4ZmQ1NyIsImhhc2hfbWV0YSI6ImI5OTFiODY0YmNmYzA5ZmNmNzIxYjI2ODgyODU1NDg5MTA2NTY2ODhhZjY2MzEyNmMzNDgxMTYzNTAxYjQ0NTgiLCJzZXFubyI6MTUzODMzOX0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJkZXdlLm5ldCIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjMzIn0sImN0aW1lIjoxNTA3NDQ2ODIzLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6ImRjZGM0YjAyOWRjOTI0MjMzOTI4OTdiYzg2YWJlNGMxOTE3Y2I3ZjliZmMyNzdmODRmNjE0MjkzNGVlYzNlMmIiLCJzZXFubyI6MzUsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAaxcozMlg3vG9dHaGmp1YaQMivchfUaXM6i1E3CWkOBdeZkhShgzyI+R0Bm1EJK5OAIhPhW274WOkcYMn+db4B6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIDRPNuDF7opEYFmIhoLGicuraKVfixms9e1zlNw0invLo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dewe
+
+==================================================================
