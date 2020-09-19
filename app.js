@@ -6,6 +6,9 @@ app.use(express.static('public', {
   maxAge: 7200000
 }))
 
+app.get('/easify', (req, res) => { res.redirect('/framsteget'); });
+app.get('/dropjaw', (req, res) => { res.redirect('/framsteget'); });
+
 const port = process.env.PORT || 3000
 
 app.listen(port, function() {
