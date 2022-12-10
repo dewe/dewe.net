@@ -11,7 +11,7 @@
   "author": "Johan Dewe <johan@dewe.net>",
   "license": "UNLICENSED",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.17.3"
   },
   "scripts": {
     "start": "node app.js"
